@@ -1,0 +1,26 @@
+[
+  {
+    "id": "lead-101",
+    "name": "Vikramaditya Singhania",
+    "email": "v.singhania@apexresidences.in",
+    "phone": "+91 98270 44321",
+    "project_type": "Residential",
+    "location": "Sky Luxuria, Nipania, Indore",
+    "budget": "₹75 Lakhs - ₹1.5 Cr",
+    "message": "We have recently acquired a 4 BHK duplex penthouse at Nipania and were deeply impressed by your work at BCM Planet and Grand Exotica. Looking for complete turnkey design and bespoke detailing.",
+    "status": "Qualified",
+    "created_at": "2024-11-12T10:30:00Z"
+  },
+  {
+    "id": "lead-102",
+    "name": "Radhika Mehra",
+    "email": "radhika.mehra@theculinarycollective.com",
+    "phone": "+91 94250 88910",
+    "project_type": "Hospitality",
+    "location": "Bypass Road, Indore",
+    "budget": "₹1.5 Cr - ₹3 Cr",
+    "message": "Planning a double-height experiential fine dining restaurant and open lounge. We loved the spatial rhythm of Coffee by Di Bella and Tiffany Blues.",
+    "status": "New",
+    "created_at": "2024-12-04T15:45:00Z"
+  }
+]
