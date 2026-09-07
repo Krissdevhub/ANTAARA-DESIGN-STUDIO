@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { Cormorant_Garamond, Outfit, Plus_Jakarta_Sans, Cinzel } from "next/font/google";
 import "./globals.css";
 import CustomCursor from "@/components/CustomCursor";
