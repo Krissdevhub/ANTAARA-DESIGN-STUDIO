@@ -37,7 +37,11 @@ const cinzel = Cinzel({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("http://localhost:3005"),
+  metadataBase: new URL(
+    process.env.VERCEL_URL
+      ? `https://${process.env.VERCEL_URL}`
+      : "https://antaara-design-studio.vercel.app"
+  ),
   title: "Antaara Design Studio | Interior Design & Architecture",
   description:
     "Antaara Design Studio creates refined residential, commercial, hospitality and retail interiors with a focus on timeless aesthetics, functionality and thoughtful craftsmanship. Founded by Kirti Jaiswal Rajpal.",

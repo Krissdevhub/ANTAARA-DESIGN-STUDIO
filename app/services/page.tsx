@@ -56,7 +56,7 @@ export default function ServicesPage() {
         "Ergonomic workstations with integrated technology",
         "Reception atriums with signature brand installations",
       ],
-      image: "/images/pages/page_05.jpg",
+      image: "/images/projects/corporate-office-kolkata/p5_0_1536x1024.jpeg",
     },
     {
       id: "turnkey",
