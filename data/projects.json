@@ -11,14 +11,10 @@
     "featured": true,
     "order": 1,
     "summary": "Designed as more than a place for coffee, Coffee by Di Bella brings together hospitality, movement, and visual identity within a layered contemporary environment.",
-    "description": "Designed as more than a place for coffee, Coffee by Di Bella brings together hospitality, movement, and visual identity within a layered contemporary environment.\n\nKey Design Pillars:\n01 \u2014 Warm Ambience: Soft lighting, natural textures and comfortable seating.\n02 \u2014 Strong Identity: Distinctive architectural details that give the caf\u00e9 its own character.\n03 \u2014 Thoughtful Functionality: Every element is designed with purpose and ease.",
+    "description": "Designed as more than a place for coffee, Coffee by Di Bella brings together hospitality, movement, and visual identity within a layered contemporary environment.\n\nKey Design Pillars:\n01 — Warm Ambience: Soft lighting, natural textures and comfortable seating.\n02 — Strong Identity: Distinctive architectural details that give the café its own character.\n03 — Thoughtful Functionality: Every element is designed with purpose and ease.",
     "page": 3,
     "coverImage": "/images/projects/coffee-by-di-bella/p3_2_627x627.png",
     "galleryImages": [
-      "/images/projects/coffee-by-di-bella/p3_2_627x627.png",
-      "/images/projects/coffee-by-di-bella/p3_4_657x599.png"
-    ],
-    "gallery": [
       "/images/projects/coffee-by-di-bella/p3_2_627x627.png",
       "/images/projects/coffee-by-di-bella/p3_4_657x599.png"
     ]
@@ -37,13 +33,9 @@
     "summary": "At Antaara Design Studio every project is a story, every space is an emotion, and every detail reflects timeless craftsmanship. A privilege of trust featuring an artwork tribute to Dharmendra Ji.",
     "description": "At Antaara Design Studio every project is a story, every space is an emotion, and every detail reflects timeless craftsmanship.\n\nA bespoke residence designed at Omaxe, Mathura, representing a rare legacy of trust and creative kinship with Hema Malini Ji, featuring dedicated artistic commissions and tributes celebrating legacy, memory and architectural stillness.",
     "page": 4,
-    "coverImage": "/images/projects/omaxe-mathura-residence/p4_2_1402x1122.png",
+    "coverImage": "/images/projects/omaxe-mathura-residence/hema-malini-kirti.png",
     "galleryImages": [
-      "/images/projects/omaxe-mathura-residence/p4_2_1402x1122.png",
-      "/images/projects/omaxe-mathura-residence/p4_0_1600x720.jpeg",
-      "/images/projects/omaxe-mathura-residence/p4_1_1032x1172.jpeg"
-    ],
-    "gallery": [
+      "/images/projects/omaxe-mathura-residence/hema-malini-kirti.png",
       "/images/projects/omaxe-mathura-residence/p4_2_1402x1122.png",
       "/images/projects/omaxe-mathura-residence/p4_0_1600x720.jpeg",
       "/images/projects/omaxe-mathura-residence/p4_1_1032x1172.jpeg"
@@ -65,9 +57,6 @@
     "page": 5,
     "coverImage": "/images/projects/corporate-office-kolkata/corporate_main_office.jpg",
     "galleryImages": [
-      "/images/projects/corporate-office-kolkata/corporate_main_office.jpg"
-    ],
-    "gallery": [
       "/images/projects/corporate-office-kolkata/corporate_main_office.jpg"
     ]
   },
@@ -91,17 +80,11 @@
       "/images/projects/bcm-planet-luxury-residence/bcm_bedroom.jpg",
       "/images/projects/bcm-planet-luxury-residence/bcm_dining.jpg",
       "/images/projects/bcm-planet-luxury-residence/bcm_kitchen.jpg"
-    ],
-    "gallery": [
-      "/images/projects/bcm-planet-luxury-residence/bcm_living_room.jpg",
-      "/images/projects/bcm-planet-luxury-residence/bcm_bedroom.jpg",
-      "/images/projects/bcm-planet-luxury-residence/bcm_kitchen.jpg",
-      "/images/projects/bcm-planet-luxury-residence/bcm_dining.jpg"
     ]
   },
   {
     "slug": "hotel-pride-cottages",
-    "title": "Hotel Pride \u2014 Luxury Cottages",
+    "title": "Hotel Pride — Luxury Cottages",
     "category": "Hospitality",
     "subtitle": "A Serene Sanctuary in the City",
     "location": "Hotel Pride, Bypass Road, Indore",
@@ -118,16 +101,11 @@
       "/images/projects/hotel-pride-cottages/pride_pool_night.jpg",
       "/images/projects/hotel-pride-cottages/pride_cottage_suite.jpg",
       "/images/projects/hotel-pride-cottages/pride_tent_exterior.jpg"
-    ],
-    "gallery": [
-      "/images/projects/hotel-pride-cottages/pride_pool_night.jpg",
-      "/images/projects/hotel-pride-cottages/pride_cottage_suite.jpg",
-      "/images/projects/hotel-pride-cottages/pride_tent_exterior.jpg"
     ]
   },
   {
     "slug": "after-hours-nightclub",
-    "title": "After Hours \u2014 Nightclub & Lounge",
+    "title": "After Hours — Nightclub & Lounge",
     "category": "Hospitality",
     "subtitle": "Where The Night Comes Alive",
     "location": "Hotel Pride, Bypass Road, Indore",
@@ -136,7 +114,7 @@
     "year": "2024",
     "featured": true,
     "order": 6,
-    "summary": "A space that comes alive after sunset. Envisioned as a high-energy nightclub experience\u2014bold, dramatic and immersive.",
+    "summary": "A space that comes alive after sunset. Envisioned as a high-energy nightclub experience—bold, dramatic and immersive.",
     "description": "From the mood lighting to custom sculptural details, every element is crafted to elevate the spirit of the night and create unforgettable moments. Acoustic baffled ceilings, illuminated dark obsidian bars, velvet banquettes, and deep cinematic tones immerse guests in an electrifying atmosphere.",
     "page": 8,
     "coverImage": "/images/projects/after-hours-nightclub/afterhours_main_lounge.jpg",
@@ -144,11 +122,6 @@
       "/images/projects/after-hours-nightclub/afterhours_main_lounge.jpg",
       "/images/projects/after-hours-nightclub/afterhours_vip_lounge.jpg",
       "/images/projects/after-hours-nightclub/afterhours_red_tunnel.jpg"
-    ],
-    "gallery": [
-      "/images/projects/after-hours-nightclub/afterhours_main_lounge.jpg",
-      "/images/projects/after-hours-nightclub/afterhours_red_tunnel.jpg",
-      "/images/projects/after-hours-nightclub/afterhours_vip_lounge.jpg"
     ]
   },
   {
@@ -168,14 +141,11 @@
     "coverImage": "/images/projects/tiffany-blues-dining/tiffany_main_dining.jpg",
     "galleryImages": [
       "/images/projects/tiffany-blues-dining/tiffany_main_dining.jpg"
-    ],
-    "gallery": [
-      "/images/projects/tiffany-blues-dining/tiffany_main_dining.jpg"
     ]
   },
   {
     "slug": "hotel-pride-convention-centre",
-    "title": "Hotel Pride \u2014 Convention Centre",
+    "title": "Hotel Pride — Convention Centre",
     "category": "Commercial",
     "subtitle": "Grand Celebrations & Prestigious Events",
     "location": "Hotel Pride, Indore",
@@ -189,9 +159,6 @@
     "page": 10,
     "coverImage": "/images/projects/hotel-pride-convention/convention_ballroom_main.jpg",
     "galleryImages": [
-      "/images/projects/hotel-pride-convention/convention_ballroom_main.jpg"
-    ],
-    "gallery": [
       "/images/projects/hotel-pride-convention/convention_ballroom_main.jpg"
     ]
   },
@@ -212,14 +179,11 @@
     "coverImage": "/images/projects/kamna-joshi-beauty-academy/beauty_academy_main.jpg",
     "galleryImages": [
       "/images/projects/kamna-joshi-beauty-academy/beauty_academy_main.jpg"
-    ],
-    "gallery": [
-      "/images/projects/kamna-joshi-beauty-academy/beauty_academy_main.jpg"
     ]
   },
   {
     "slug": "vinod-dhar-residence",
-    "title": "Vinod Dhar\u2019s Residence",
+    "title": "Vinod Dhar’s Residence",
     "category": "Residential",
     "subtitle": "2 BHK Studio Apartment",
     "location": "Bengali Square, Indore",
@@ -229,7 +193,7 @@
     "featured": true,
     "order": 10,
     "summary": "A reflection of understated elegance and intelligent design. Every corner is thoughtfully planned to enhance functionality while creating a warm, timeless ambience.",
-    "description": "\u201cKirti Ji understood our vision and transformed our imagination into reality. Every space has been created with care, comfort and purpose.\u201d \u2014 Mr. Vinod Dhar.\n\nThis residence proves that compact urban luxury thrives when space efficiency is matched with warm textures, hidden storage, muted neutrals, and natural daylight orientation.",
+    "description": "“Kirti Ji understood our vision and transformed our imagination into reality. Every space has been created with care, comfort and purpose.” — Mr. Vinod Dhar.\n\nThis residence proves that compact urban luxury thrives when space efficiency is matched with warm textures, hidden storage, muted neutrals, and natural daylight orientation.",
     "page": 12,
     "coverImage": "/images/projects/vinod-dhar-residence/vinod_living_clean.jpg",
     "galleryImages": [
@@ -237,11 +201,6 @@
       "/images/projects/vinod-dhar-residence/vinod_bedroom.jpg",
       "/images/projects/vinod-dhar-residence/vinod_dining.jpg",
       "/images/projects/vinod-dhar-residence/vinod_entrance_foyer.jpg"
-    ],
-    "gallery": [
-      "/images/projects/vinod-dhar-residence/vinod_living_clean.jpg",
-      "/images/projects/vinod-dhar-residence/vinod_dining.jpg",
-      "/images/projects/vinod-dhar-residence/vinod_bedroom.jpg"
     ]
   },
   {
@@ -261,9 +220,6 @@
     "coverImage": "/images/projects/bengali-square-residence/bengali_living_clean.jpg",
     "galleryImages": [
       "/images/projects/bengali-square-residence/bengali_living_main.jpg"
-    ],
-    "gallery": [
-      "/images/projects/bengali-square-residence/bengali_living_clean.jpg"
     ]
   },
   {
@@ -280,12 +236,9 @@
     "summary": "A home where every corner tells a story. Platinum Paradise blends modern elegance with warmth, thoughtfully designed to create a timeless space for comfortable family living.",
     "description": "Curated with multi-generational living at its core. Warm oak woodwork, durable premium upholstery, intelligent kitchen ergonomics, and serene prayer and study corners.",
     "page": 14,
-    "coverImage": "/images/projects/platinum-paradise-residence/platinum_living_clean.jpg",
+    "coverImage": "/images/projects/platinum-paradise-residence/p14_6_674x842.jpeg",
     "galleryImages": [
       "/images/projects/platinum-paradise-residence/p14_6_674x842.jpeg"
-    ],
-    "gallery": [
-      "/images/projects/platinum-paradise-residence/platinum_living_clean.jpg"
     ]
   },
   {
@@ -302,13 +255,9 @@
     "summary": "A space designed to inspire calm, encourage reflection and elevate everyday living with scholarly poise.",
     "description": "Commissioned by esteemed academician Dr. Upendra Dhar, this home integrates extensive private library alcoves, contemplative reading zones, warm timber ceilings, and curated devotional art.",
     "page": 15,
-    "coverImage": "/images/projects/grand-exotica-upendra-dhar/grand_exotica_clean.jpg",
+    "coverImage": "/images/projects/grand-exotica-upendra-dhar/grand_exotica_pure.jpg",
     "galleryImages": [
-      "/images/projects/grand-exotica-upendra-dhar/grand_exotica_clean.jpg",
-      "/images/projects/grand-exotica-upendra-dhar/grand_exotica_dining.jpg"
-    ],
-    "gallery": [
-      "/images/projects/grand-exotica-upendra-dhar/grand_exotica_clean.jpg",
+      "/images/projects/grand-exotica-upendra-dhar/grand_exotica_pure.jpg",
       "/images/projects/grand-exotica-upendra-dhar/grand_exotica_dining.jpg"
     ]
   },
@@ -329,9 +278,6 @@
     "coverImage": "/images/projects/luxury-bridal-experience-studio/bridal_studio_clean.jpg",
     "galleryImages": [
       "/images/projects/luxury-bridal-experience-studio/bridal_studio_clean.jpg"
-    ],
-    "gallery": [
-      "/images/projects/luxury-bridal-experience-studio/bridal_studio_clean.jpg"
     ]
   },
   {
@@ -348,12 +294,10 @@
     "summary": "A fully designed automotive dealership and customer experience touchpoint reflecting brand excellence, sophistication, and seamless architectural flow.",
     "description": "High-spec polished concrete floors, matte black structural trusses, seamless back-lit stretch ceilings, and bespoke leather seating pods for vehicle personalization.",
     "page": 17,
-    "coverImage": "/images/projects/luxury-automotive-dealership/dealership_clean.jpg",
+    "coverImage": "/images/projects/luxury-automotive-dealership/dealership_pure.jpg",
     "galleryImages": [
+      "/images/projects/luxury-automotive-dealership/dealership_pure.jpg",
       "/images/projects/luxury-automotive-dealership/dealership_main.jpg"
-    ],
-    "gallery": [
-      "/images/projects/luxury-automotive-dealership/dealership_clean.jpg"
     ]
   },
   {
@@ -373,30 +317,24 @@
     "coverImage": "/images/projects/sky-luxuria-4bhk/sky_luxuria_living.jpg",
     "galleryImages": [
       "/images/projects/sky-luxuria-4bhk/sky_luxuria_living.jpg"
-    ],
-    "gallery": [
-      "/images/projects/sky-luxuria-4bhk/sky_luxuria_living.jpg"
     ]
   },
   {
     "slug": "cravings-beats-and-treats",
-    "title": "Cravings \u2014 Beats & Treats",
+    "title": "Cravings — Beats & Treats",
     "category": "Hospitality",
-    "subtitle": "A Vibrant & Youthful Caf\u00e9 Experience",
+    "subtitle": "A Vibrant & Youthful Café Experience",
     "location": "Indore, Madhya Pradesh",
-    "client": "Cravings Caf\u00e9",
-    "scope": "Themed Caf\u00e9 Interiors, Custom Scooter Installations, Lighting",
+    "client": "Cravings Café",
+    "scope": "Themed Café Interiors, Custom Scooter Installations, Lighting",
     "year": "2023",
     "featured": false,
     "order": 17,
-    "summary": "Designed as a vibrant caf\u00e9 blending fun, flavour, and imagination into a space that delights people of all ages with cheerful colours and quirky character.",
+    "summary": "Designed as a vibrant café blending fun, flavour, and imagination into a space that delights people of all ages with cheerful colours and quirky character.",
     "description": "Playful retro pop aesthetics, custom upcycled scooter installations, neon accents, and modular seating designed for youth gatherings and celebration.",
     "page": 23,
     "coverImage": "/images/projects/cravings-beats-and-treats/cravings_cafe_clean.jpg",
     "galleryImages": [
-      "/images/projects/cravings-beats-and-treats/cravings_cafe_clean.jpg"
-    ],
-    "gallery": [
       "/images/projects/cravings-beats-and-treats/cravings_cafe_clean.jpg"
     ]
   },
@@ -417,9 +355,6 @@
     "coverImage": "/images/projects/interiors-selfie-salon/salon_clean.jpg",
     "galleryImages": [
       "/images/projects/interiors-selfie-salon/salon_clean.jpg"
-    ],
-    "gallery": [
-      "/images/projects/interiors-selfie-salon/salon_clean.jpg"
     ]
   },
   {
@@ -439,10 +374,6 @@
     "coverImage": "/images/projects/delhi-world-public-school/p29_0_1112x742.png",
     "galleryImages": [
       "/images/projects/delhi-world-public-school/p29_0_1112x742.png"
-    ],
-    "gallery": [
-      "/images/projects/delhi-world-public-school/p29_0_1112x742.png",
-      "/images/projects/delhi-world-public-school/p29_1_1024x572.png"
     ]
   }
 ]

@@ -37,7 +37,7 @@ const heroSlides = [
     category: "Celebrity Commission",
     location: "Mathura, Uttar Pradesh",
     client: "With Hema Malini Ji",
-    image: "/images/projects/omaxe-mathura-residence/p4_2_1402x1122.png",
+    image: "/images/projects/omaxe-mathura-residence/hema-malini-kirti.png",
     slug: "residence-at-omaxe-mathura",
     specs: "Private Sanctuary · Custom Dharmendra Ji Art Tribute",
   },
@@ -501,11 +501,11 @@ export default function CinematicHome() {
               {/* Photo 1: Kirti with Hema Malini Ji */}
               <div className="relative aspect-[4/5] rounded-2xl overflow-hidden border border-[#dca82b]/30 shadow-2xl group">
                 <Image
-                  src="/images/projects/omaxe-mathura-residence/p4_2_1402x1122.png"
-                  alt="Kirti Jaiswal Rajpal with Hema Malini Ji"
+                  src="/images/projects/omaxe-mathura-residence/hema-malini-kirti.png"
+                  alt="Kirti Jaiswal Rajpal with Smt. Hema Malini Ji"
                   fill
                   sizes="(max-width: 1024px) 100vw, 30vw"
-                  className="object-cover group-hover:scale-105 transition-transform duration-700"
+                  className="object-cover object-top group-hover:scale-105 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-90" />
                 <div className="absolute bottom-4 left-4 right-4 text-xs font-sans">

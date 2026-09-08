@@ -72,14 +72,14 @@ export default async function ProjectDetailPage({ params }: ProjectDetailPagePro
         </div>
 
         {/* Cover Image */}
-        <div className="relative aspect-[16/9] sm:aspect-[21/9] w-full rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-[#200808]">
+        <div className={`relative ${slug === 'residence-at-omaxe-mathura' ? 'aspect-[16/10] sm:aspect-[16/9] max-h-[680px]' : 'aspect-[16/9] sm:aspect-[21/9]'} w-full rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-[#200808]`}>
           <Image
             src={project.coverImage}
             alt={project.title}
             fill
             priority
             sizes="100vw"
-            className="object-cover object-center brightness-[0.9]"
+            className={`object-cover ${slug === 'residence-at-omaxe-mathura' ? 'object-[center_15%]' : 'object-center'} brightness-[0.94]`}
           />
         </div>
       </section>

@@ -51,8 +51,9 @@ export const INITIAL_PROJECTS: Project[] = [
     "summary": "At Antaara Design Studio every project is a story, every space is an emotion, and every detail reflects timeless craftsmanship. A privilege of trust featuring an artwork tribute to Dharmendra Ji.",
     "description": "At Antaara Design Studio every project is a story, every space is an emotion, and every detail reflects timeless craftsmanship.\n\nA bespoke residence designed at Omaxe, Mathura, representing a rare legacy of trust and creative kinship with Hema Malini Ji, featuring dedicated artistic commissions and tributes celebrating legacy, memory and architectural stillness.",
     "page": 4,
-    "coverImage": "/images/projects/omaxe-mathura-residence/p4_2_1402x1122.png",
+    "coverImage": "/images/projects/omaxe-mathura-residence/hema-malini-kirti.png",
     "galleryImages": [
+      "/images/projects/omaxe-mathura-residence/hema-malini-kirti.png",
       "/images/projects/omaxe-mathura-residence/p4_2_1402x1122.png",
       "/images/projects/omaxe-mathura-residence/p4_0_1600x720.jpeg",
       "/images/projects/omaxe-mathura-residence/p4_1_1032x1172.jpeg"
@@ -253,7 +254,7 @@ export const INITIAL_PROJECTS: Project[] = [
     "summary": "A home where every corner tells a story. Platinum Paradise blends modern elegance with warmth, thoughtfully designed to create a timeless space for comfortable family living.",
     "description": "Curated with multi-generational living at its core. Warm oak woodwork, durable premium upholstery, intelligent kitchen ergonomics, and serene prayer and study corners.",
     "page": 14,
-    "coverImage": "/images/projects/platinum-paradise-residence/platinum_living_clean.jpg",
+    "coverImage": "/images/projects/platinum-paradise-residence/p14_6_674x842.jpeg",
     "galleryImages": [
       "/images/projects/platinum-paradise-residence/p14_6_674x842.jpeg"
     ]
@@ -272,9 +273,9 @@ export const INITIAL_PROJECTS: Project[] = [
     "summary": "A space designed to inspire calm, encourage reflection and elevate everyday living with scholarly poise.",
     "description": "Commissioned by esteemed academician Dr. Upendra Dhar, this home integrates extensive private library alcoves, contemplative reading zones, warm timber ceilings, and curated devotional art.",
     "page": 15,
-    "coverImage": "/images/projects/grand-exotica-upendra-dhar/grand_exotica_clean.jpg",
+    "coverImage": "/images/projects/grand-exotica-upendra-dhar/grand_exotica_pure.jpg",
     "galleryImages": [
-      "/images/projects/grand-exotica-upendra-dhar/grand_exotica_clean.jpg",
+      "/images/projects/grand-exotica-upendra-dhar/grand_exotica_pure.jpg",
       "/images/projects/grand-exotica-upendra-dhar/grand_exotica_dining.jpg"
     ]
   },
@@ -311,8 +312,9 @@ export const INITIAL_PROJECTS: Project[] = [
     "summary": "A fully designed automotive dealership and customer experience touchpoint reflecting brand excellence, sophistication, and seamless architectural flow.",
     "description": "High-spec polished concrete floors, matte black structural trusses, seamless back-lit stretch ceilings, and bespoke leather seating pods for vehicle personalization.",
     "page": 17,
-    "coverImage": "/images/projects/luxury-automotive-dealership/dealership_clean.jpg",
+    "coverImage": "/images/projects/luxury-automotive-dealership/dealership_pure.jpg",
     "galleryImages": [
+      "/images/projects/luxury-automotive-dealership/dealership_pure.jpg",
       "/images/projects/luxury-automotive-dealership/dealership_main.jpg"
     ]
   },

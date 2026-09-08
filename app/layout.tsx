@@ -4,6 +4,7 @@ import "./globals.css";
 import CustomCursor from "@/components/CustomCursor";
 import SmoothScroll from "@/components/SmoothScroll";
 import SiteChrome from "@/components/SiteChrome";
+import Preloader from "@/components/Preloader";
 
 const syne = Syne({
   subsets: ["latin"],
@@ -55,6 +56,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${syne.variable} ${plusJakarta.variable} ${marcellus.variable}`}>
       <body className="bg-[#180606] text-[#f7f6ef] antialiased selection:bg-[#dca82b] selection:text-[#180606]">
+        <Preloader />
         <CustomCursor />
         <SmoothScroll>
           <SiteChrome>{children}</SiteChrome>
