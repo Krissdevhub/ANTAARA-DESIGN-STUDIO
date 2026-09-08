@@ -1,25 +1,9 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, Outfit, Plus_Jakarta_Sans, Cinzel } from "next/font/google";
+import { Cormorant_Garamond, Manrope } from "next/font/google";
 import "./globals.css";
 import CustomCursor from "@/components/CustomCursor";
-import Preloader from "@/components/Preloader";
 import SmoothScroll from "@/components/SmoothScroll";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-
-const outfit = Outfit({
-  subsets: ["latin"],
-  variable: "--font-display",
-  weight: ["300", "400", "500", "600", "700"],
-  display: "swap",
-});
-
-const jakarta = Plus_Jakarta_Sans({
-  subsets: ["latin"],
-  variable: "--font-sans",
-  weight: ["300", "400", "500", "600", "700"],
-  display: "swap",
-});
+import SiteChrome from "@/components/SiteChrome";
 
 const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
@@ -29,10 +13,10 @@ const cormorant = Cormorant_Garamond({
   display: "swap",
 });
 
-const cinzel = Cinzel({
+const manrope = Manrope({
   subsets: ["latin"],
-  variable: "--font-cinzel",
-  weight: ["400", "500", "600"],
+  variable: "--font-sans",
+  weight: ["300", "400", "500", "600"],
   display: "swap",
 });
 
@@ -42,34 +26,16 @@ export const metadata: Metadata = {
       ? `https://${process.env.VERCEL_URL}`
       : "https://antaara-design-studio.vercel.app"
   ),
-  title: "Antaara Design Studio | Interior Design & Architecture",
+  title: "Antaara Design Studio | Interior Architecture & Design",
   description:
-    "Antaara Design Studio creates refined residential, commercial, hospitality and retail interiors with a focus on timeless aesthetics, functionality and thoughtful craftsmanship. Founded by Kirti Jaiswal Rajpal.",
-  keywords: [
-    "Antaara Design Studio",
-    "Kirti Jaiswal Rajpal",
-    "Luxury Interior Design Indore",
-    "High-end Residential Interiors",
-    "Hospitality Architecture",
-    "Commercial Interiors",
-    "Coffee by Di Bella Interior",
-    "Hotel Pride Cottages Indore",
-  ],
+    "Antaara Design Studio is an interior architecture practice based in Indore, India. Founded by Kirti Jaiswal Rajpal. Shaping residential, hospitality, and commercial spaces with architectural intention and timeless materiality.",
   authors: [{ name: "Kirti Jaiswal Rajpal" }],
   openGraph: {
-    title: "Antaara Design Studio | Interior Design & Architecture",
+    title: "Antaara Design Studio | Interior Architecture",
     description:
-      "Antaara Design Studio creates refined residential, commercial, hospitality and retail interiors with a focus on timeless aesthetics, functionality and thoughtful craftsmanship.",
+      "Interiors with intention. Founded by Kirti Jaiswal Rajpal in Indore, India.",
     url: "https://antaaradesignstudio.com",
     siteName: "Antaara Design Studio",
-    images: [
-      {
-        url: "/images/projects/coffee-by-di-bella/p3_3_1310x1201.png",
-        width: 1200,
-        height: 630,
-        alt: "Antaara Design Studio — Spaces That Tell A Story",
-      },
-    ],
     locale: "en_US",
     type: "website",
   },
@@ -81,17 +47,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${outfit.variable} ${jakarta.variable} ${cormorant.variable} ${cinzel.variable}`}
-    >
-      <body className="bg-[#F5F1EB] text-[#11110F] antialiased selection:bg-[#B69A6A] selection:text-[#11110F]">
-        <Preloader />
+    <html lang="en" className={`${cormorant.variable} ${manrope.variable}`}>
+      <body className="bg-[#180606] text-[#f7f6ef] antialiased selection:bg-[#dca82b] selection:text-[#180606]">
         <CustomCursor />
         <SmoothScroll>
-          <Navbar />
-          <main className="min-h-screen relative">{children}</main>
-          <Footer />
+          <SiteChrome>{children}</SiteChrome>
         </SmoothScroll>
       </body>
     </html>

@@ -2,6 +2,7 @@ import fs from "fs";
 import path from "path";
 import { supabase, isSupabaseConfigured } from "./supabase";
 import { INITIAL_PROJECTS, Project } from "@/data/seed-projects";
+export type { Project };
 
 export interface Lead {
   id: string;

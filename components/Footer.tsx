@@ -1,120 +1,186 @@
+"use client";
+
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 
 export default function Footer() {
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
-    <footer className="bg-[#11110F] text-[#F5F1EB] pt-24 pb-12 border-t border-[#22201E] relative overflow-hidden">
-      {/* Subtle architectural background glow */}
-      <div className="absolute top-0 right-1/4 w-96 h-96 bg-[#B69A6A]/5 rounded-full blur-3xl pointer-events-none" />
+    <footer className="relative bg-[#160404] text-[#f7f6ef] border-t border-[#dca82b]/15 pt-20 pb-12 px-6 sm:px-10 md:px-16 overflow-hidden select-none">
+      {/* Subtle Background Glow */}
+      <div className="absolute top-0 right-1/4 w-96 h-96 bg-[#dca82b]/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 left-10 w-96 h-96 bg-[#751010]/10 rounded-full blur-3xl pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 pb-20 border-b border-[#22201E]">
-          {/* Main Statement */}
-          <div className="lg:col-span-7 space-y-8">
-            <span className="text-[10px] uppercase tracking-[0.35em] text-[#B69A6A] font-sans">
-              ANTAARA DESIGN STUDIO
+      <div className="max-w-[1440px] mx-auto relative z-10 space-y-16">
+        {/* Top Section: Brand Statement & CTA */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 pb-16 border-b border-white/10 items-end">
+          <div className="lg:col-span-7 space-y-4">
+            <span className="text-[10px] uppercase tracking-[0.28em] text-[#dca82b] font-sans font-medium block">
+              Architectural Practice · Indore, India
             </span>
-            <h2 className="font-serif text-4xl sm:text-5xl md:text-6xl font-light leading-[1.08] text-[#EDE7DF]">
-              Spaces designed to be lived in, <br />
-              <span className="italic font-normal text-[#B69A6A]">remembered</span> and felt.
+            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-light text-[#f7f6ef] leading-tight tracking-tight">
+              Shaping spaces with <span className="italic text-[#dca82b]">purpose,</span> warmth, and timeless craft.
             </h2>
-            <p className="text-sm md:text-base text-[#8A7D73] max-w-xl font-light leading-relaxed">
-              Based in Indore, Antaara Design Studio crafts refined residential,
-              hospitality, commercial, and retail environments that unite intentional
-              architecture, handcrafted materiality, and bespoke spatial storytelling.
+            <p className="text-sm font-sans text-[#d3c8bd] max-w-xl leading-relaxed">
+              At Antaara Design Studio, we believe every space tells a story. We specialize in bespoke residential, commercial, hospitality, and institutional interiors across India.
             </p>
-
-            <div className="pt-2">
-              <Link
-                href="/contact"
-                className="inline-flex items-center space-x-3 text-xs uppercase tracking-[0.25em] px-7 py-3.5 bg-[#B69A6A] text-[#11110F] hover:bg-[#D5C2A0] transition-colors font-medium rounded-full"
-                data-cursor-text="INQUIRE"
-              >
-                <span>INITIATE A CONVERSATION</span>
-                <ArrowUpRight className="w-4 h-4" />
-              </Link>
-            </div>
           </div>
 
-          {/* Quick Links & Information */}
-          <div className="lg:col-span-5 grid grid-cols-2 gap-8 sm:gap-12">
-            <div>
-              <p className="text-[10px] uppercase tracking-[0.3em] text-[#8A7D73] mb-6 font-sans">
-                EXPLORE
-              </p>
-              <ul className="space-y-3.5 text-xs tracking-[0.18em] uppercase text-[#EDE7DF]/80 font-sans">
-                <li>
-                  <Link href="/work" className="hover:text-[#B69A6A] transition-colors">
-                    Selected Works
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/about" className="hover:text-[#B69A6A] transition-colors">
-                    The Studio & Founder
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/services" className="hover:text-[#B69A6A] transition-colors">
-                    Capabilities & Services
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/journal" className="hover:text-[#B69A6A] transition-colors">
-                    Journal & Perspectives
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/contact" className="hover:text-[#B69A6A] transition-colors">
-                    Contact Studio
-                  </Link>
-                </li>
-              </ul>
-            </div>
+          <div className="lg:col-span-5 flex flex-col sm:flex-row gap-4 lg:justify-end items-start sm:items-center">
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-3 px-7 py-3.5 rounded-full bg-[#dca82b] text-[#210707] font-semibold text-xs uppercase tracking-[0.18em] shadow-lg shadow-[#dca82b]/20 hover:bg-[#edd277] transition-all duration-300"
+            >
+              Start a Commission <ArrowUpRight size={14} />
+            </Link>
+            <Link
+              href="/work"
+              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full border border-white/20 text-[#f7f6ef] text-xs uppercase tracking-[0.16em] hover:border-[#dca82b] hover:text-[#dca82b] transition-all duration-300"
+            >
+              Browse Archive
+            </Link>
+          </div>
+        </div>
 
+        {/* Middle Section: 4 Distinct Columns */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 text-xs font-sans">
+          {/* Column 1: Studio Identity */}
+          <div className="space-y-4">
             <div>
-              <p className="text-[10px] uppercase tracking-[0.3em] text-[#8A7D73] mb-6 font-sans">
-                STUDIO & FOUNDER
+              <p className="font-serif text-2xl font-normal tracking-[0.2em] text-[#f7f6ef]">
+                ANTAARA
               </p>
-              <div className="space-y-4 text-xs text-[#8A7D73] font-light leading-relaxed">
-                <div>
-                  <p className="text-[#EDE7DF] font-serif text-base font-normal">
-                    Kirti Jaiswal Rajpal
-                  </p>
-                  <p className="text-[11px] tracking-wider uppercase text-[#B69A6A]">
-                    Founder & Principal
-                  </p>
-                </div>
-                <p>
-                  Indore, Madhya Pradesh
-                  <br />
-                  India
-                </p>
-                <p className="text-[#EDE7DF]/90 font-mono text-[11px]">
-                  contact@antaaradesignstudio.com
-                </p>
-              </div>
+              <p className="text-[9px] uppercase tracking-[0.28em] text-[#d3c8bd] mt-0.5">
+                DESIGN STUDIO
+              </p>
+            </div>
+            <p className="text-[#c7bcb1] leading-relaxed text-[12px]">
+              Founded by <strong className="text-[#f7f6ef] font-medium">Kirti Jaiswal Rajpal</strong>. An Indore-based practice bringing together spatial planning, materiality, and turnkey craftsmanship.
+            </p>
+            <p className="text-[11px] text-[#dca82b] tracking-wider uppercase">
+              Indore · Kolkata · Mathura · Satna
+            </p>
+          </div>
+
+          {/* Column 2: Disciplines */}
+          <div className="space-y-3">
+            <p className="text-[10px] uppercase tracking-[0.22em] text-[#dca82b] font-medium">
+              Disciplines
+            </p>
+            <ul className="space-y-2 text-[#d3c8bd]">
+              <li>
+                <Link href="/work?category=Residential" className="hover:text-[#f7f6ef] transition-colors">
+                  Private Residences & Luxury Villas
+                </Link>
+              </li>
+              <li>
+                <Link href="/work?category=Hospitality" className="hover:text-[#f7f6ef] transition-colors">
+                  Hospitality, Dining & Nightlife
+                </Link>
+              </li>
+              <li>
+                <Link href="/work?category=Commercial" className="hover:text-[#f7f6ef] transition-colors">
+                  Corporate Offices & Brand Studios
+                </Link>
+              </li>
+              <li>
+                <Link href="/work?category=Institutional" className="hover:text-[#f7f6ef] transition-colors">
+                  Educational & Institutional Design
+                </Link>
+              </li>
+              <li>
+                <Link href="/services" className="hover:text-[#f7f6ef] transition-colors">
+                  Full Turnkey Architecture & Execution
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Column 3: Directory */}
+          <div className="space-y-3">
+            <p className="text-[10px] uppercase tracking-[0.22em] text-[#dca82b] font-medium">
+              Directory
+            </p>
+            <ul className="space-y-2 text-[#d3c8bd]">
+              <li>
+                <Link href="/" className="hover:text-[#f7f6ef] transition-colors">
+                  Overview
+                </Link>
+              </li>
+              <li>
+                <Link href="/work" className="hover:text-[#f7f6ef] transition-colors">
+                  Selected Works Archive
+                </Link>
+              </li>
+              <li>
+                <Link href="/studio" className="hover:text-[#f7f6ef] transition-colors">
+                  The Studio & Founder
+                </Link>
+              </li>
+              <li>
+                <Link href="/services" className="hover:text-[#f7f6ef] transition-colors">
+                  Process & Disciplines
+                </Link>
+              </li>
+              <li>
+                <Link href="/contact" className="hover:text-[#f7f6ef] transition-colors">
+                  Inquiries & Consultations
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Column 4: Studio Coordinates */}
+          <div className="space-y-3">
+            <p className="text-[10px] uppercase tracking-[0.22em] text-[#dca82b] font-medium">
+              Coordinates
+            </p>
+            <div className="space-y-2 text-[#d3c8bd]">
+              <p className="text-[#f7f6ef] font-medium">Indore, Madhya Pradesh, India</p>
+              <p>
+                <a
+                  href="mailto:antaaradesignstudio@gmail.com"
+                  className="hover:text-[#dca82b] transition-colors"
+                >
+                  antaaradesignstudio@gmail.com
+                </a>
+              </p>
+              <p>
+                <a
+                  href="tel:+919243051598"
+                  className="hover:text-[#dca82b] transition-colors"
+                >
+                  +91 92430 51598
+                </a>
+              </p>
+              <p className="text-[11px] text-[#a89f91] pt-1">
+                Mon — Sat: 10:00 — 19:00 IST
+              </p>
             </div>
           </div>
         </div>
 
-        {/* Bottom Sub-bar */}
-        <div className="pt-10 flex flex-col sm:flex-row items-center justify-between text-xs text-[#8A7D73] space-y-4 sm:space-y-0">
-          <div className="flex items-center space-x-6">
-            <span>© {new Date().getFullYear()} ANTAARA DESIGN STUDIO</span>
-            <span className="hidden sm:inline">•</span>
-            <span>KIRTI JAISWAL RAJPAL</span>
-          </div>
+        {/* Bottom Bar */}
+        <div className="pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-[#a89f91] font-sans">
+          <p>© {new Date().getFullYear()} Antaara Design Studio. All rights reserved.</p>
 
-          <div className="flex items-center space-x-6 text-[11px] tracking-widest uppercase">
-            <Link href="/about" className="hover:text-[#B69A6A] transition-colors">
-              Privacy & Disclosures
-            </Link>
+          <div className="flex items-center gap-6">
             <Link
               href="/admin/login"
-              className="text-[#5E5148] hover:text-[#B69A6A] transition-colors"
+              className="text-[#a89f91] hover:text-[#dca82b] transition-colors uppercase tracking-wider text-[10px]"
             >
-              Studio Portal
+              Studio Access
             </Link>
+            <span>·</span>
+            <button
+              onClick={scrollToTop}
+              className="hover:text-[#f7f6ef] transition-colors cursor-pointer uppercase tracking-wider text-[10px]"
+            >
+              Back to top ↑
+            </button>
           </div>
         </div>
       </div>

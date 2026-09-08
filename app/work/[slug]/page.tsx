@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
+import { ArrowLeft, ArrowRight, ArrowUpRight, CheckCircle2 } from "lucide-react";
 import { getProjects, getProjectBySlug } from "@/lib/db";
 
 export const dynamic = "force-dynamic";
@@ -42,163 +42,184 @@ export default async function ProjectDetailPage({ params }: ProjectDetailPagePro
     currentIndex < allProjects.length - 1 ? allProjects[currentIndex + 1] : allProjects[0];
 
   return (
-    <div className="bg-[#F5F1EB] text-[#11110F] min-h-screen">
-      {/* 1. Fullscreen Cinematic Cover Hero */}
-      <section className="relative w-full h-[85vh] min-h-[600px] flex items-end justify-center bg-[#11110F] overflow-hidden">
-        <Image
-          src={project.coverImage}
-          alt={project.title}
-          fill
-          priority
-          className="object-cover object-center opacity-85"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#11110F] via-[#11110F]/40 to-black/50" />
+    <div className="bg-[#180606] text-[#f7f6ef] min-h-screen select-none">
+      {/* Opening Hero */}
+      <section className="relative w-full pt-32 pb-14 px-6 sm:px-10 md:px-16 max-w-[1440px] mx-auto space-y-6">
+        <Link
+          href="/work"
+          className="inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.26em] text-[#d3c8bd] hover:text-[#dca82b] transition-colors font-sans"
+        >
+          <ArrowLeft size={14} />
+          <span>Back to Selected Works</span>
+        </Link>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 w-full pb-16 space-y-4">
-          <Link
-            href="/work"
-            className="inline-flex items-center space-x-2 text-xs uppercase tracking-[0.25em] text-[#B69A6A] hover:text-[#EDE7DF] transition-colors"
-          >
-            <ArrowLeft className="w-3.5 h-3.5" />
-            <span>BACK TO ARCHIVE</span>
-          </Link>
-
-          <div className="flex items-center space-x-3 text-[11px] uppercase tracking-[0.35em] text-[#EDE7DF]/80 font-sans">
+        <div className="space-y-3">
+          <div className="flex items-center gap-3 text-[10px] uppercase tracking-[0.3em] text-[#dca82b] font-sans font-medium">
             <span>{project.category}</span>
-            <span>•</span>
+            <span className="text-white/30">·</span>
             <span>{project.location}</span>
           </div>
 
-          <h1 className="font-serif text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-light text-[#F5F1EB] leading-tight">
+          <h1 className="font-serif text-3xl sm:text-5xl md:text-6xl font-light text-[#f7f6ef] tracking-tight">
             {project.title}
           </h1>
 
           {project.subtitle && (
-            <p className="font-serif italic text-lg sm:text-xl text-[#B9ADA3] max-w-2xl">
+            <p className="font-serif italic text-lg sm:text-2xl text-[#d3c8bd] max-w-3xl font-light">
               {project.subtitle}
             </p>
           )}
         </div>
+
+        {/* Cover Image */}
+        <div className="relative aspect-[16/9] sm:aspect-[21/9] w-full rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-[#200808]">
+          <Image
+            src={project.coverImage}
+            alt={project.title}
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover object-center brightness-[0.9]"
+          />
+        </div>
       </section>
 
-      {/* 2. Metadata & Fact Sheet Banner */}
-      <section className="border-y border-[#DCD0C5] bg-[#EDE7DF] py-10 px-6 md:px-12">
-        <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-xs">
+      {/* Fact Sheet */}
+      <section className="border-y border-white/10 py-8 px-6 sm:px-10 md:px-16 bg-[#1f0707]">
+        <div className="max-w-[1440px] mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 text-xs font-sans">
           <div className="space-y-1">
-            <p className="text-[10px] uppercase tracking-[0.3em] text-[#8A7D73]">LOCATION</p>
-            <p className="font-medium text-[#11110F]">{project.location}</p>
+            <p className="text-[10px] uppercase tracking-[0.24em] text-[#dca82b]">Location</p>
+            <p className="font-medium text-[#f7f6ef]">{project.location}</p>
           </div>
-
           <div className="space-y-1">
-            <p className="text-[10px] uppercase tracking-[0.3em] text-[#8A7D73]">CLIENT</p>
-            <p className="font-medium text-[#11110F]">{project.client || "Private Commission"}</p>
+            <p className="text-[10px] uppercase tracking-[0.24em] text-[#dca82b]">Client / Commission</p>
+            <p className="font-medium text-[#f7f6ef]">{project.client || "Private Client"}</p>
           </div>
-
           <div className="space-y-1">
-            <p className="text-[10px] uppercase tracking-[0.3em] text-[#8A7D73]">TYPOLOGY</p>
-            <p className="font-medium text-[#11110F]">{project.category}</p>
+            <p className="text-[10px] uppercase tracking-[0.24em] text-[#dca82b]">Typology</p>
+            <p className="font-medium text-[#f7f6ef]">{project.category}</p>
           </div>
-
           <div className="space-y-1">
-            <p className="text-[10px] uppercase tracking-[0.3em] text-[#8A7D73]">SCOPE & COMPLETION</p>
-            <p className="font-medium text-[#11110F]">{project.scope || "Architecture & Interiors"}</p>
+            <p className="text-[10px] uppercase tracking-[0.24em] text-[#dca82b]">Execution Scope</p>
+            <p className="font-medium text-[#f7f6ef]">{project.scope || "Full Turnkey Interior Architecture"}</p>
           </div>
         </div>
       </section>
 
-      {/* 3. Project Editorial Story */}
-      <section className="py-24 md:py-32 px-6 md:px-12 max-w-5xl mx-auto">
-        <div className="space-y-10">
-          <span className="text-[11px] uppercase tracking-[0.35em] text-[#B69A6A] font-sans">
-            PROJECT NARRATIVE
-          </span>
+      {/* Narrative */}
+      <section className="py-20 md:py-28 px-6 sm:px-10 md:px-16 max-w-4xl mx-auto space-y-6">
+        <span className="text-[10px] uppercase tracking-[0.28em] text-[#dca82b] font-sans font-medium block">
+          Spatial Narrative
+        </span>
 
-          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-light text-[#11110F] leading-tight">
-            “{project.summary}”
-          </h2>
+        <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl font-light text-[#f7f6ef] leading-snug border-l-2 border-[#dca82b] pl-6 italic">
+          &ldquo;{project.summary}&rdquo;
+        </h2>
 
-          <div className="h-[1px] w-20 bg-[#B69A6A]" />
-
-          <div className="text-base sm:text-lg text-[#22201E] font-light leading-relaxed whitespace-pre-line space-y-4">
-            {project.description}
-          </div>
+        <div className="text-xs sm:text-sm text-[#d3c8bd] font-sans font-light leading-relaxed whitespace-pre-line space-y-4 pt-4">
+          {project.description}
         </div>
       </section>
 
-      {/* 4. Curated Image Sequence */}
-      <section className="pb-28 px-6 md:px-12 max-w-7xl mx-auto space-y-12">
-        <div className="flex items-center justify-between pb-6 border-b border-[#DCD0C5]">
-          <span className="text-[11px] uppercase tracking-[0.3em] text-[#8A7D73] font-sans">
-            PHOTOGRAPHY & ARCHITECTURAL PLATES
+      {/* Gallery */}
+      <section className="pb-28 px-6 sm:px-10 md:px-16 max-w-[1440px] mx-auto space-y-12">
+        <div className="flex items-center justify-between pb-4 border-b border-white/10">
+          <span className="text-[10px] uppercase tracking-[0.24em] text-[#dca82b] font-sans">
+            Archival Photography
           </span>
-          <span className="text-[11px] uppercase tracking-[0.3em] text-[#8A7D73] font-sans">
-            AUTHENTIC COMMISSIONS
+          <span className="text-[10px] uppercase tracking-[0.2em] text-[#d3c8bd] font-sans">
+            Antaara Design Studio
           </span>
         </div>
 
-        {/* Gallery Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+        <div className="space-y-8">
           {project.galleryImages.map((imgSrc, idx) => {
-            const isFullWidth = idx === 0 || idx === 3;
-            return (
-              <div
-                key={imgSrc + idx}
-                className={`relative overflow-hidden rounded-sm bg-[#EDE7DF] shadow-xl border border-[#DCD0C5] group ${
-                  isFullWidth ? "md:col-span-2 aspect-[16/9]" : "aspect-[4/3]"
-                }`}
-              >
-                <Image
-                  src={imgSrc}
-                  alt={`${project.title} view ${idx + 1}`}
-                  fill
-                  className="object-cover transition-transform duration-1000 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors" />
-                <div className="absolute bottom-4 left-4 text-[10px] font-mono tracking-widest text-white/90 bg-black/40 px-2.5 py-1 rounded backdrop-blur-sm">
-                  PLATE 0{idx + 1}
+            if (idx === 0) {
+              return (
+                <div key={imgSrc + idx} className="relative aspect-[16/9] w-full rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-[#200808]">
+                  <Image
+                    src={imgSrc}
+                    alt={`${project.title} — Archival view ${idx + 1}`}
+                    fill
+                    sizes="100vw"
+                    className="object-cover brightness-[0.9]"
+                  />
                 </div>
-              </div>
-            );
+              );
+            } else if (idx % 2 === 1 && idx + 1 < project.galleryImages.length) {
+              const nextImg = project.galleryImages[idx + 1];
+              return (
+                <div key={imgSrc + idx} className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                  <div className="lg:col-span-8 relative aspect-[16/10] w-full rounded-2xl overflow-hidden border border-white/10 shadow-xl bg-[#200808]">
+                    <Image
+                      src={imgSrc}
+                      alt={`${project.title} — Detailed view ${idx + 1}`}
+                      fill
+                      sizes="(max-width: 1024px) 100vw, 65vw"
+                      className="object-cover brightness-[0.9]"
+                    />
+                  </div>
+                  <div className="lg:col-span-4 relative aspect-[3/4] w-full rounded-2xl overflow-hidden border border-white/10 shadow-xl bg-[#200808]">
+                    <Image
+                      src={nextImg}
+                      alt={`${project.title} — Detail ${idx + 2}`}
+                      fill
+                      sizes="(max-width: 1024px) 100vw, 35vw"
+                      className="object-cover brightness-[0.9]"
+                    />
+                  </div>
+                </div>
+              );
+            } else if (idx % 2 === 1) {
+              return (
+                <div key={imgSrc + idx} className="relative aspect-[16/10] w-full max-w-5xl mx-auto rounded-2xl overflow-hidden border border-white/10 shadow-xl bg-[#200808]">
+                  <Image
+                    src={imgSrc}
+                    alt={`${project.title} — Detail ${idx + 1}`}
+                    fill
+                    sizes="100vw"
+                    className="object-cover brightness-[0.9]"
+                  />
+                </div>
+              );
+            }
+            return null;
           })}
         </div>
       </section>
 
-      {/* 5. Next & Previous Cinematic Navigation */}
-      <section className="border-t border-[#DCD0C5] bg-[#11110F] text-[#F5F1EB] py-20 px-6 md:px-12">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
-          {/* Previous */}
+      {/* Previous / Next Project Navigation */}
+      <section className="border-t border-white/10 bg-[#160404] py-16 px-6 sm:px-10 md:px-16">
+        <div className="max-w-[1440px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
           <Link
             href={`/work/${prevProject.slug}`}
-            className="group p-8 rounded-sm border border-[#22201E] hover:border-[#B69A6A]/60 transition-all space-y-3"
-            data-cursor-text="PREV"
+            className="luxury-card group block p-6 rounded-xl border border-white/10 bg-[#200808] space-y-2 shadow-xl"
           >
-            <div className="flex items-center space-x-2 text-[10px] uppercase tracking-[0.3em] text-[#8A7D73] group-hover:text-[#B69A6A] transition-colors">
-              <ArrowLeft className="w-3.5 h-3.5" />
-              <span>PREVIOUS PROJECT</span>
+            <div className="flex items-center gap-2 text-[10px] uppercase tracking-[0.24em] text-[#dca82b] font-sans">
+              <ArrowLeft size={13} className="gold-hover-arrow" />
+              <span>Previous Project</span>
             </div>
-            <p className="font-serif text-2xl sm:text-3xl font-light text-[#EDE7DF] group-hover:text-[#F5F1EB]">
+            <p className="font-serif text-2xl sm:text-3xl font-light text-[#f7f6ef] group-hover:text-[#dca82b] transition-colors">
               {prevProject.title}
             </p>
-            <p className="text-xs text-[#8A7D73] uppercase tracking-wider">
-              {prevProject.category} • {prevProject.location}
+            <p className="text-[10px] text-[#d3c8bd] uppercase tracking-wider font-sans">
+              {prevProject.category} · {prevProject.location}
             </p>
           </Link>
 
-          {/* Next */}
           <Link
             href={`/work/${nextProject.slug}`}
-            className="group p-8 rounded-sm border border-[#22201E] hover:border-[#B69A6A]/60 transition-all space-y-3 text-right"
-            data-cursor-text="NEXT"
+            className="luxury-card group block p-6 rounded-xl border border-white/10 bg-[#200808] space-y-2 md:text-right shadow-xl"
           >
-            <div className="flex items-center justify-end space-x-2 text-[10px] uppercase tracking-[0.3em] text-[#8A7D73] group-hover:text-[#B69A6A] transition-colors">
-              <span>NEXT PROJECT</span>
-              <ArrowRight className="w-3.5 h-3.5" />
+            <div className="flex items-center md:justify-end gap-2 text-[10px] uppercase tracking-[0.24em] text-[#dca82b] font-sans">
+              <span>Next Project</span>
+              <ArrowRight size={13} />
             </div>
-            <p className="font-serif text-2xl sm:text-3xl font-light text-[#EDE7DF] group-hover:text-[#F5F1EB]">
+            <p className="font-serif text-2xl sm:text-3xl font-light text-[#f7f6ef] group-hover:text-[#dca82b] transition-colors">
               {nextProject.title}
             </p>
-            <p className="text-xs text-[#8A7D73] uppercase tracking-wider">
-              {nextProject.category} • {nextProject.location}
+            <p className="text-[10px] text-[#d3c8bd] uppercase tracking-wider font-sans">
+              {nextProject.category} · {nextProject.location}
             </p>
           </Link>
         </div>

@@ -1,51 +1,59 @@
 import Image from "next/image";
-import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
 
 export default function PhilosophySection() {
   return (
-    <section className="bg-[#181614] text-[#FAF7F2] py-32 md:py-40 px-6 md:px-12 border-b border-[#2A2521] relative overflow-hidden">
-      {/* Subtle architectural ambient background with warm glow */}
-      <div className="absolute inset-0 opacity-25">
-        <Image
-          src="/images/projects/hotel-pride-cottages/p7_1_1536x1024.jpeg"
-          alt="Antaara Design Philosophy"
-          fill
-          className="object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#181614] via-[#181614]/85 to-[#181614]" />
-      </div>
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#B69A6A]/10 rounded-full blur-3xl pointer-events-none" />
+    <section className="relative w-full py-32 md:py-44 bg-[#EDEAE3] text-[#22201E] select-none border-t border-[#22201E]/8">
+      <div className="max-w-[1520px] mx-auto px-6 sm:px-10 md:px-16">
+        {/* Section Eyebrow */}
+        <div className="flex items-center justify-between border-b border-[#22201E]/12 pb-4 mb-20 sm:mb-24">
+          <span className="text-[10px] uppercase tracking-[0.35em] font-sans text-[#6E6862]">
+            08 — PHILOSOPHY
+          </span>
+          <span className="text-[10px] uppercase tracking-[0.3em] font-sans text-[#6E6862]">
+            AUTHENTIC VOICE
+          </span>
+        </div>
 
-      <div className="max-w-5xl mx-auto text-center relative z-10 space-y-10">
-        <span className="text-[11px] uppercase tracking-[0.35em] text-[#B69A6A] font-sans">
-          06 — PHILOSOPHY
-        </span>
+        {/* Quiet, Restrained Quote (~56–72px, NOT 150px) */}
+        <div className="max-w-4xl space-y-6 mb-20">
+          <h2 className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light tracking-tight leading-[1.08] text-[#22201E]">
+            Every space has a story. <br />
+            <span className="italic text-[#6E6862]">Every detail has a purpose.</span>
+          </h2>
+          <p className="max-w-xl text-sm text-[#6E6862] font-sans font-light leading-relaxed">
+            Luxury comes from spatial restraint, tactile honesty, and craftsmanship that endures long after completion.
+          </p>
+        </div>
 
-        <h2 className="font-serif text-4xl sm:text-6xl md:text-7xl font-light text-[#F5F1EB] leading-[1.08]">
-          EVERY SPACE <br />
-          <span className="italic font-normal text-[#B69A6A]">HAS A STORY.</span>
-        </h2>
+        {/* Beautiful Photograph + Client Testimonial Spread */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center pt-8 border-t border-[#22201E]/12">
+          {/* Photograph (Col 1-7) */}
+          <div className="lg:col-span-7">
+            <div className="relative aspect-[16/10] w-full overflow-hidden border border-[#22201E]/12 shadow-md bg-[#F7F5F0]">
+              <Image
+                src="/images/projects/vinod-dhar-residence/vinod_living.jpg"
+                alt="2 BHK Residence at Bengali Square, Indore"
+                fill
+                sizes="(max-width: 1024px) 100vw, 60vw"
+                className="object-cover"
+              />
+            </div>
+          </div>
 
-        <div className="h-[1px] w-24 bg-[#B69A6A] mx-auto" />
+          {/* Authentic Testimonial Quote (Col 8-12) */}
+          <div className="lg:col-span-5 space-y-6 lg:pl-6">
+            <span className="text-[10px] uppercase tracking-[0.3em] text-[#3157D5] font-sans block">
+              CLIENT TESTIMONIAL
+            </span>
 
-        <p className="font-serif text-2xl sm:text-3xl md:text-4xl text-[#EDE7DF] font-light leading-relaxed max-w-3xl mx-auto italic">
-          “At Antaara Design Studio, every project is a story, every space is an emotion, and every detail reflects timeless craftsmanship.”
-        </p>
+            <blockquote className="font-serif text-xl sm:text-2xl md:text-3xl text-[#22201E] font-light italic leading-snug">
+              “Kirti Ji understood our vision and transformed our imagination into reality. Every space has been created with care, comfort and purpose.”
+            </blockquote>
 
-        <p className="text-xs uppercase tracking-[0.3em] text-[#8A7D73] font-sans">
-          KIRTI JAISWAL RAJPAL • FOUNDER
-        </p>
-
-        <div className="pt-6">
-          <Link
-            href="/about"
-            className="inline-flex items-center space-x-2 text-xs uppercase tracking-[0.25em] text-[#F5F1EB] hover:text-[#B69A6A] border-b border-[#B69A6A] pb-1 transition-colors font-medium"
-            data-cursor-text="DISCOVER"
-          >
-            <span>DISCOVER OUR DESIGN PRINCIPLES</span>
-            <ArrowUpRight className="w-3.5 h-3.5" />
-          </Link>
+            <div className="text-[10px] uppercase tracking-[0.25em] font-sans text-[#6E6862] pt-2 border-t border-[#22201E]/10">
+              — MR. VINOD DHAR, 2 BHK RESIDENCE AT BENGALI SQUARE, INDORE
+            </div>
+          </div>
         </div>
       </div>
     </section>

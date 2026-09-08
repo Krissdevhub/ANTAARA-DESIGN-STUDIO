@@ -1,120 +1,77 @@
 "use client";
 
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 
 export default function CustomCursor() {
-  const [mounted, setMounted] = useState(false);
-  const [isPointerFine, setIsPointerFine] = useState(false);
-  const [cursorText, setCursorText] = useState("");
-  const [isHovered, setIsHovered] = useState(false);
-  const [isClicking, setIsClicking] = useState(false);
-  const [isVisible, setIsVisible] = useState(false);
-
-  const cursorRef = useRef<HTMLDivElement>(null);
-  const followerRef = useRef<HTMLDivElement>(null);
-
-  const mouseX = useRef(-100);
-  const mouseY = useRef(-100);
-  const followerX = useRef(-100);
-  const followerY = useRef(-100);
+  const [position, setPosition] = useState({ x: -100, y: -100 });
+  const [cursorType, setCursorType] = useState<"default" | "explore" | "view" | "nav">("default");
+  const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    setMounted(true);
-    const media = window.matchMedia("(pointer: fine)");
-    setIsPointerFine(media.matches);
-
-    if (!media.matches) return;
+    if (typeof window === "undefined" || window.innerWidth < 1024) return;
 
     const handleMouseMove = (e: MouseEvent) => {
-      mouseX.current = e.clientX;
-      mouseY.current = e.clientY;
-      setIsVisible(true);
+      setPosition({ x: e.clientX, y: e.clientY });
+      if (!visible) setVisible(true);
+    };
 
-      if (cursorRef.current) {
-        cursorRef.current.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0)`;
-      }
+    const handleMouseLeave = () => setVisible(false);
+    const handleMouseEnter = () => setVisible(true);
 
-      // Check for interactive targets or cursor-text
+    const handleMouseOver = (e: MouseEvent) => {
       const target = e.target as HTMLElement | null;
       if (!target) return;
 
-      const interactive = target.closest("a, button, input, select, textarea, [data-cursor]");
-      if (interactive) {
-        setIsHovered(true);
-        const customText = interactive.getAttribute("data-cursor-text");
-        setCursorText(customText || "");
+      const projectEl = target.closest("a[href*='/work/'], [data-cursor='view']");
+      const navEl = target.closest("nav, button, a, [role='button'], input, select, textarea");
+
+      if (projectEl) {
+        setCursorType("view");
+      } else if (navEl) {
+        setCursorType("nav");
       } else {
-        setIsHovered(false);
-        setCursorText("");
+        setCursorType("default");
       }
     };
-
-    const handleMouseDown = () => setIsClicking(true);
-    const handleMouseUp = () => setIsClicking(false);
-    const handleMouseLeave = () => setIsVisible(false);
-    const handleMouseEnter = () => setIsVisible(true);
 
     window.addEventListener("mousemove", handleMouseMove);
-    window.addEventListener("mousedown", handleMouseDown);
-    window.addEventListener("mouseup", handleMouseUp);
-    document.body.addEventListener("mouseleave", handleMouseLeave);
-    document.body.addEventListener("mouseenter", handleMouseEnter);
-
-    let animationFrameId: number;
-    const renderFollower = () => {
-      // Lerp for smooth floating follow effect
-      followerX.current += (mouseX.current - followerX.current) * 0.15;
-      followerY.current += (mouseY.current - followerY.current) * 0.15;
-
-      if (followerRef.current) {
-        followerRef.current.style.transform = `translate3d(${followerX.current}px, ${followerY.current}px, 0)`;
-      }
-      animationFrameId = requestAnimationFrame(renderFollower);
-    };
-
-    animationFrameId = requestAnimationFrame(renderFollower);
+    document.addEventListener("mouseleave", handleMouseLeave);
+    document.addEventListener("mouseenter", handleMouseEnter);
+    document.addEventListener("mouseover", handleMouseOver);
 
     return () => {
       window.removeEventListener("mousemove", handleMouseMove);
-      window.removeEventListener("mousedown", handleMouseDown);
-      window.removeEventListener("mouseup", handleMouseUp);
-      document.body.removeEventListener("mouseleave", handleMouseLeave);
-      document.body.removeEventListener("mouseenter", handleMouseEnter);
-      cancelAnimationFrame(animationFrameId);
+      document.removeEventListener("mouseleave", handleMouseLeave);
+      document.removeEventListener("mouseenter", handleMouseEnter);
+      document.removeEventListener("mouseover", handleMouseOver);
     };
-  }, []);
+  }, [visible]);
 
-  if (!mounted || !isPointerFine) return null;
+  if (!visible) return null;
 
   return (
     <div
-      className={`pointer-events-none fixed inset-0 z-[9999] transition-opacity duration-300 ${
-        isVisible ? "opacity-100" : "opacity-0"
-      }`}
+      className="pointer-events-none fixed z-[9999] transition-transform duration-75 ease-out hidden lg:block"
+      style={{
+        left: `${position.x}px`,
+        top: `${position.y}px`,
+        transform: "translate(-50%, -50%)",
+      }}
     >
-      {/* Tiny precise center dot */}
-      <div
-        ref={cursorRef}
-        className="fixed top-0 left-0 w-2 h-2 -ml-1 -mt-1 rounded-full bg-[#B69A6A] mix-blend-difference pointer-events-none z-10 transition-transform duration-75"
-      />
+      {cursorType === "default" && (
+        <div className="w-2.5 h-2.5 rounded-full bg-[#dca82b] shadow-[0_0_12px_rgba(220,168,43,0.6)] transition-all duration-200" />
+      )}
 
-      {/* Floating smooth follower ring / pill */}
-      <div
-        ref={followerRef}
-        className={`fixed top-0 left-0 -ml-4 -mt-4 rounded-full border border-[#B69A6A]/60 pointer-events-none transition-all duration-300 ease-out flex items-center justify-center ${
-          cursorText
-            ? "w-24 h-24 -ml-12 -mt-12 bg-[#11110F]/90 text-[#F5F1EB] border-[#B69A6A] shadow-2xl backdrop-blur-sm"
-            : isHovered
-            ? "w-12 h-12 -ml-6 -mt-6 bg-[#B69A6A]/15 border-[#B69A6A] scale-110"
-            : "w-8 h-8 opacity-70"
-        } ${isClicking ? "scale-90 opacity-90" : ""}`}
-      >
-        {cursorText && (
-          <span className="text-[10px] uppercase font-sans tracking-[0.2em] font-medium text-center px-1 text-[#EDE7DF]">
-            {cursorText}
-          </span>
-        )}
-      </div>
+      {cursorType === "nav" && (
+        <div className="w-7 h-7 rounded-full border border-[#dca82b] bg-[#dca82b]/15 scale-110 shadow-[0_0_15px_rgba(220,168,43,0.3)] transition-all duration-200" />
+      )}
+
+      {cursorType === "view" && (
+        <div className="px-3 py-1 rounded-full bg-[#dca82b] text-[#180606] text-[9px] font-semibold uppercase tracking-[0.2em] font-sans shadow-xl flex items-center gap-1 whitespace-nowrap animate-fade-in scale-110">
+          <span>VIEW</span>
+          <span>→</span>
+        </div>
+      )}
     </div>
   );
 }

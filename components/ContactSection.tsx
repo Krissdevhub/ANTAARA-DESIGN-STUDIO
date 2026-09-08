@@ -1,283 +1,269 @@
 "use client";
 
 import { useState } from "react";
-import { ArrowUpRight, CheckCircle2, AlertCircle, Loader2 } from "lucide-react";
+import { ArrowRight, Check } from "lucide-react";
 
 export default function ContactSection() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     phone: "",
-    project_type: "Residential",
-    location: "Indore",
-    budget: "₹50 Lakhs - ₹1 Crore",
+    projectType: "Residential",
+    location: "",
+    budget: "",
     message: "",
   });
 
-  const [loading, setLoading] = useState(false);
-  const [submitted, setSubmitted] = useState(false);
-  const [errorMessage, setErrorMessage] = useState("");
+  const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+
+  const projectTypes = [
+    "Residential",
+    "Commercial",
+    "Hospitality",
+    "Retail",
+    "Institutional",
+    "Other",
+  ];
+
+  const budgetRanges = [
+    "₹15L – ₹35L",
+    "₹35L – ₹75L",
+    "₹75L – ₹1.5 Cr",
+    "₹1.5 Cr+",
+  ];
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setLoading(true);
-    setErrorMessage("");
+    if (!formData.name || !formData.phone) return;
+
+    setStatus("submitting");
 
     try {
       const res = await fetch("/api/leads", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          project_type: formData.projectType,
+          location: formData.location || "Indore / India",
+          budget: formData.budget,
+          message: formData.message,
+        }),
       });
 
-      const data = await res.json();
-      if (res.ok && data.success) {
-        setSubmitted(true);
-        setFormData({
-          name: "",
-          email: "",
-          phone: "",
-          project_type: "Residential",
-          location: "Indore",
-          budget: "₹50 Lakhs - ₹1 Crore",
-          message: "",
-        });
+      if (res.ok) {
+        setStatus("success");
       } else {
-        setErrorMessage(data.error || "Unable to submit inquiry. Please try again.");
+        setStatus("error");
       }
-    } catch (err: any) {
-      setErrorMessage("Network error. Please check your connection.");
-    } finally {
-      setLoading(false);
+    } catch (err) {
+      console.error("Lead submission error:", err);
+      setStatus("error");
     }
   };
 
   return (
-    <section id="contact-inquiry" className="bg-[#11110F] text-[#F5F1EB] py-28 md:py-36 px-6 md:px-12 relative overflow-hidden">
-      {/* Background ambient lighting */}
-      <div className="absolute top-1/4 right-0 w-96 h-96 bg-[#B69A6A]/5 rounded-full blur-3xl pointer-events-none" />
+    <section
+      id="contact"
+      className="relative w-full py-28 md:py-40 bg-[#F7F5F0] text-[#22201E] select-none border-t border-[#22201E]/8"
+    >
+      <div className="max-w-[1520px] mx-auto px-6 sm:px-10 md:px-16">
+        {/* Section Header */}
+        <div className="flex items-center justify-between border-b border-[#22201E]/12 pb-4 mb-16 sm:mb-20">
+          <span className="text-[10px] uppercase tracking-[0.35em] font-sans text-[#6E6862]">
+            09 — COMMISSIONS
+          </span>
+          <span className="text-[10px] uppercase tracking-[0.3em] font-sans text-[#6E6862]">
+            ACCEPTING SELECTIVE WORK
+          </span>
+        </div>
 
-      <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-20 items-start">
-          {/* Left Column: Dramatic Editorial Closing Statement */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+          {/* Left Column: Restrained Heading (~64–80px, NOT 150px) */}
           <div className="lg:col-span-5 space-y-8">
-            <span className="text-[11px] uppercase tracking-[0.35em] text-[#B69A6A] font-sans">
-              10 — INITIATION
-            </span>
-
-            <h2 className="font-serif text-5xl sm:text-6xl md:text-7xl font-light leading-[1.04] text-[#EDE7DF]">
-              LET’S CREATE <br />
-              SOMETHING <br />
-              <span className="italic font-normal text-[#B69A6A]">TIMELESS.</span>
+            <h2 className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light tracking-tight leading-[1.05] text-[#22201E]">
+              LET&apos;S CREATE <br />
+              <span className="italic text-[#6E6862]">SOMETHING</span> <br />
+              TIMELESS.
             </h2>
 
-            <p className="text-sm md:text-base text-[#8A7D73] font-light leading-relaxed max-w-md">
-              Have a space in mind? Tell us about your lifestyle, spatial aspirations,
-              and timeline. Every collaboration begins with a considered listening
-              session.
-            </p>
+            <div className="space-y-3 max-w-md">
+              <p className="font-serif text-xl sm:text-2xl text-[#22201E] font-light italic">
+                Have a space in mind? Tell us about it.
+              </p>
+              <p className="text-xs sm:text-sm text-[#6E6862] font-sans font-light leading-relaxed">
+                Antaara takes on a limited number of commissions annually to ensure hands-on architectural precision, material stewardship, and intimate founder collaboration.
+              </p>
+            </div>
 
-            <div className="border-t border-[#22201E] pt-8 space-y-4 text-xs text-[#8A7D73]">
+            <div className="pt-6 border-t border-[#22201E]/10 space-y-2 text-[11px] uppercase tracking-widest font-sans text-[#6E6862]">
+              <div className="text-[#22201E] font-medium">ANTAARA DESIGN STUDIO</div>
+              <div>INDORE, MADHYA PRADESH, INDIA</div>
               <div>
-                <p className="uppercase tracking-widest text-[#EDE7DF] font-sans">
-                  DIRECT CONSULTATION
-                </p>
-                <p className="text-base text-[#EDE7DF] font-serif pt-1">
-                  Kirti Jaiswal Rajpal
-                </p>
-                <p className="font-sans text-[11px] text-[#B69A6A]">
-                  Founder & Principal Designer
-                </p>
-              </div>
-
-              <div className="pt-2">
-                <p className="uppercase tracking-widest text-[#8A7D73]">STUDIO LOCATION</p>
-                <p className="text-[#EDE7DF] font-sans">Indore, Madhya Pradesh, India</p>
-              </div>
-
-              <div className="pt-2">
-                <p className="uppercase tracking-widest text-[#8A7D73]">INQUIRIES</p>
-                <p className="text-[#EDE7DF] font-mono text-[11px]">
+                <a href="mailto:contact@antaaradesignstudio.com" className="hover:text-[#3157D5] transition-colors">
                   contact@antaaradesignstudio.com
-                </p>
+                </a>
+              </div>
+              <div>
+                <a href="tel:+919826000000" className="hover:text-[#3157D5] transition-colors">
+                  +91 98260 00000
+                </a>
               </div>
             </div>
           </div>
 
-          {/* Right Column: Luxury Form */}
-          <div className="lg:col-span-7 bg-[#22201E]/40 border border-[#22201E] p-8 sm:p-12 rounded-sm backdrop-blur-sm shadow-2xl">
-            {submitted ? (
-              <div className="py-16 text-center space-y-6 animate-fadeIn">
-                <div className="w-16 h-16 rounded-full bg-[#B69A6A]/15 border border-[#B69A6A] flex items-center justify-center mx-auto text-[#B69A6A]">
-                  <CheckCircle2 className="w-8 h-8" />
+          {/* Right Column: Clean Architectural Form */}
+          <div className="lg:col-span-7">
+            {status === "success" ? (
+              <div className="p-10 border border-[#22201E]/12 bg-[#EDEAE3] space-y-5 animate-fadeIn">
+                <div className="w-10 h-10 rounded-full border border-[#22201E] flex items-center justify-center">
+                  <Check className="w-5 h-5 text-[#22201E]" />
                 </div>
-                <h3 className="font-serif text-3xl sm:text-4xl text-[#EDE7DF]">
-                  Inquiry Received
+                <h3 className="font-serif text-3xl sm:text-4xl font-light text-[#22201E]">
+                  Thank you.
                 </h3>
-                <p className="text-sm text-[#8A7D73] max-w-md mx-auto leading-relaxed">
-                  Thank you for reaching out to Antaara Design Studio. Kirti Jaiswal Rajpal
-                  and our senior design associates will review your project brief and
-                  contact you within 24 to 48 hours.
+                <p className="font-serif text-xl font-light italic text-[#6E6862]">
+                  Your enquiry has been received.
                 </p>
-                <button
-                  onClick={() => setSubmitted(false)}
-                  className="text-xs uppercase tracking-[0.25em] text-[#B69A6A] border-b border-[#B69A6A] pb-1 pt-4 hover:text-[#EDE7DF] transition-colors"
-                >
-                  SUBMIT ANOTHER INQUIRY
-                </button>
+                <p className="text-xs sm:text-sm text-[#6E6862] font-sans font-light leading-relaxed">
+                  Our founder Kirti Jaiswal Rajpal and the studio team will review your project parameters and connect with you directly.
+                </p>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-7">
+                {/* Project Type */}
                 <div className="space-y-2">
-                  <h3 className="font-serif text-2xl text-[#EDE7DF] font-light">
-                    Start a Conversation
-                  </h3>
-                  <p className="text-xs text-[#8A7D73] uppercase tracking-wider">
-                    Please share your project details below.
-                  </p>
+                  <label className="text-[10px] uppercase tracking-[0.25em] font-sans text-[#6E6862] block">
+                    PROJECT TYPOLOGY *
+                  </label>
+                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+                    {projectTypes.map((t) => (
+                      <button
+                        key={t}
+                        type="button"
+                        onClick={() => setFormData({ ...formData, projectType: t })}
+                        className={`py-2 px-3 text-[10px] uppercase tracking-wider font-sans border text-left transition-colors ${
+                          formData.projectType === t
+                            ? "bg-[#22201E] text-[#F7F5F0] border-[#22201E]"
+                            : "border-[#22201E]/15 text-[#6E6862] hover:border-[#22201E]/40"
+                        }`}
+                      >
+                        {t}
+                      </button>
+                    ))}
+                  </div>
                 </div>
 
-                {errorMessage && (
-                  <div className="p-4 bg-red-950/40 border border-red-800 text-red-300 text-xs flex items-center space-x-2 rounded">
-                    <AlertCircle className="w-4 h-4 flex-shrink-0" />
-                    <span>{errorMessage}</span>
-                  </div>
-                )}
-
+                {/* Name & Phone */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                  {/* Full Name */}
-                  <div className="space-y-2">
-                    <label className="block text-[10px] uppercase tracking-[0.25em] text-[#8A7D73]">
+                  <div className="space-y-1">
+                    <label className="text-[10px] uppercase tracking-[0.25em] font-sans text-[#6E6862] block">
                       YOUR NAME *
                     </label>
                     <input
                       type="text"
                       required
-                      placeholder="Mr. / Ms. Full Name"
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="w-full bg-[#11110F] border border-[#33302C] focus:border-[#B69A6A] text-[#EDE7DF] px-4 py-3 text-xs outline-none transition-colors"
+                      placeholder="e.g. Mr. Ruchir"
+                      className="w-full bg-transparent border-b border-[#22201E]/20 py-2 text-sm text-[#22201E] placeholder-[#6E6862]/40 focus:border-[#22201E] focus:outline-none transition-colors"
                     />
                   </div>
 
-                  {/* Email */}
-                  <div className="space-y-2">
-                    <label className="block text-[10px] uppercase tracking-[0.25em] text-[#8A7D73]">
-                      EMAIL ADDRESS *
-                    </label>
-                    <input
-                      type="email"
-                      required
-                      placeholder="client@domain.com"
-                      value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="w-full bg-[#11110F] border border-[#33302C] focus:border-[#B69A6A] text-[#EDE7DF] px-4 py-3 text-xs outline-none transition-colors"
-                    />
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                  {/* Phone */}
-                  <div className="space-y-2">
-                    <label className="block text-[10px] uppercase tracking-[0.25em] text-[#8A7D73]">
-                      TELEPHONE / WHATSAPP *
+                  <div className="space-y-1">
+                    <label className="text-[10px] uppercase tracking-[0.25em] font-sans text-[#6E6862] block">
+                      PHONE NUMBER *
                     </label>
                     <input
                       type="tel"
                       required
-                      placeholder="+91 98000 00000"
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      className="w-full bg-[#11110F] border border-[#33302C] focus:border-[#B69A6A] text-[#EDE7DF] px-4 py-3 text-xs outline-none transition-colors"
+                      placeholder="+91 98260 00000"
+                      className="w-full bg-transparent border-b border-[#22201E]/20 py-2 text-sm text-[#22201E] placeholder-[#6E6862]/40 focus:border-[#22201E] focus:outline-none transition-colors"
                     />
-                  </div>
-
-                  {/* Project Typology */}
-                  <div className="space-y-2">
-                    <label className="block text-[10px] uppercase tracking-[0.25em] text-[#8A7D73]">
-                      PROJECT TYPOLOGY
-                    </label>
-                    <select
-                      value={formData.project_type}
-                      onChange={(e) => setFormData({ ...formData, project_type: e.target.value })}
-                      className="w-full bg-[#11110F] border border-[#33302C] focus:border-[#B69A6A] text-[#EDE7DF] px-4 py-3 text-xs outline-none transition-colors"
-                    >
-                      <option value="Residential">Residential Villa / Apartment</option>
-                      <option value="Hospitality">Hospitality / Hotel / Dining / Lounge</option>
-                      <option value="Commercial">Commercial Office / Headquarters</option>
-                      <option value="Retail">Retail Atelier / Bridal / Salon</option>
-                      <option value="Institutional">Institutional / Educational</option>
-                      <option value="Turnkey">Full Turnkey Execution</option>
-                    </select>
                   </div>
                 </div>
 
+                {/* Email & Location */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                  {/* Location */}
-                  <div className="space-y-2">
-                    <label className="block text-[10px] uppercase tracking-[0.25em] text-[#8A7D73]">
-                      PROJECT CITY / LOCATION
+                  <div className="space-y-1">
+                    <label className="text-[10px] uppercase tracking-[0.25em] font-sans text-[#6E6862] block">
+                      EMAIL ADDRESS
                     </label>
                     <input
-                      type="text"
-                      placeholder="e.g. Vijay Nagar, Indore"
-                      value={formData.location}
-                      onChange={(e) => setFormData({ ...formData, location: e.target.value })}
-                      className="w-full bg-[#11110F] border border-[#33302C] focus:border-[#B69A6A] text-[#EDE7DF] px-4 py-3 text-xs outline-none transition-colors"
+                      type="email"
+                      value={formData.email}
+                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                      placeholder="client@domain.com"
+                      className="w-full bg-transparent border-b border-[#22201E]/20 py-2 text-sm text-[#22201E] placeholder-[#6E6862]/40 focus:border-[#22201E] focus:outline-none transition-colors"
                     />
                   </div>
 
-                  {/* Estimated Budget Range */}
-                  <div className="space-y-2">
-                    <label className="block text-[10px] uppercase tracking-[0.25em] text-[#8A7D73]">
-                      ANTICIPATED BUDGET
+                  <div className="space-y-1">
+                    <label className="text-[10px] uppercase tracking-[0.25em] font-sans text-[#6E6862] block">
+                      LOCATION / CITY
                     </label>
-                    <select
-                      value={formData.budget}
-                      onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
-                      className="w-full bg-[#11110F] border border-[#33302C] focus:border-[#B69A6A] text-[#EDE7DF] px-4 py-3 text-xs outline-none transition-colors"
-                    >
-                      <option value="₹25 Lakhs - ₹50 Lakhs">₹25 Lakhs - ₹50 Lakhs</option>
-                      <option value="₹50 Lakhs - ₹1 Crore">₹50 Lakhs - ₹1 Crore</option>
-                      <option value="₹1 Crore - ₹2.5 Crores">₹1 Crore - ₹2.5 Crores</option>
-                      <option value="₹2.5 Crores+">₹2.5 Crores +</option>
-                      <option value="To be discussed">To be discussed</option>
-                    </select>
+                    <input
+                      type="text"
+                      value={formData.location}
+                      onChange={(e) => setFormData({ ...formData, location: e.target.value })}
+                      placeholder="Indore / Bhopal / Mathura"
+                      className="w-full bg-transparent border-b border-[#22201E]/20 py-2 text-sm text-[#22201E] placeholder-[#6E6862]/40 focus:border-[#22201E] focus:outline-none transition-colors"
+                    />
+                  </div>
+                </div>
+
+                {/* Budget */}
+                <div className="space-y-2">
+                  <label className="text-[10px] uppercase tracking-[0.25em] font-sans text-[#6E6862] block">
+                    BUDGET RANGE
+                  </label>
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+                    {budgetRanges.map((b) => (
+                      <button
+                        key={b}
+                        type="button"
+                        onClick={() => setFormData({ ...formData, budget: b })}
+                        className={`py-2 px-2 text-[10px] uppercase tracking-wider font-sans border text-center transition-colors ${
+                          formData.budget === b
+                            ? "bg-[#22201E] text-[#F7F5F0] border-[#22201E]"
+                            : "border-[#22201E]/15 text-[#6E6862] hover:border-[#22201E]/40"
+                        }`}
+                      >
+                        {b}
+                      </button>
+                    ))}
                   </div>
                 </div>
 
                 {/* Message */}
-                <div className="space-y-2">
-                  <label className="block text-[10px] uppercase tracking-[0.25em] text-[#8A7D73]">
+                <div className="space-y-1">
+                  <label className="text-[10px] uppercase tracking-[0.25em] font-sans text-[#6E6862] block">
                     TELL US ABOUT THE SPACE
                   </label>
                   <textarea
-                    rows={4}
-                    placeholder="Describe square footage, architecture style preference, target possession date, etc."
+                    rows={3}
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className="w-full bg-[#11110F] border border-[#33302C] focus:border-[#B69A6A] text-[#EDE7DF] px-4 py-3 text-xs outline-none transition-colors resize-none"
+                    placeholder="Describe your architectural vision, timelines, or dimensions..."
+                    className="w-full bg-transparent border-b border-[#22201E]/20 py-2 text-sm text-[#22201E] placeholder-[#6E6862]/40 focus:border-[#22201E] focus:outline-none transition-colors resize-none"
                   />
                 </div>
 
-                <button
-                  type="submit"
-                  disabled={loading}
-                  className="w-full py-4 bg-[#B69A6A] hover:bg-[#D5C2A0] text-[#11110F] text-xs uppercase tracking-[0.25em] font-medium transition-all duration-300 flex items-center justify-center space-x-3 rounded-full shadow-xl"
-                  data-cursor-text="SUBMIT"
-                >
-                  {loading ? (
-                    <>
-                      <Loader2 className="w-4 h-4 animate-spin" />
-                      <span>TRANSMITTING INQUIRY...</span>
-                    </>
-                  ) : (
-                    <>
-                      <span>START A CONVERSATION</span>
-                      <ArrowUpRight className="w-4 h-4" />
-                    </>
-                  )}
-                </button>
+                {/* Submit Action */}
+                <div className="pt-2">
+                  <button
+                    type="submit"
+                    disabled={status === "submitting"}
+                    className="group inline-flex items-center space-x-3 text-xs uppercase tracking-[0.25em] font-sans text-[#22201E] border-b-2 border-[#22201E] pb-1 hover:text-[#3157D5] hover:border-[#3157D5] transition-all disabled:opacity-50"
+                  >
+                    <span>{status === "submitting" ? "TRANSMITTING..." : "START A PROJECT"}</span>
+                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  </button>
+                </div>
               </form>
             )}
           </div>

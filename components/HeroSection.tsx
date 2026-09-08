@@ -1,193 +1,161 @@
 "use client";
 
-import { useEffect, useState, useRef } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowDown, Volume2, VolumeX } from "lucide-react";
+import { ArrowRight, Play } from "lucide-react";
 
 export default function HeroSection() {
-  const [loaded, setLoaded] = useState(false);
   const [mouseOffset, setMouseOffset] = useState({ x: 0, y: 0 });
-  const [currentTime, setCurrentTime] = useState("");
-  const [isAudioActive, setIsAudioActive] = useState(false);
-  const audioRef = useRef<HTMLAudioElement | null>(null);
+  const [currentSlide, setCurrentSlide] = useState(0);
 
+  const heroSlides = [
+    {
+      title: "BCM PLANET RESIDENCE",
+      location: "INDORE",
+      category: "RESIDENTIAL",
+      src: "/images/projects/bcm-planet-luxury-residence/bcm_living_room.jpg",
+      sub: "LIVING SANCTUARY // TACTILE STONE & WOODWORK",
+    },
+    {
+      title: "COFFEE BY DI BELLA",
+      location: "INDORE",
+      category: "HOSPITALITY",
+      src: "/images/projects/coffee-by-di-bella/p3_2_627x627.png",
+      sub: "WARM HOSPITALITY DINING // FLUTED TIMBER",
+    },
+    {
+      title: "RESIDENCE AT OMAXE",
+      location: "MATHURA",
+      category: "RESIDENTIAL",
+      src: "/images/projects/residence-at-omaxe/p4_1_2048x1150.jpeg",
+      sub: "SERENE RESIDENTIAL HAVEN // TIMELESS ARCHITECTURE",
+    },
+  ];
+
+  // Subtle 3D mouse depth without gimmicks
   useEffect(() => {
-    const timer = setTimeout(() => setLoaded(true), 100);
-
-    // Update live Indore time
-    const updateTime = () => {
-      const now = new Date();
-      setCurrentTime(
-        now.toLocaleTimeString("en-US", {
-          timeZone: "Asia/Kolkata",
-          hour: "2-digit",
-          minute: "2-digit",
-          second: "2-digit",
-          hour12: false,
-        }) + " IST"
-      );
+    const handleMouseMove = (e: MouseEvent) => {
+      if (window.innerWidth < 1024) return;
+      const x = (e.clientX / window.innerWidth - 0.5) * 16;
+      const y = (e.clientY / window.innerHeight - 0.5) * 16;
+      setMouseOffset({ x, y });
     };
-    updateTime();
-    const timeInterval = setInterval(updateTime, 1000);
 
-    return () => {
-      clearTimeout(timer);
-      clearInterval(timeInterval);
-    };
+    window.addEventListener("mousemove", handleMouseMove, { passive: true });
+    return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
 
-  const handleMouseMove = (e: React.MouseEvent) => {
-    const { clientX, clientY } = e;
-    const { innerWidth, innerHeight } = window;
-    const x = (clientX / innerWidth - 0.5) * 16;
-    const y = (clientY / innerHeight - 0.5) * 16;
-    setMouseOffset({ x, y });
-  };
-
-  const toggleSound = () => {
-    // Elegant toggle for luxury atmospheric vibe
-    setIsAudioActive(!isAudioActive);
-  };
+  const slide = heroSlides[currentSlide];
 
   return (
-    <section
-      onMouseMove={handleMouseMove}
-      className="relative w-full h-screen min-h-[750px] flex items-center justify-center overflow-hidden bg-[#11110F]"
-    >
-      {/* Background Architectural Photography with Parallax */}
-      <div className="absolute inset-0 w-full h-full overflow-hidden">
-        <div
-          className="relative w-[105%] h-[105%] -left-[2.5%] -top-[2.5%] transition-transform duration-700 ease-out"
-          style={{
-            transform: `translate3d(${mouseOffset.x}px, ${mouseOffset.y}px, 0)`,
-          }}
-        >
-          <Image
-            src="/images/projects/bcm-planet-luxury-residence/bcm_living_room.jpg"
-            alt="Antaara Design Studio Luxury Interior Architecture"
-            fill
-            priority
-            className={`object-cover object-center transition-all duration-[2400ms] ease-out ${
-              loaded ? "scale-100 opacity-75 blur-0" : "scale-115 opacity-0 blur-md"
-            }`}
-          />
-        </div>
-        {/* Layered warm cinematic luxury shading */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#141210] via-[#141210]/40 to-black/60" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_transparent_30%,_rgba(20,18,16,0.7)_100%)]" />
-      </div>
-
-      {/* Hero Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 w-full flex flex-col justify-between h-[84%] pt-20">
-        {/* Top Minimal Editorial Tag */}
-        <div
-          className={`flex items-center justify-between transition-all duration-1000 delay-300 ${
-            loaded ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-4"
-          }`}
-        >
-          <div className="inline-flex items-center space-x-3 text-[10px] md:text-xs uppercase tracking-[0.35em] text-[#B69A6A] font-sans border-l-2 border-[#B69A6A] pl-3 py-0.5">
-            <span>KIRTI JAISWAL RAJPAL</span>
-            <span className="text-[#8A7D73]">•</span>
-            <span className="text-[#EDE7DF]/80">INDORE</span>
-          </div>
-
-          <div className="flex items-center space-x-5">
-            {/* Live Clock */}
-            <div className="hidden sm:flex items-center space-x-2 text-[10px] font-mono tracking-widest text-[#8A7D73]">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-              <span>{currentTime || "21:45 IST"}</span>
-            </div>
-
-            {/* Ambient Sound Mode Indicator */}
-            <button
-              onClick={toggleSound}
-              className="inline-flex items-center space-x-2 text-[10px] uppercase tracking-widest px-3 py-1.5 rounded-full border border-white/10 text-[#EDE7DF]/75 hover:text-[#B69A6A] hover:border-[#B69A6A] transition-all bg-black/30 backdrop-blur-sm"
-              title="Toggle Atmospheric Audio Mode"
-            >
-              {isAudioActive ? (
-                <>
-                  <Volume2 className="w-3.5 h-3.5 text-[#B69A6A]" />
-                  <span className="text-[9px]">ATMOSPHERE ON</span>
-                </>
-              ) : (
-                <>
-                  <VolumeX className="w-3.5 h-3.5" />
-                  <span className="text-[9px]">ATMOSPHERE</span>
-                </>
-              )}
-            </button>
-          </div>
-        </div>
-
-        {/* Center Modern Luxury Title with Line Stagger */}
-        <div className="my-auto py-6">
-          <div className="space-y-2">
-            <div className="overflow-hidden">
-              <h1
-                className={`font-display text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-light text-[#FAF7F2] leading-[1.05] tracking-tight transition-all duration-1000 delay-500 ${
-                  loaded ? "translate-y-0 opacity-100" : "translate-y-20 opacity-0"
-                }`}
-              >
-                SPACES THAT
-              </h1>
-            </div>
-
-            <div className="overflow-hidden">
-              <h2
-                className={`font-display text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-light leading-[1.05] tracking-tight transition-all duration-1000 delay-700 ${
-                  loaded ? "translate-y-0 opacity-100" : "translate-y-20 opacity-0"
-                }`}
-              >
-                <span className="font-serif italic font-normal text-[#B69A6A]">TELL A STORY.</span>
-              </h2>
-            </div>
-          </div>
-
+    <section className="relative w-full min-h-[92vh] bg-[#F6F3ED] text-[#27343A] pt-28 sm:pt-32 pb-14 px-6 sm:px-10 md:px-16 flex flex-col justify-between select-none overflow-hidden">
+      {/* Main Grid: Left Narrative + Right Dominant Architectural Photo + Far Right Vertical Accents */}
+      <div className="max-w-[1560px] w-full mx-auto my-auto relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center min-h-[64vh]">
+          {/* Left Column: Narrative (Col 1-5) */}
           <div
-            className={`mt-8 flex flex-col sm:flex-row sm:items-center justify-between border-t border-[#EDE7DF]/20 pt-6 max-w-4xl transition-all duration-1000 delay-1000 ${
-              loaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-            }`}
+            className="lg:col-span-5 space-y-7 transition-transform duration-700 ease-out"
+            style={{
+              transform: `translate3d(${-mouseOffset.x * 0.3}px, ${-mouseOffset.y * 0.3}px, 0)`,
+            }}
           >
-            <p className="text-xs sm:text-sm tracking-[0.2em] uppercase text-[#EDE7DF]/80 font-sans">
-              ANTAARA DESIGN STUDIO
-              <span className="block text-[10px] tracking-[0.3em] text-[#8A7D73] mt-1">
-                INTERIOR ARCHITECTURE • HIGH-END RESIDENTIAL • HOSPITALITY • COMMERCIAL
-              </span>
+            {/* Subtle Eyebrow */}
+            <div className="flex items-center space-x-2 text-[10px] uppercase tracking-[0.3em] font-sans text-[#66757A]">
+              <span>—</span>
+              <span>INTERIORS WITH INTENTION</span>
+            </div>
+
+            {/* Restrained Headline (58–72px, exactly matching reference) */}
+            <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-[62px] xl:text-[68px] font-light leading-[1.08] tracking-tight text-[#27343A]">
+              Beautiful spaces <br />
+              <span className="italic font-light text-[#66757A]">for real lives.</span>
+            </h1>
+
+            {/* Refined Subhead */}
+            <p className="max-w-md text-sm sm:text-[15px] text-[#66757A] font-sans font-light leading-relaxed">
+              We design residential, commercial and hospitality spaces that are elegant, functional and deeply personal.
             </p>
 
-            <div className="mt-4 sm:mt-0 flex items-center space-x-6">
-              <Link
-                href="/work"
-                className="text-xs uppercase tracking-[0.25em] text-[#F5F1EB] hover:text-[#B69A6A] transition-colors font-medium underline underline-offset-8"
-                data-cursor-text="EXPLORE"
+            {/* CTAs matching reference */}
+            <div className="pt-2 flex flex-wrap items-center gap-5 text-xs font-sans">
+              <a
+                href="#work"
+                className="inline-flex items-center space-x-2 px-6 py-2.5 rounded-full border border-[#27343A]/30 text-[#27343A] hover:bg-[#27343A] hover:text-[#F6F3ED] transition-all duration-300 shadow-sm"
               >
-                VIEW ARCHIVE
-              </Link>
+                <span>View Our Work</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </a>
+
+              <a
+                href="#studio"
+                className="inline-flex items-center space-x-2 px-3 py-2 text-[#27343A] hover:text-[#566D68] transition-colors"
+              >
+                <div className="w-6 h-6 rounded-full border border-[#27343A]/20 flex items-center justify-center">
+                  <Play className="w-2.5 h-2.5 fill-current ml-0.5 text-[#27343A]" />
+                </div>
+                <span>Play Showreel</span>
+              </a>
+            </div>
+
+            {/* Bottom Location Tag */}
+            <div className="pt-6 border-t border-[#27343A]/10 flex items-center justify-between text-[10px] uppercase tracking-[0.28em] font-sans text-[#66757A]">
+              <span>INDORE, INDIA</span>
+              <span>EST. 2017</span>
             </div>
           </div>
-        </div>
 
-        {/* Bottom Bar with Coordinates & Scroll */}
-        <div
-          className={`flex items-end justify-between transition-all duration-1000 delay-1000 ${
-            loaded ? "opacity-100" : "opacity-0"
-          }`}
-        >
-          <a
-            href="#studio-intro"
-            className="group inline-flex items-center space-x-3 text-[10px] uppercase tracking-[0.3em] text-[#8A7D73] hover:text-[#B69A6A] transition-colors"
+          {/* Center/Right: Dominant Architectural Photograph (~60-65% width) */}
+          <div
+            className="lg:col-span-6 relative flex flex-col items-end transition-transform duration-700 ease-out"
+            style={{
+              transform: `translate3d(${mouseOffset.x * 0.6}px, ${mouseOffset.y * 0.6}px, 0) perspective(1000px) rotateY(${mouseOffset.x * 0.15}deg)`,
+            }}
           >
-            <span className="p-2.5 rounded-full border border-[#8A7D73]/40 group-hover:border-[#B69A6A] group-hover:translate-y-1 transition-all">
-              <ArrowDown className="w-3.5 h-3.5 text-[#B69A6A]" />
-            </span>
-            <span className="font-sans">SCROLL TO EXPLORE ↓</span>
-          </a>
+            <div className="relative w-full aspect-[16/11] sm:aspect-[16/10] max-h-[580px] overflow-hidden border border-[#27343A]/12 shadow-[0_20px_50px_rgba(39,52,58,0.06)] bg-[#ECE8DF] group">
+              <Image
+                src={slide.src}
+                alt={slide.title}
+                fill
+                priority
+                sizes="(max-width: 1024px) 100vw, 55vw"
+                className="object-cover object-center transition-transform duration-[1800ms] ease-out group-hover:scale-103"
+              />
 
-          <div className="hidden md:flex items-center space-x-4 text-[10px] font-mono tracking-widest text-[#8A7D73]">
-            <span>LAT 22.7196° N</span>
-            <span>•</span>
-            <span>LONG 75.8577° E</span>
+              {/* Floating Architectural Project Label Bar from Reference */}
+              <div className="absolute bottom-4 left-4 right-4 sm:right-auto sm:left-6 sm:bottom-6 flex items-center justify-between sm:justify-start space-x-4 bg-[#F6F3ED]/95 backdrop-blur-md px-5 py-2.5 border border-[#27343A]/12 shadow-sm text-[10px] uppercase tracking-[0.25em] font-sans text-[#27343A]">
+                <div className="flex items-center space-x-2">
+                  <span className="font-medium">{slide.title}</span>
+                  <span className="text-[#66757A]">|</span>
+                  <span className="text-[#66757A]">{slide.location}</span>
+                </div>
+                <div className="flex items-center space-x-3 pl-4 border-l border-[#27343A]/15">
+                  <span className="text-[9px] text-[#66757A]">0{currentSlide + 1} / 0{heroSlides.length}</span>
+                  <button
+                    onClick={() => setCurrentSlide((prev) => (prev + 1) % heroSlides.length)}
+                    aria-label="Next slide"
+                    className="w-6 h-6 rounded-full border border-[#27343A]/25 flex items-center justify-center hover:bg-[#27343A] hover:text-[#F6F3ED] transition-colors"
+                  >
+                    <ArrowRight className="w-3 h-3" />
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            {/* Delicate Architectural Subtitle */}
+            <div className="w-full pt-2.5 flex items-center justify-between text-[9px] uppercase tracking-[0.28em] font-sans text-[#66757A]">
+              <span>{slide.sub}</span>
+              <span>{slide.category}</span>
+            </div>
+          </div>
+
+          {/* Far-Right Column: Vertical Architectural Keywords (Col 12) */}
+          <div className="hidden lg:flex lg:col-span-1 flex-col items-center justify-center space-y-6 text-[9px] uppercase tracking-[0.35em] font-sans text-[#66757A]/80 border-l border-[#27343A]/10 py-6 pl-4">
+            <span className="hover:text-[#27343A] transition-colors">SPACE</span>
+            <span className="hover:text-[#27343A] transition-colors">PEOPLE</span>
+            <span className="hover:text-[#27343A] transition-colors">MATERIAL</span>
+            <span className="hover:text-[#27343A] transition-colors">LIGHT</span>
+            <span className="hover:text-[#27343A] transition-colors">STORY</span>
           </div>
         </div>
       </div>
