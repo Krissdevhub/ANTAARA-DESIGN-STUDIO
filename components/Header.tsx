@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ArrowUpRight } from "lucide-react";
@@ -33,19 +34,30 @@ export default function Header() {
       <header
         className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ${
           scrolled
-            ? "py-3.5 bg-[#160404]/96 backdrop-blur-2xl border-b border-[#dca82b]/20 shadow-[0_10px_35px_rgba(0,0,0,0.7)]"
+            ? "py-3 bg-[#160404]/96 backdrop-blur-2xl border-b border-[#dca82b]/20 shadow-[0_10px_35px_rgba(0,0,0,0.7)]"
             : "py-4 sm:py-5 bg-[#180606]/85 backdrop-blur-xl border-b border-white/5 shadow-lg"
         }`}
       >
         <div className="max-w-[1440px] mx-auto px-5 sm:px-8 md:px-12 flex items-center justify-between">
-          {/* Brand Logo */}
-          <Link href="/" className="group flex flex-col items-start select-none">
-            <span className="font-display text-xl sm:text-2xl font-medium tracking-[0.28em] text-[#f7f6ef] group-hover:text-[#dca82b] transition-colors duration-300">
-              ANTAARA
-            </span>
-            <span className="text-[8px] uppercase tracking-[0.32em] text-[#d3c8bd] font-sans -mt-0.5">
-              DESIGN STUDIO · INDORE
-            </span>
+          {/* Brand Logo with Official Gold Seal */}
+          <Link href="/" className="group flex items-center gap-3 select-none">
+            <div className="relative w-9 h-9 sm:w-10 sm:h-10 flex-shrink-0 transition-transform duration-300 group-hover:scale-105">
+              <Image
+                src="/images/brand/logo.png"
+                alt="Antaara Emblem"
+                fill
+                priority
+                className="object-contain drop-shadow-[0_0_12px_rgba(220,168,43,0.4)]"
+              />
+            </div>
+            <div className="flex flex-col items-start">
+              <span className="font-display text-lg sm:text-2xl font-medium tracking-[0.24em] text-[#f7f6ef] group-hover:text-[#dca82b] transition-colors duration-300 leading-tight">
+                ANTAARA
+              </span>
+              <span className="text-[7.5px] sm:text-[8px] uppercase tracking-[0.32em] text-[#d3c8bd] font-sans -mt-0.5">
+                DESIGN STUDIO · INDORE
+              </span>
+            </div>
           </Link>
 
           {/* Desktop Navigation Links */}

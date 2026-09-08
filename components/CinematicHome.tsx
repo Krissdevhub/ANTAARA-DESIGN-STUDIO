@@ -175,7 +175,7 @@ const portfolioProjects = [
     category: "Residential",
     tagline: "Understated Elegance & Harmonious Spatial Planning",
     location: "Bengali Square, Indore",
-    image: "/images/projects/vinod-dhar-residence/vinod_living.jpg",
+    image: "/images/projects/vinod-dhar-residence/vinod_living_clean.jpg",
     slug: "vinod-dhar-residence",
     client: "Mr. Vinod Dhar",
     featured: false,

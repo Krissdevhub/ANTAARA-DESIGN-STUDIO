@@ -31,12 +31,10 @@ export const INITIAL_PROJECTS: Project[] = [
     "summary": "Designed as more than a place for coffee, Coffee by Di Bella brings together hospitality, movement, and visual identity within a layered contemporary environment.",
     "description": "Designed as more than a place for coffee, Coffee by Di Bella brings together hospitality, movement, and visual identity within a layered contemporary environment.\n\nKey Design Pillars:\n01 — Warm Ambience: Soft lighting, natural textures and comfortable seating.\n02 — Strong Identity: Distinctive architectural details that give the café its own character.\n03 — Thoughtful Functionality: Every element is designed with purpose and ease.",
     "page": 3,
-    "coverImage": "/images/projects/coffee-by-di-bella/p3_3_1310x1201.png",
+    "coverImage": "/images/projects/coffee-by-di-bella/p3_2_627x627.png",
     "galleryImages": [
-      "/images/projects/coffee-by-di-bella/p3_3_1310x1201.png",
       "/images/projects/coffee-by-di-bella/p3_2_627x627.png",
-      "/images/projects/coffee-by-di-bella/p3_4_657x599.png",
-      "/images/projects/coffee-by-di-bella/p3_0_240x287.jpeg"
+      "/images/projects/coffee-by-di-bella/p3_4_657x599.png"
     ]
   },
   {
@@ -56,9 +54,8 @@ export const INITIAL_PROJECTS: Project[] = [
     "coverImage": "/images/projects/omaxe-mathura-residence/p4_2_1402x1122.png",
     "galleryImages": [
       "/images/projects/omaxe-mathura-residence/p4_2_1402x1122.png",
-      "/images/projects/omaxe-mathura-residence/p4_1_1032x1172.jpeg",
-      "/images/projects/omaxe-mathura-residence/p4_3_720x1280.jpeg",
-      "/images/projects/omaxe-mathura-residence/p4_0_1600x720.jpeg"
+      "/images/projects/omaxe-mathura-residence/p4_0_1600x720.jpeg",
+      "/images/projects/omaxe-mathura-residence/p4_1_1032x1172.jpeg"
     ]
   },
   {
@@ -75,10 +72,9 @@ export const INITIAL_PROJECTS: Project[] = [
     "summary": "A dynamic corporate workspace balancing aerodynamic sophistication, executive quietude, and collaborative clarity for an international automotive titan.",
     "description": "Envisioned and executed for one of the world's leading automotive brands, this Kolkata headquarters combines corporate grandeur with human-centric acoustic and lighting treatments. Sleek metal trims, warm wood veneers, and fluid zoning echo automotive engineering precision.",
     "page": 5,
-    "coverImage": "/images/projects/corporate-office-kolkata/p5_0_1536x1024.jpeg",
+    "coverImage": "/images/projects/corporate-office-kolkata/corporate_main_office.jpg",
     "galleryImages": [
-      "/images/projects/corporate-office-kolkata/p5_0_1536x1024.jpeg",
-      "/images/projects/corporate-office-kolkata/p5_4_1536x1024.jpeg"
+      "/images/projects/corporate-office-kolkata/corporate_main_office.jpg"
     ]
   },
   {
@@ -98,9 +94,9 @@ export const INITIAL_PROJECTS: Project[] = [
     "coverImage": "/images/projects/bcm-planet-luxury-residence/bcm_living_room.jpg",
     "galleryImages": [
       "/images/projects/bcm-planet-luxury-residence/bcm_living_room.jpg",
-      "/images/projects/bcm-planet-luxury-residence/bcm_kitchen.jpg",
       "/images/projects/bcm-planet-luxury-residence/bcm_bedroom.jpg",
-      "/images/projects/bcm-planet-luxury-residence/bcm_dining.jpg"
+      "/images/projects/bcm-planet-luxury-residence/bcm_dining.jpg",
+      "/images/projects/bcm-planet-luxury-residence/bcm_kitchen.jpg"
     ]
   },
   {
@@ -117,10 +113,11 @@ export const INITIAL_PROJECTS: Project[] = [
     "summary": "Designed as a serene retreat within Hotel Pride, these luxury cottages combine timeless elegance with modern comfort, offering a seamless hospitality experience.",
     "description": "Conceived as secluded garden sanctuaries on Bypass Road, these luxury cottages harmonize earthy textures, vaulted warm wood ceilings, hand-picked upholstery, and deep connection to landscaped outdoors, setting a new benchmark for resort living.",
     "page": 7,
-    "coverImage": "/images/projects/hotel-pride-cottages/p7_1_1536x1024.jpeg",
+    "coverImage": "/images/projects/hotel-pride-cottages/pride_pool_night.jpg",
     "galleryImages": [
-      "/images/projects/hotel-pride-cottages/p7_1_1536x1024.jpeg",
-      "/images/projects/hotel-pride-cottages/p7_2_1536x1024.jpeg"
+      "/images/projects/hotel-pride-cottages/pride_pool_night.jpg",
+      "/images/projects/hotel-pride-cottages/pride_cottage_suite.jpg",
+      "/images/projects/hotel-pride-cottages/pride_tent_exterior.jpg"
     ]
   },
   {
@@ -137,13 +134,11 @@ export const INITIAL_PROJECTS: Project[] = [
     "summary": "A space that comes alive after sunset. Envisioned as a high-energy nightclub experience—bold, dramatic and immersive.",
     "description": "From the mood lighting to custom sculptural details, every element is crafted to elevate the spirit of the night and create unforgettable moments. Acoustic baffled ceilings, illuminated dark obsidian bars, velvet banquettes, and deep cinematic tones immerse guests in an electrifying atmosphere.",
     "page": 8,
-    "coverImage": "/images/projects/after-hours-nightclub/p8_4_1535x1024.jpeg",
+    "coverImage": "/images/projects/after-hours-nightclub/afterhours_main_lounge.jpg",
     "galleryImages": [
-      "/images/projects/after-hours-nightclub/p8_4_1535x1024.jpeg",
-      "/images/projects/after-hours-nightclub/p8_5_1535x1024.jpeg",
-      "/images/projects/after-hours-nightclub/p8_6_1535x1024.jpeg",
-      "/images/projects/after-hours-nightclub/p8_7_1535x1024.jpeg",
-      "/images/projects/after-hours-nightclub/p8_8_1535x1024.jpeg"
+      "/images/projects/after-hours-nightclub/afterhours_main_lounge.jpg",
+      "/images/projects/after-hours-nightclub/afterhours_vip_lounge.jpg",
+      "/images/projects/after-hours-nightclub/afterhours_red_tunnel.jpg"
     ]
   },
   {
@@ -160,10 +155,9 @@ export const INITIAL_PROJECTS: Project[] = [
     "summary": "A fine dining destination where elegant interiors, rich textures, and ambient lighting come together to create a sophisticated and unforgettable culinary experience.",
     "description": "Tiffany Blues pairs European fine dining poise with soft ambient illumination, curved velvet seating, brushed gold accents, and bespoke table appointments designed to honor every gastronomic occasion.",
     "page": 9,
-    "coverImage": "/images/projects/tiffany-blues-dining/p9_0_1536x1024.jpeg",
+    "coverImage": "/images/projects/tiffany-blues-dining/tiffany_main_dining.jpg",
     "galleryImages": [
-      "/images/projects/tiffany-blues-dining/p9_0_1536x1024.jpeg",
-      "/images/projects/tiffany-blues-dining/p9_3_1536x1024.jpeg"
+      "/images/projects/tiffany-blues-dining/tiffany_main_dining.jpg"
     ]
   },
   {
@@ -180,10 +174,9 @@ export const INITIAL_PROJECTS: Project[] = [
     "summary": "Designed for grand celebrations and prestigious events, combining timeless elegance with functional design for weddings, conferences, and unforgettable gatherings.",
     "description": "Expansive double-height ballroom with crystal chandeliers, sound-engineered wall paneling, modular conference divisions, and luxurious bridal green rooms suited for elite national gatherings.",
     "page": 10,
-    "coverImage": "/images/projects/hotel-pride-convention/p10_0_1536x1024.jpeg",
+    "coverImage": "/images/projects/hotel-pride-convention/convention_ballroom_main.jpg",
     "galleryImages": [
-      "/images/projects/hotel-pride-convention/p10_0_1536x1024.jpeg",
-      "/images/projects/hotel-pride-convention/p10_3_1536x1024.jpeg"
+      "/images/projects/hotel-pride-convention/convention_ballroom_main.jpg"
     ]
   },
   {
@@ -200,10 +193,9 @@ export const INITIAL_PROJECTS: Project[] = [
     "summary": "Designed as a premium beauty academy, blending elegance and functionality to create an inspiring environment where learning, creativity, and professional excellence thrive.",
     "description": "High-illumination vanity stations, sleek minimalist cabinetry, rose gold metallic highlights, and ergonomic layout designed for high-calibre cosmetology instruction.",
     "page": 11,
-    "coverImage": "/images/projects/kamna-joshi-beauty-academy/p11_0_1536x1024.jpeg",
+    "coverImage": "/images/projects/kamna-joshi-beauty-academy/beauty_academy_main.jpg",
     "galleryImages": [
-      "/images/projects/kamna-joshi-beauty-academy/p11_0_1536x1024.jpeg",
-      "/images/projects/kamna-joshi-beauty-academy/p11_5_1536x1024.jpeg"
+      "/images/projects/kamna-joshi-beauty-academy/beauty_academy_main.jpg"
     ]
   },
   {
@@ -220,12 +212,12 @@ export const INITIAL_PROJECTS: Project[] = [
     "summary": "A reflection of understated elegance and intelligent design. Every corner is thoughtfully planned to enhance functionality while creating a warm, timeless ambience.",
     "description": "“Kirti Ji understood our vision and transformed our imagination into reality. Every space has been created with care, comfort and purpose.” — Mr. Vinod Dhar.\n\nThis residence proves that compact urban luxury thrives when space efficiency is matched with warm textures, hidden storage, muted neutrals, and natural daylight orientation.",
     "page": 12,
-    "coverImage": "/images/projects/vinod-dhar-residence/vinod_living.jpg",
+    "coverImage": "/images/projects/vinod-dhar-residence/vinod_living_clean.jpg",
     "galleryImages": [
       "/images/projects/vinod-dhar-residence/vinod_living.jpg",
-      "/images/projects/vinod-dhar-residence/vinod_entrance_foyer.jpg",
       "/images/projects/vinod-dhar-residence/vinod_bedroom.jpg",
-      "/images/projects/vinod-dhar-residence/vinod_dining.jpg"
+      "/images/projects/vinod-dhar-residence/vinod_dining.jpg",
+      "/images/projects/vinod-dhar-residence/vinod_entrance_foyer.jpg"
     ]
   },
   {
@@ -242,10 +234,9 @@ export const INITIAL_PROJECTS: Project[] = [
     "summary": "Every element, from the choice of materials to the play of light, has been carefully curated to create a space that is warm, welcoming and enduringly beautiful.",
     "description": "A sanctuary of peaceful tones, fluted wall accents, warm travertine finishes, and layered drapery creating an organic transition between day and night living.",
     "page": 13,
-    "coverImage": "/images/projects/bengali-square-residence/p13_0_1536x1024.jpeg",
+    "coverImage": "/images/projects/bengali-square-residence/bengali_living_clean.jpg",
     "galleryImages": [
-      "/images/projects/bengali-square-residence/p13_0_1536x1024.jpeg",
-      "/images/projects/bengali-square-residence/p13_4_1536x1024.jpeg"
+      "/images/projects/bengali-square-residence/bengali_living_main.jpg"
     ]
   },
   {
@@ -262,9 +253,8 @@ export const INITIAL_PROJECTS: Project[] = [
     "summary": "A home where every corner tells a story. Platinum Paradise blends modern elegance with warmth, thoughtfully designed to create a timeless space for comfortable family living.",
     "description": "Curated with multi-generational living at its core. Warm oak woodwork, durable premium upholstery, intelligent kitchen ergonomics, and serene prayer and study corners.",
     "page": 14,
-    "coverImage": "/images/projects/platinum-paradise-residence/p14_1_1536x1024.jpeg",
+    "coverImage": "/images/projects/platinum-paradise-residence/platinum_living_clean.jpg",
     "galleryImages": [
-      "/images/projects/platinum-paradise-residence/p14_1_1536x1024.jpeg",
       "/images/projects/platinum-paradise-residence/p14_6_674x842.jpeg"
     ]
   },
@@ -282,10 +272,10 @@ export const INITIAL_PROJECTS: Project[] = [
     "summary": "A space designed to inspire calm, encourage reflection and elevate everyday living with scholarly poise.",
     "description": "Commissioned by esteemed academician Dr. Upendra Dhar, this home integrates extensive private library alcoves, contemplative reading zones, warm timber ceilings, and curated devotional art.",
     "page": 15,
-    "coverImage": "/images/projects/grand-exotica-upendra-dhar/p15_4_1024x1536.jpeg",
+    "coverImage": "/images/projects/grand-exotica-upendra-dhar/grand_exotica_clean.jpg",
     "galleryImages": [
-      "/images/projects/grand-exotica-upendra-dhar/p15_4_1024x1536.jpeg",
-      "/images/projects/grand-exotica-upendra-dhar/p15_5_1024x1536.jpeg"
+      "/images/projects/grand-exotica-upendra-dhar/grand_exotica_clean.jpg",
+      "/images/projects/grand-exotica-upendra-dhar/grand_exotica_dining.jpg"
     ]
   },
   {
@@ -302,10 +292,9 @@ export const INITIAL_PROJECTS: Project[] = [
     "summary": "A luxurious bridal couture studio designed to create an unforgettable experience for every bride, blending rich textures, bespoke detailing and warm ambient lighting.",
     "description": "Champagne velvet paneling, arching gilded entryways, soft daylight-balanced color rendition indexing luminaires, and intimate family viewing sanctuaries.",
     "page": 16,
-    "coverImage": "/images/projects/luxury-bridal-experience-studio/p16_0_1536x1024.jpeg",
+    "coverImage": "/images/projects/luxury-bridal-experience-studio/bridal_studio_clean.jpg",
     "galleryImages": [
-      "/images/projects/luxury-bridal-experience-studio/p16_0_1536x1024.jpeg",
-      "/images/projects/luxury-bridal-experience-studio/p16_4_1536x1024.jpeg"
+      "/images/projects/luxury-bridal-experience-studio/bridal_studio_clean.jpg"
     ]
   },
   {
@@ -322,10 +311,9 @@ export const INITIAL_PROJECTS: Project[] = [
     "summary": "A fully designed automotive dealership and customer experience touchpoint reflecting brand excellence, sophistication, and seamless architectural flow.",
     "description": "High-spec polished concrete floors, matte black structural trusses, seamless back-lit stretch ceilings, and bespoke leather seating pods for vehicle personalization.",
     "page": 17,
-    "coverImage": "/images/projects/luxury-automotive-dealership/p17_0_1024x1536.jpeg",
+    "coverImage": "/images/projects/luxury-automotive-dealership/dealership_clean.jpg",
     "galleryImages": [
-      "/images/projects/luxury-automotive-dealership/p17_0_1024x1536.jpeg",
-      "/images/projects/luxury-automotive-dealership/p17_5_1024x1536.jpeg"
+      "/images/projects/luxury-automotive-dealership/dealership_main.jpg"
     ]
   },
   {
@@ -342,10 +330,9 @@ export const INITIAL_PROJECTS: Project[] = [
     "summary": "Crafted for a family that cherishes comfort, togetherness and timeless design, blending modern luxury with warm natural elements.",
     "description": "Soaring panoramic vistas over Nipania met with Italian Statuario marble floors, bespoke walnut paneling, automated mood settings, and seamless glass balustrade balconies.",
     "page": 21,
-    "coverImage": "/images/projects/sky-luxuria-4bhk/p21_3_1682x577.png",
+    "coverImage": "/images/projects/sky-luxuria-4bhk/sky_luxuria_living.jpg",
     "galleryImages": [
-      "/images/projects/sky-luxuria-4bhk/p21_3_1682x577.png",
-      "/images/projects/bcm-planet-luxury-residence/p6_3_1536x1024.jpeg"
+      "/images/projects/sky-luxuria-4bhk/sky_luxuria_living.jpg"
     ]
   },
   {
@@ -362,9 +349,9 @@ export const INITIAL_PROJECTS: Project[] = [
     "summary": "Designed as a vibrant café blending fun, flavour, and imagination into a space that delights people of all ages with cheerful colours and quirky character.",
     "description": "Playful retro pop aesthetics, custom upcycled scooter installations, neon accents, and modular seating designed for youth gatherings and celebration.",
     "page": 23,
-    "coverImage": "/images/projects/cravings-beats-and-treats/p23_0_1536x1024.jpeg",
+    "coverImage": "/images/projects/cravings-beats-and-treats/cravings_cafe_clean.jpg",
     "galleryImages": [
-      "/images/projects/cravings-beats-and-treats/p23_0_1536x1024.jpeg"
+      "/images/projects/cravings-beats-and-treats/cravings_cafe_clean.jpg"
     ]
   },
   {
@@ -381,9 +368,9 @@ export const INITIAL_PROJECTS: Project[] = [
     "summary": "A chic and contemporary salon thoughtfully designed to elevate the beauty experience through a seamless blend of luxury, comfort, and modern elegance.",
     "description": "Curved organic partitions, fluted glass screens, warm brass fixtures, and soft flattering illumination creating a boutique retail and pampering sanctuary inside C21 Mall.",
     "page": 28,
-    "coverImage": "/images/projects/interiors-selfie-salon/p28_0_1536x1024.jpeg",
+    "coverImage": "/images/projects/interiors-selfie-salon/salon_clean.jpg",
     "galleryImages": [
-      "/images/projects/interiors-selfie-salon/p28_0_1536x1024.jpeg"
+      "/images/projects/interiors-selfie-salon/salon_clean.jpg"
     ]
   },
   {
@@ -402,9 +389,7 @@ export const INITIAL_PROJECTS: Project[] = [
     "page": 29,
     "coverImage": "/images/projects/delhi-world-public-school/p29_0_1112x742.png",
     "galleryImages": [
-      "/images/projects/delhi-world-public-school/p29_0_1112x742.png",
-      "/images/projects/delhi-world-public-school/p29_1_1024x572.png",
-      "/images/projects/delhi-world-public-school/p29_2_1024x572.png"
+      "/images/projects/delhi-world-public-school/p29_0_1112x742.png"
     ]
   }
 ];

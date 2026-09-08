@@ -2,142 +2,131 @@ import json
 
 photo_map = {
     "coffee-by-di-bella": {
-        "cover": "/images/projects/coffee-by-di-bella/p3_3_1310x1201.png",
+        "cover": "/images/projects/coffee-by-di-bella/p3_2_627x627.png",
         "gallery": [
-            "/images/projects/coffee-by-di-bella/p3_3_1310x1201.png",
             "/images/projects/coffee-by-di-bella/p3_2_627x627.png",
-            "/images/projects/coffee-by-di-bella/p3_4_657x599.png",
-            "/images/projects/coffee-by-di-bella/p3_0_240x287.jpeg"
+            "/images/projects/coffee-by-di-bella/p3_4_657x599.png"
         ]
     },
     "residence-at-omaxe-mathura": {
         "cover": "/images/projects/omaxe-mathura-residence/p4_2_1402x1122.png",
         "gallery": [
             "/images/projects/omaxe-mathura-residence/p4_2_1402x1122.png",
-            "/images/projects/omaxe-mathura-residence/p4_1_1032x1172.jpeg",
-            "/images/projects/omaxe-mathura-residence/p4_3_720x1280.jpeg",
-            "/images/projects/omaxe-mathura-residence/p4_0_1600x720.jpeg"
+            "/images/projects/omaxe-mathura-residence/p4_0_1600x720.jpeg",
+            "/images/projects/omaxe-mathura-residence/p4_1_1032x1172.jpeg"
         ]
     },
     "corporate-office-kolkata": {
-        "cover": "/images/projects/corporate-office-kolkata/p5_0_1536x1024.jpeg",
+        "cover": "/images/projects/corporate-office-kolkata/corporate_main_office.jpg",
         "gallery": [
-            "/images/projects/corporate-office-kolkata/p5_0_1536x1024.jpeg",
-            "/images/projects/corporate-office-kolkata/p5_4_1536x1024.jpeg"
+            "/images/projects/corporate-office-kolkata/corporate_main_office.jpg"
         ]
     },
     "bcm-planet-luxury-residence": {
-        "cover": "/images/projects/bcm-planet-luxury-residence/p6_3_1536x1024.jpeg",
+        "cover": "/images/projects/bcm-planet-luxury-residence/bcm_living_room.jpg",
         "gallery": [
-            "/images/projects/bcm-planet-luxury-residence/p6_3_1536x1024.jpeg",
-            "/images/projects/bcm-planet-luxury-residence/p6_4_1536x1024.jpeg"
+            "/images/projects/bcm-planet-luxury-residence/bcm_living_room.jpg",
+            "/images/projects/bcm-planet-luxury-residence/bcm_bedroom.jpg",
+            "/images/projects/bcm-planet-luxury-residence/bcm_dining.jpg",
+            "/images/projects/bcm-planet-luxury-residence/bcm_kitchen.jpg"
         ]
     },
     "hotel-pride-cottages": {
-        "cover": "/images/projects/hotel-pride-cottages/p7_1_1536x1024.jpeg",
+        "cover": "/images/projects/hotel-pride-cottages/pride_pool_night.jpg",
         "gallery": [
-            "/images/projects/hotel-pride-cottages/p7_1_1536x1024.jpeg",
-            "/images/projects/hotel-pride-cottages/p7_2_1536x1024.jpeg"
+            "/images/projects/hotel-pride-cottages/pride_pool_night.jpg",
+            "/images/projects/hotel-pride-cottages/pride_cottage_suite.jpg",
+            "/images/projects/hotel-pride-cottages/pride_tent_exterior.jpg"
         ]
     },
     "after-hours-nightclub": {
-        "cover": "/images/projects/after-hours-nightclub/p8_4_1535x1024.jpeg",
+        "cover": "/images/projects/after-hours-nightclub/afterhours_main_lounge.jpg",
         "gallery": [
-            "/images/projects/after-hours-nightclub/p8_4_1535x1024.jpeg",
-            "/images/projects/after-hours-nightclub/p8_5_1535x1024.jpeg",
-            "/images/projects/after-hours-nightclub/p8_6_1535x1024.jpeg",
-            "/images/projects/after-hours-nightclub/p8_7_1535x1024.jpeg",
-            "/images/projects/after-hours-nightclub/p8_8_1535x1024.jpeg"
+            "/images/projects/after-hours-nightclub/afterhours_main_lounge.jpg",
+            "/images/projects/after-hours-nightclub/afterhours_vip_lounge.jpg",
+            "/images/projects/after-hours-nightclub/afterhours_red_tunnel.jpg"
         ]
     },
     "tiffany-blues-fine-dining": {
-        "cover": "/images/projects/tiffany-blues-dining/p9_0_1536x1024.jpeg",
+        "cover": "/images/projects/tiffany-blues-dining/tiffany_main_dining.jpg",
         "gallery": [
-            "/images/projects/tiffany-blues-dining/p9_0_1536x1024.jpeg",
-            "/images/projects/tiffany-blues-dining/p9_3_1536x1024.jpeg"
+            "/images/projects/tiffany-blues-dining/tiffany_main_dining.jpg"
         ]
     },
     "hotel-pride-convention-centre": {
-        "cover": "/images/projects/hotel-pride-convention/p10_0_1536x1024.jpeg",
+        "cover": "/images/projects/hotel-pride-convention/convention_ballroom_main.jpg",
         "gallery": [
-            "/images/projects/hotel-pride-convention/p10_0_1536x1024.jpeg",
-            "/images/projects/hotel-pride-convention/p10_3_1536x1024.jpeg"
+            "/images/projects/hotel-pride-convention/convention_ballroom_main.jpg"
         ]
     },
     "kamna-joshi-beauty-academy": {
-        "cover": "/images/projects/kamna-joshi-beauty-academy/p11_0_1536x1024.jpeg",
+        "cover": "/images/projects/kamna-joshi-beauty-academy/beauty_academy_main.jpg",
         "gallery": [
-            "/images/projects/kamna-joshi-beauty-academy/p11_0_1536x1024.jpeg",
-            "/images/projects/kamna-joshi-beauty-academy/p11_5_1536x1024.jpeg"
+            "/images/projects/kamna-joshi-beauty-academy/beauty_academy_main.jpg"
         ]
     },
     "vinod-dhar-residence": {
-        "cover": "/images/projects/vinod-dhar-residence/p12_4_1536x1024.jpeg",
+        "cover": "/images/projects/vinod-dhar-residence/vinod_living.jpg",
         "gallery": [
-            "/images/projects/vinod-dhar-residence/p12_4_1536x1024.jpeg",
-            "/images/projects/vinod-dhar-residence/p12_7_1229x820.jpeg"
+            "/images/projects/vinod-dhar-residence/vinod_living.jpg",
+            "/images/projects/vinod-dhar-residence/vinod_bedroom.jpg",
+            "/images/projects/vinod-dhar-residence/vinod_dining.jpg",
+            "/images/projects/vinod-dhar-residence/vinod_entrance_foyer.jpg"
         ]
     },
     "bengali-square-3bhk": {
-        "cover": "/images/projects/bengali-square-residence/p13_0_1536x1024.jpeg",
+        "cover": "/images/projects/bengali-square-residence/bengali_living_main.jpg",
         "gallery": [
-            "/images/projects/bengali-square-residence/p13_0_1536x1024.jpeg",
-            "/images/projects/bengali-square-residence/p13_4_1536x1024.jpeg"
+            "/images/projects/bengali-square-residence/bengali_living_main.jpg"
         ]
     },
     "platinum-paradise-residence": {
-        "cover": "/images/projects/platinum-paradise-residence/p14_1_1536x1024.jpeg",
+        "cover": "/images/projects/platinum-paradise-residence/p14_6_674x842.jpeg",
         "gallery": [
-            "/images/projects/platinum-paradise-residence/p14_1_1536x1024.jpeg",
             "/images/projects/platinum-paradise-residence/p14_6_674x842.jpeg"
         ]
     },
     "grand-exotica-upendra-dhar": {
-        "cover": "/images/projects/grand-exotica-upendra-dhar/p15_4_1024x1536.jpeg",
+        "cover": "/images/projects/grand-exotica-upendra-dhar/grand_exotica_clean.jpg",
         "gallery": [
-            "/images/projects/grand-exotica-upendra-dhar/p15_4_1024x1536.jpeg",
-            "/images/projects/grand-exotica-upendra-dhar/p15_5_1024x1536.jpeg"
+            "/images/projects/grand-exotica-upendra-dhar/grand_exotica_clean.jpg",
+            "/images/projects/grand-exotica-upendra-dhar/grand_exotica_dining.jpg"
         ]
     },
     "luxury-bridal-experience-studio": {
-        "cover": "/images/projects/luxury-bridal-experience-studio/p16_0_1536x1024.jpeg",
+        "cover": "/images/projects/luxury-bridal-experience-studio/bridal_studio_clean.jpg",
         "gallery": [
-            "/images/projects/luxury-bridal-experience-studio/p16_0_1536x1024.jpeg",
-            "/images/projects/luxury-bridal-experience-studio/p16_4_1536x1024.jpeg"
+            "/images/projects/luxury-bridal-experience-studio/bridal_studio_clean.jpg"
         ]
     },
     "luxury-automotive-experience": {
-        "cover": "/images/projects/luxury-automotive-dealership/p17_0_1024x1536.jpeg",
+        "cover": "/images/projects/luxury-automotive-dealership/dealership_main.jpg",
         "gallery": [
-            "/images/projects/luxury-automotive-dealership/p17_0_1024x1536.jpeg",
-            "/images/projects/luxury-automotive-dealership/p17_5_1024x1536.jpeg"
+            "/images/projects/luxury-automotive-dealership/dealership_main.jpg"
         ]
     },
     "sky-luxuria-4bhk": {
-        "cover": "/images/projects/sky-luxuria-4bhk/p21_3_1682x577.png",
+        "cover": "/images/projects/sky-luxuria-4bhk/sky_luxuria_living.jpg",
         "gallery": [
-            "/images/projects/sky-luxuria-4bhk/p21_3_1682x577.png",
-            "/images/projects/bcm-planet-luxury-residence/p6_3_1536x1024.jpeg"
+            "/images/projects/sky-luxuria-4bhk/sky_luxuria_living.jpg"
         ]
     },
     "cravings-beats-and-treats": {
-        "cover": "/images/projects/cravings-beats-and-treats/p23_0_1536x1024.jpeg",
+        "cover": "/images/projects/cravings-beats-and-treats/cravings_cafe_clean.jpg",
         "gallery": [
-            "/images/projects/cravings-beats-and-treats/p23_0_1536x1024.jpeg"
+            "/images/projects/cravings-beats-and-treats/cravings_cafe_clean.jpg"
         ]
     },
     "interiors-selfie-salon": {
-        "cover": "/images/projects/interiors-selfie-salon/p28_0_1536x1024.jpeg",
+        "cover": "/images/projects/interiors-selfie-salon/salon_clean.jpg",
         "gallery": [
-            "/images/projects/interiors-selfie-salon/p28_0_1536x1024.jpeg"
+            "/images/projects/interiors-selfie-salon/salon_clean.jpg"
         ]
     },
     "delhi-world-public-school": {
         "cover": "/images/projects/delhi-world-public-school/p29_0_1112x742.png",
         "gallery": [
-            "/images/projects/delhi-world-public-school/p29_0_1112x742.png",
-            "/images/projects/delhi-world-public-school/p29_1_1024x572.png",
-            "/images/projects/delhi-world-public-school/p29_2_1024x572.png"
+            "/images/projects/delhi-world-public-school/p29_0_1112x742.png"
         ]
     }
 }
@@ -177,4 +166,4 @@ export const INITIAL_PROJECTS: Project[] = """ + json.dumps(projects, indent=2, 
 with open("data/seed-projects.ts", "w", encoding="utf-8") as f:
     f.write(ts_content)
 
-print("Updated projects with pure architectural photography!")
+print("SUCCESS: Every single project mapped to 100% pure text-free photography!")

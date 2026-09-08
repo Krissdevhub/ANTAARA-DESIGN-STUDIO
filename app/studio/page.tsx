@@ -77,6 +77,13 @@ export default function StudioPage() {
         <section className="border-b border-white/10 pb-16 space-y-8">
           <div className="flex flex-wrap items-center justify-between gap-4">
             <div className="flex items-center gap-3">
+              <Image
+                src="/images/brand/logo.png"
+                alt="Antaara Emblem"
+                width={28}
+                height={28}
+                className="w-7 h-7 object-contain drop-shadow-[0_0_10px_rgba(220,168,43,0.3)]"
+              />
               <span className="w-8 h-[1px] bg-[#dca82b]" />
               <span className="text-[10px] uppercase tracking-[0.28em] text-[#dca82b] font-sans font-medium">
                 Atelier Monograph · Vol. 01

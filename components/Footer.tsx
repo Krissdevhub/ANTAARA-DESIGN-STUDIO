@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 
@@ -49,13 +50,23 @@ export default function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 text-xs font-sans">
           {/* Column 1: Studio Identity */}
           <div className="space-y-4">
-            <div>
-              <p className="font-display text-2xl font-normal tracking-[0.24em] text-[#f7f6ef]">
-                ANTAARA
-              </p>
-              <p className="text-[9px] uppercase tracking-[0.28em] text-[#d3c8bd] mt-0.5">
-                DESIGN STUDIO
-              </p>
+            <div className="flex items-center gap-3">
+              <div className="relative w-11 h-11 flex-shrink-0">
+                <Image
+                  src="/images/brand/logo.png"
+                  alt="Antaara Emblem"
+                  fill
+                  className="object-contain drop-shadow-[0_0_12px_rgba(220,168,43,0.35)]"
+                />
+              </div>
+              <div>
+                <p className="font-display text-2xl font-normal tracking-[0.24em] text-[#f7f6ef] leading-tight">
+                  ANTAARA
+                </p>
+                <p className="text-[8.5px] uppercase tracking-[0.28em] text-[#d3c8bd]">
+                  DESIGN STUDIO
+                </p>
+              </div>
             </div>
             <p className="text-[#c7bcb1] leading-relaxed text-[12px]">
               Founded by <strong className="text-[#f7f6ef] font-medium">Kirti Jaiswal Rajpal</strong>. An Indore-based practice bringing together spatial planning, materiality, and turnkey craftsmanship.

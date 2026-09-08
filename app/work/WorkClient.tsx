@@ -58,6 +58,13 @@ export default function WorkClient({ initialProjects }: WorkClientProps) {
         <div className="border-b border-white/10 pb-12 space-y-6">
           <div className="flex flex-wrap items-center justify-between gap-4">
             <div className="flex items-center gap-3">
+              <Image
+                src="/images/brand/logo.png"
+                alt="Antaara Emblem"
+                width={26}
+                height={26}
+                className="w-6 h-6 object-contain drop-shadow-[0_0_8px_rgba(220,168,43,0.3)]"
+              />
               <span className="w-8 h-[1px] bg-[#dca82b]" />
               <span className="text-[10px] uppercase tracking-[0.28em] text-[#dca82b] font-sans font-medium">
                 The Architectural Archive
