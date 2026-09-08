@@ -51,10 +51,10 @@ export default function Header() {
               />
             </div>
             <div className="flex flex-col items-start">
-              <span className="font-display text-lg sm:text-2xl font-medium tracking-[0.24em] text-[#f7f6ef] group-hover:text-[#dca82b] transition-colors duration-300 leading-tight">
+              <span className="brand-logo-text text-xl sm:text-2xl font-normal tracking-[0.22em] text-[#f7f6ef] group-hover:text-[#dca82b] transition-colors duration-300 leading-tight">
                 ANTAARA
               </span>
-              <span className="text-[7.5px] sm:text-[8px] uppercase tracking-[0.32em] text-[#d3c8bd] font-sans -mt-0.5">
+              <span className="text-[7.5px] sm:text-[8px] uppercase tracking-[0.34em] text-[#d3c8bd] font-sans -mt-0.5 font-medium">
                 DESIGN STUDIO · INDORE
               </span>
             </div>

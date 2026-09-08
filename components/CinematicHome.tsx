@@ -254,16 +254,14 @@ export default function CinematicHome() {
   const [frame, setFrame] = useState(0);
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [activeTab, setActiveTab] = useState<"dibella" | "afterhours">("dibella");
-  const [isPaused, setIsPaused] = useState(false);
 
-  // Slideshow auto-cycle with pause-on-hover
+  // Continuous cinematic slideshow auto-cycle
   useEffect(() => {
-    if (isPaused) return;
     const timer = setInterval(() => {
       setFrame((f) => (f + 1) % heroSlides.length);
-    }, 6000);
+    }, 5500);
     return () => clearInterval(timer);
-  }, [isPaused]);
+  }, []);
 
   const currentSlide = heroSlides[frame];
   const nextSlide = heroSlides[(frame + 1) % heroSlides.length];
@@ -281,8 +279,6 @@ export default function CinematicHome() {
           ═══════════════════════════════════════════════════════════ */}
       <section 
         className="relative min-h-[100svh] flex flex-col justify-end pb-10 sm:pb-14 px-6 sm:px-10 md:px-16 overflow-hidden pt-32 sm:pt-36"
-        onMouseEnter={() => setIsPaused(true)}
-        onMouseLeave={() => setIsPaused(false)}
       >
         {/* Subtle Luxury Radial Texture */}
         <div className="absolute inset-0 opacity-[0.18] pointer-events-none z-10 bg-[radial-gradient(#dca82b_1px,transparent_1px)] [background-size:24px_24px]" />
@@ -292,25 +288,29 @@ export default function CinematicHome() {
         <div className="absolute inset-0 z-10 bg-gradient-to-r from-[#180606]/90 via-[#180606]/40 to-transparent" />
         <div className="absolute top-0 inset-x-0 h-40 z-10 bg-gradient-to-b from-[#180606] to-transparent" />
 
-        {/* Rotating Slideshow Background Images */}
-        {heroSlides.map((slide, i) => (
-          <div
-            key={slide.slug}
-            className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
-              frame === i ? "opacity-100 scale-100" : "opacity-0 scale-105 pointer-events-none"
-            }`}
-            style={{ transition: "opacity 1.2s ease-in-out, transform 9s cubic-bezier(0.16, 1, 0.3, 1)" }}
-          >
-            <Image
-              src={slide.image}
-              alt={slide.title}
-              fill
-              priority={i === 0}
-              sizes="100vw"
-              className="object-cover brightness-[0.82] saturate-[1.1]"
-            />
-          </div>
-        ))}
+        {/* Rotating Slideshow Background Images with Architectural Ken Burns Video Zoom */}
+        {heroSlides.map((slide, i) => {
+          const isActive = frame === i;
+          return (
+            <div
+              key={`${slide.slug}-${isActive ? "active" : "idle"}`}
+              className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+                isActive ? "opacity-100 z-0 pointer-events-none" : "opacity-0 -z-10 pointer-events-none"
+              }`}
+            >
+              <div className={`w-full h-full relative overflow-hidden ${isActive ? "hero-video-zoom-active" : "scale-100"}`}>
+                <Image
+                  src={slide.image}
+                  alt={slide.title}
+                  fill
+                  priority={i === 0}
+                  sizes="100vw"
+                  className="object-cover brightness-[0.84] saturate-[1.12]"
+                />
+              </div>
+            </div>
+          );
+        })}
 
         {/* Hero Content Area */}
         <div className="relative z-20 max-w-[1440px] mx-auto w-full space-y-8">
@@ -324,9 +324,9 @@ export default function CinematicHome() {
             </div>
 
             {/* Main Headline */}
-            <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light text-[#f7f6ef] leading-[1.04] tracking-tight">
+            <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-[#f7f6ef] leading-[1.04] tracking-tight">
               Designing spaces <br />
-              <span className="font-serif italic text-transparent bg-clip-text bg-gradient-to-r from-[#edd277] via-[#dca82b] to-[#c28c1d]">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#edd277] via-[#dca82b] to-[#c28c1d]">
                 you feel.
               </span>
             </h1>
@@ -378,17 +378,21 @@ export default function CinematicHome() {
                 0{frame + 1} <span className="text-white/30">/</span> 0{heroSlides.length}
               </span>
 
-              {/* Progress Bars */}
+              {/* Progress Bars with Cinematic Animated Fill */}
               <div className="hidden sm:flex items-center gap-1.5">
                 {heroSlides.map((_, idx) => (
                   <button
                     key={idx}
                     onClick={() => setFrame(idx)}
-                    className={`h-1.5 rounded-full transition-all duration-500 ${
-                      frame === idx ? "w-10 bg-[#dca82b]" : "w-2.5 bg-white/20 hover:bg-white/40"
+                    className={`h-1.5 rounded-full overflow-hidden transition-all duration-300 ${
+                      frame === idx ? "w-12 bg-white/20" : "w-2.5 bg-white/20 hover:bg-white/40"
                     }`}
                     aria-label={`Jump to slide ${idx + 1}`}
-                  />
+                  >
+                    {frame === idx && (
+                      <div className="h-full bg-gradient-to-r from-[#edd277] to-[#dca82b] rounded-full animate-progress-fill" />
+                    )}
+                  </button>
                 ))}
               </div>
             </div>

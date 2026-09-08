@@ -1,1 +1,7 @@
-export { default, metadata } from "../studio/page";
+import StudioPage, { metadata as studioMetadata } from "../studio/page";
+
+export const metadata = studioMetadata;
+
+export default function AboutPage() {
+  return <StudioPage />;
+}

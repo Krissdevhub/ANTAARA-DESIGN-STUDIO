@@ -60,10 +60,10 @@ export default function Footer() {
                 />
               </div>
               <div>
-                <p className="font-display text-2xl font-normal tracking-[0.24em] text-[#f7f6ef] leading-tight">
+                <p className="brand-logo-text text-2xl sm:text-3xl font-normal tracking-[0.22em] text-[#f7f6ef] leading-tight">
                   ANTAARA
                 </p>
-                <p className="text-[8.5px] uppercase tracking-[0.28em] text-[#d3c8bd]">
+                <p className="text-[8.5px] uppercase tracking-[0.32em] text-[#d3c8bd] font-medium">
                   DESIGN STUDIO
                 </p>
               </div>

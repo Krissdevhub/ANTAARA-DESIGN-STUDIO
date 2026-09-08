@@ -42,9 +42,9 @@ export default function FounderSection() {
           {/* Right Column: Restrained Typography & Concise Biography (Col 7-12) */}
           <div className="lg:col-span-6 space-y-8">
             <div className="space-y-3">
-              <h2 className="font-serif text-4xl sm:text-5xl md:text-6xl font-light tracking-tight leading-[1.05] text-[#22201E]">
+              <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight leading-[1.05] text-[#22201E]">
                 KIRTI JAISWAL <br />
-                <span className="italic text-[#6E6862]">RAJPAL</span>
+                <span className="text-[#8e7a68]">RAJPAL</span>
               </h2>
 
               <span className="text-[10px] uppercase tracking-[0.35em] text-[#6E6862] font-sans block pt-1">
@@ -53,7 +53,7 @@ export default function FounderSection() {
             </div>
 
             <div className="pt-2 border-t border-[#22201E]/12 space-y-5 max-w-lg">
-              <blockquote className="font-serif text-xl sm:text-2xl text-[#22201E] font-light leading-snug italic">
+              <blockquote className="font-sans text-lg sm:text-xl text-[#22201E] font-medium leading-snug border-l-2 border-[#dca82b] pl-4">
                 “Founder of Antaara Design Studio, specializing in elegant residential, commercial, and hospitality spaces.”
               </blockquote>
 

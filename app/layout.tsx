@@ -1,29 +1,28 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Cinzel, Outfit } from "next/font/google";
+import { Syne, Plus_Jakarta_Sans, Marcellus } from "next/font/google";
 import "./globals.css";
 import CustomCursor from "@/components/CustomCursor";
 import SmoothScroll from "@/components/SmoothScroll";
 import SiteChrome from "@/components/SiteChrome";
 
-const playfair = Playfair_Display({
-  subsets: ["latin"],
-  variable: "--font-serif",
-  weight: ["400", "500", "600", "700"],
-  style: ["normal", "italic"],
-  display: "swap",
-});
-
-const cinzel = Cinzel({
+const syne = Syne({
   subsets: ["latin"],
   variable: "--font-display",
-  weight: ["400", "500", "600", "700"],
+  weight: ["400", "500", "600", "700", "800"],
   display: "swap",
 });
 
-const outfit = Outfit({
+const plusJakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
   variable: "--font-sans",
-  weight: ["300", "400", "500", "600", "700"],
+  weight: ["300", "400", "500", "600", "700", "800"],
+  display: "swap",
+});
+
+const marcellus = Marcellus({
+  subsets: ["latin"],
+  variable: "--font-logo",
+  weight: ["400"],
   display: "swap",
 });
 
@@ -54,7 +53,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${playfair.variable} ${cinzel.variable} ${outfit.variable}`}>
+    <html lang="en" className={`${syne.variable} ${plusJakarta.variable} ${marcellus.variable}`}>
       <body className="bg-[#180606] text-[#f7f6ef] antialiased selection:bg-[#dca82b] selection:text-[#180606]">
         <CustomCursor />
         <SmoothScroll>
