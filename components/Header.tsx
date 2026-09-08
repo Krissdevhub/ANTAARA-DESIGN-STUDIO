@@ -40,7 +40,7 @@ export default function Header() {
         <div className="max-w-[1440px] mx-auto px-5 sm:px-8 md:px-12 flex items-center justify-between">
           {/* Brand Logo */}
           <Link href="/" className="group flex flex-col items-start select-none">
-            <span className="font-serif text-xl sm:text-2xl font-medium tracking-[0.24em] text-[#f7f6ef] group-hover:text-[#dca82b] transition-colors duration-300">
+            <span className="font-display text-xl sm:text-2xl font-medium tracking-[0.28em] text-[#f7f6ef] group-hover:text-[#dca82b] transition-colors duration-300">
               ANTAARA
             </span>
             <span className="text-[8px] uppercase tracking-[0.32em] text-[#d3c8bd] font-sans -mt-0.5">

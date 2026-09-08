@@ -1,8 +1,9 @@
 @import "tailwindcss";
 
 @theme {
-  --font-serif: "Cormorant Garamond", Georgia, serif;
-  --font-sans: "Manrope", system-ui, -apple-system, sans-serif;
+  --font-serif: var(--font-serif), "Playfair Display", Georgia, serif;
+  --font-display: var(--font-display), "Cinzel", Georgia, serif;
+  --font-sans: var(--font-sans), "Outfit", system-ui, -apple-system, sans-serif;
   --color-ink: #210707;
   --color-bone: #f7f6ef;
   --color-copper: #751010;
@@ -18,8 +19,10 @@
   --acid: #dca82b;
   --mist: #d3c8bd;
   --wine: #560707;
-  --font-serif: "Cormorant Garamond", Georgia, serif;
-  --font-sans: "Manrope", system-ui, -apple-system, sans-serif;
+}
+
+.font-display {
+  font-family: var(--font-display), "Cinzel", Georgia, serif;
 }
 
 html {

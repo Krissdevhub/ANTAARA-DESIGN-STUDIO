@@ -50,7 +50,7 @@ export default function Footer() {
           {/* Column 1: Studio Identity */}
           <div className="space-y-4">
             <div>
-              <p className="font-serif text-2xl font-normal tracking-[0.2em] text-[#f7f6ef]">
+              <p className="font-display text-2xl font-normal tracking-[0.24em] text-[#f7f6ef]">
                 ANTAARA
               </p>
               <p className="text-[9px] uppercase tracking-[0.28em] text-[#d3c8bd] mt-0.5">
