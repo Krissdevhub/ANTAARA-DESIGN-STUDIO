@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Lead } from "@/lib/db";
+import type { Lead } from "@/lib/db";
 import { Search, Trash2, Mail, Phone, MapPin, DollarSign, Calendar } from "lucide-react";
 
 export default function LeadsManager({ initialLeads }: { initialLeads: Lead[] }) {

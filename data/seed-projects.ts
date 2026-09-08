@@ -53,7 +53,6 @@ export const INITIAL_PROJECTS: Project[] = [
     "page": 4,
     "coverImage": "/images/projects/omaxe-mathura-residence/hema-malini-kirti.png",
     "galleryImages": [
-      "/images/projects/omaxe-mathura-residence/hema-malini-kirti.png",
       "/images/projects/omaxe-mathura-residence/p4_2_1402x1122.png",
       "/images/projects/omaxe-mathura-residence/p4_0_1600x720.jpeg",
       "/images/projects/omaxe-mathura-residence/p4_1_1032x1172.jpeg"
