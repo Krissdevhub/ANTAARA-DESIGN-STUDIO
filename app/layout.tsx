@@ -1,15 +1,23 @@
 import type { Metadata } from "next";
-import { Syne, Plus_Jakarta_Sans, Marcellus } from "next/font/google";
+import { Cinzel, Cormorant_Garamond, Plus_Jakarta_Sans, Marcellus } from "next/font/google";
 import "./globals.css";
 import CustomCursor from "@/components/CustomCursor";
 import SmoothScroll from "@/components/SmoothScroll";
 import SiteChrome from "@/components/SiteChrome";
 import Preloader from "@/components/Preloader";
 
-const syne = Syne({
+const cinzel = Cinzel({
   subsets: ["latin"],
-  variable: "--font-display",
+  variable: "--font-cinzel",
   weight: ["400", "500", "600", "700", "800"],
+  display: "swap",
+});
+
+const cormorant = Cormorant_Garamond({
+  subsets: ["latin"],
+  variable: "--font-cormorant",
+  weight: ["300", "400", "500", "600", "700"],
+  style: ["normal", "italic"],
   display: "swap",
 });
 
@@ -54,7 +62,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${syne.variable} ${plusJakarta.variable} ${marcellus.variable}`}>
+    <html
+      lang="en"
+      className={`${cinzel.variable} ${cormorant.variable} ${plusJakarta.variable} ${marcellus.variable}`}
+    >
       <body className="bg-[#180606] text-[#f7f6ef] antialiased selection:bg-[#dca82b] selection:text-[#180606]">
         <Preloader />
         <CustomCursor />

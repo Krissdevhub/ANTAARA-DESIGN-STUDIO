@@ -42,3 +42,9 @@ Thumbs.db
 # TypeScript
 *.tsbuildinfo
 next-env.d.ts
+
+# Agent & IDE configs
+.agent/
+.agents/
+.vscode/
+

@@ -195,20 +195,44 @@ export async function getLeads(): Promise<Lead[]> {
 }
 
 export async function createLead(leadData: Omit<Lead, "id" | "created_at">): Promise<Lead> {
-  const newLead: Lead = {
-    ...leadData,
-    id: "lead-" + Date.now().toString(36) + Math.random().toString(36).substring(2, 6),
-    created_at: new Date().toISOString(),
-  };
+  const localId = "lead-" + Date.now().toString(36) + Math.random().toString(36).substring(2, 6);
+  let finalId = localId;
+  const createdAt = new Date().toISOString();
 
   if (isSupabaseConfigured && supabase) {
     try {
-      const { error } = await supabase.from("leads").insert([newLead]);
-      if (error) console.error("Supabase create lead error:", error);
+      const { data, error } = await supabase
+        .from("leads")
+        .insert([
+          {
+            name: leadData.name,
+            email: leadData.email,
+            phone: leadData.phone,
+            project_type: leadData.project_type,
+            location: leadData.location,
+            budget: leadData.budget || null,
+            message: leadData.message || null,
+            status: leadData.status || "New",
+          },
+        ])
+        .select()
+        .single();
+
+      if (!error && data?.id) {
+        finalId = data.id;
+      } else if (error) {
+        console.error("Supabase create lead error:", error);
+      }
     } catch (err) {
       console.error("Supabase create lead failed:", err);
     }
   }
+
+  const newLead: Lead = {
+    ...leadData,
+    id: finalId,
+    created_at: createdAt,
+  };
 
   const leads = ensureJsonFile<Lead[]>(LEADS_FILE, []);
   leads.unshift(newLead);

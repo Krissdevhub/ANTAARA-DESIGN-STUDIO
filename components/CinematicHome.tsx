@@ -2,8 +2,28 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowDownRight, ArrowUpRight, ChevronLeft, ChevronRight, Compass, Layers, ShieldCheck, Sparkles } from "lucide-react";
+import {
+  ArrowDownRight,
+  ArrowUpRight,
+  ChevronLeft,
+  ChevronRight,
+  Compass,
+  Layers,
+  ShieldCheck,
+  Sparkles,
+  Sun,
+  Sunset,
+  Moon,
+  CheckCircle2,
+  Send,
+  Loader2,
+  Calendar,
+  Phone,
+  User,
+  SlidersHorizontal,
+} from "lucide-react";
 import { useEffect, useRef, useState, useMemo } from "react";
+import type { Project } from "@/lib/db";
 
 /* ──────────────────────────────────────────────────────────────
    DATA (From 30-Page Client Portfolio PDF)
@@ -250,142 +270,399 @@ const materialityPalette = [
    MAIN HOMEPAGE COMPONENT
    ────────────────────────────────────────────────────────────── */
 
-export default function CinematicHome() {
+interface CinematicHomeProps {
+  initialProjects?: Project[];
+}
+
+export default function CinematicHome({ initialProjects }: CinematicHomeProps) {
   const [frame, setFrame] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [activeTab, setActiveTab] = useState<"dibella" | "afterhours">("dibella");
+  const [atmosphere, setAtmosphere] = useState<"daylight" | "golden" | "twilight">("golden");
 
-  // Continuous cinematic slideshow auto-cycle
+  // Touch and drag gesture state
+  const [dragStartX, setDragStartX] = useState<number | null>(null);
+  const [dragOffset, setDragOffset] = useState(0);
+
+  // Live Supabase Lead Form State
+  const [leadName, setLeadName] = useState("");
+  const [leadPhone, setLeadPhone] = useState("");
+  const [leadEmail, setLeadEmail] = useState("");
+  const [leadType, setLeadType] = useState("Residential");
+  const [leadCity, setLeadCity] = useState("Indore");
+  const [leadNote, setLeadNote] = useState("");
+  const [leadLoading, setLeadLoading] = useState(false);
+  const [leadSuccess, setLeadSuccess] = useState(false);
+  const [leadError, setLeadError] = useState("");
+
+  const handleLeadSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!leadName || !leadPhone) {
+      setLeadError("Please enter your name and phone number.");
+      return;
+    }
+    setLeadLoading(true);
+    setLeadError("");
+    try {
+      const res = await fetch("/api/leads", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: leadName,
+          phone: leadPhone,
+          email: leadEmail || `${leadPhone.replace(/\D/g, "") || "client"}@antaaradesignstudio.com`,
+          project_type: leadType,
+          location: leadCity || "Indore",
+          message: leadNote || `New commission inquiry for ${leadType} in ${leadCity}`,
+        }),
+      });
+      const data = await res.json();
+      if (data.success) {
+        setLeadSuccess(true);
+        setLeadName("");
+        setLeadPhone("");
+        setLeadEmail("");
+        setLeadNote("");
+      } else {
+        setLeadError(data.error || "Submission failed. Please reach out via WhatsApp.");
+      }
+    } catch (err: any) {
+      setLeadError(err.message || "Network error. Please try WhatsApp.");
+    } finally {
+      setLeadLoading(false);
+    }
+  };
+
+  // Dynamic projects from live Supabase database
+  const allProjects = useMemo(() => {
+    if (initialProjects && initialProjects.length > 0) {
+      return initialProjects.map((p) => ({
+        title: p.title,
+        category: p.category,
+        tagline: p.subtitle || p.summary || "Bespoke Architectural Commission",
+        location: p.location,
+        image: p.coverImage,
+        slug: p.slug,
+        client: p.client || "Private Commission",
+        featured: p.featured,
+        area: p.scope || "Architectural Project",
+        year: p.year || "2024",
+      }));
+    }
+    return portfolioProjects;
+  }, [initialProjects]);
+
+  // Dynamic hero slides constructed from Supabase projects
+  const activeHeroSlides = useMemo(() => {
+    if (initialProjects && initialProjects.length > 0) {
+      const feat = initialProjects.filter((p) => p.featured);
+      const list = feat.length >= 4 ? feat : initialProjects.slice(0, 6);
+      return list.map((p) => ({
+        title: p.title,
+        subtitle: p.subtitle || (p.summary ? p.summary.slice(0, 85) + "..." : "Everyday Luxury & Refined Living"),
+        category: p.category,
+        location: p.location,
+        client: p.client || "Private Commission",
+        image: p.coverImage,
+        slug: p.slug,
+        specs: `${p.year || "2024"} · ${p.scope || "Turnkey Architectural Execution"}`,
+      }));
+    }
+    return heroSlides;
+  }, [initialProjects]);
+
+  // Continuous slideshow with pause-on-hover
   useEffect(() => {
+    if (isPaused) return;
     const timer = setInterval(() => {
-      setFrame((f) => (f + 1) % heroSlides.length);
+      setFrame((f) => (f + 1) % activeHeroSlides.length);
     }, 5500);
     return () => clearInterval(timer);
-  }, []);
+  }, [isPaused, activeHeroSlides.length]);
 
-  const currentSlide = heroSlides[frame];
-  const nextSlide = heroSlides[(frame + 1) % heroSlides.length];
+  // Keyboard navigation (Arrow keys)
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "ArrowLeft") {
+        setFrame((f) => (f - 1 + activeHeroSlides.length) % activeHeroSlides.length);
+      } else if (e.key === "ArrowRight") {
+        setFrame((f) => (f + 1) % activeHeroSlides.length);
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [activeHeroSlides.length]);
 
-  // Filtered projects
+  const currentSlide = activeHeroSlides[frame] || activeHeroSlides[0];
+
+  // Touch and mouse drag handlers
+  const handlePointerDown = (clientX: number) => {
+    setDragStartX(clientX);
+    setDragOffset(0);
+  };
+
+  const handlePointerMove = (clientX: number) => {
+    if (dragStartX !== null) {
+      setDragOffset(clientX - dragStartX);
+    }
+  };
+
+  const handlePointerUp = () => {
+    if (dragStartX !== null) {
+      if (dragOffset > 45) {
+        setFrame((f) => (f - 1 + activeHeroSlides.length) % activeHeroSlides.length);
+      } else if (dragOffset < -45) {
+        setFrame((f) => (f + 1) % activeHeroSlides.length);
+      }
+    }
+    setDragStartX(null);
+    setDragOffset(0);
+  };
+
+  // Filtered projects computed from Supabase
   const filteredProjects = useMemo(() => {
-    if (selectedCategory === "All") return portfolioProjects;
-    return portfolioProjects.filter((p) => p.category === selectedCategory);
-  }, [selectedCategory]);
+    if (selectedCategory === "All") return allProjects;
+    return allProjects.filter((p) => p.category === selectedCategory);
+  }, [allProjects, selectedCategory]);
+
+  // Category counts
+  const categoryCounts = useMemo(() => {
+    const counts: Record<string, number> = { All: allProjects.length };
+    allProjects.forEach((p) => {
+      counts[p.category] = (counts[p.category] || 0) + 1;
+    });
+    return counts;
+  }, [allProjects]);
 
   return (
-    <div className="bg-[#180606] text-[#f7f6ef] selection:bg-[#dca82b] selection:text-[#180606] overflow-x-hidden">
+    <div
+      className={`text-[#f7f6ef] selection:bg-[#dca82b] selection:text-[#180606] overflow-x-hidden transition-colors duration-1000 ${
+        atmosphere === "daylight"
+          ? "bg-[#1f0d0a]"
+          : atmosphere === "golden"
+          ? "bg-[#180606]"
+          : "bg-[#0d0202]"
+      }`}
+    >
       {/* ═══════════════════════════════════════════════════════════
-          HERO — Cinematic Architectural Monograph Showcase
+          HERO — 21st-Grade Cinematic Architectural Monograph Slider
           ═══════════════════════════════════════════════════════════ */}
-      <section 
-        className="relative min-h-[100svh] flex flex-col justify-end pb-10 sm:pb-14 px-6 sm:px-10 md:px-16 overflow-hidden pt-32 sm:pt-36"
+      <section
+        onMouseEnter={() => setIsPaused(true)}
+        onMouseLeave={() => {
+          setIsPaused(false);
+          handlePointerUp();
+        }}
+        onTouchStart={(e) => handlePointerDown(e.touches[0].clientX)}
+        onTouchMove={(e) => handlePointerMove(e.touches[0].clientX)}
+        onTouchEnd={handlePointerUp}
+        onMouseDown={(e) => handlePointerDown(e.clientX)}
+        onMouseMove={(e) => handlePointerMove(e.clientX)}
+        onMouseUp={handlePointerUp}
+        className="relative min-h-[100svh] flex flex-col justify-end pb-10 sm:pb-14 px-6 sm:px-10 md:px-16 overflow-hidden pt-28 sm:pt-32 select-none cursor-grab active:cursor-grabbing"
       >
-        {/* Subtle Luxury Radial Texture */}
-        <div className="absolute inset-0 opacity-[0.18] pointer-events-none z-10 bg-[radial-gradient(#dca82b_1px,transparent_1px)] [background-size:24px_24px]" />
+        {/* Architectural Framing Corner Brackets */}
+        <div className="framing-corner-tl" />
+        <div className="framing-corner-tr" />
+        <div className="framing-corner-bl" />
+        <div className="framing-corner-br" />
+
+        {/* Dynamic Atmosphere Lighting Overlay */}
+        <div
+          className={`absolute inset-0 pointer-events-none z-10 transition-opacity duration-1000 ${
+            atmosphere === "daylight"
+              ? "bg-gradient-to-tr from-[#1f0d0a]/70 via-transparent to-[#edd277]/10"
+              : atmosphere === "golden"
+              ? "bg-[radial-gradient(ellipse_at_top_right,#dca82b_0%,transparent_60%)] opacity-25"
+              : "bg-gradient-to-t from-[#0d0202] via-[#0d0202]/60 to-[#0d0202]/90 opacity-90"
+          }`}
+        />
+
+        {/* Subtle Luxury Radial Grid Texture */}
+        <div className="absolute inset-0 opacity-[0.16] pointer-events-none z-10 bg-[radial-gradient(#dca82b_1px,transparent_1px)] [background-size:28px_28px]" />
 
         {/* Cinematic Multi-Layer Vignette */}
-        <div className="absolute inset-0 z-10 bg-gradient-to-t from-[#180606] via-[#180606]/40 to-[#180606]/85" />
-        <div className="absolute inset-0 z-10 bg-gradient-to-r from-[#180606]/90 via-[#180606]/40 to-transparent" />
-        <div className="absolute top-0 inset-x-0 h-40 z-10 bg-gradient-to-b from-[#180606] to-transparent" />
+        <div className="absolute inset-0 z-10 bg-gradient-to-t from-[#140404] via-[#140404]/40 to-[#140404]/80" />
+        <div className="absolute inset-0 z-10 bg-gradient-to-r from-[#140404]/95 via-[#140404]/45 to-transparent" />
+        <div className="absolute top-0 inset-x-0 h-36 z-10 bg-gradient-to-b from-[#140404] to-transparent" />
 
         {/* Rotating Slideshow Background Images with Architectural Ken Burns Video Zoom */}
-        {heroSlides.map((slide, i) => {
+        {activeHeroSlides.map((slide, i) => {
           const isActive = frame === i;
           return (
             <div
               key={`${slide.slug}-${isActive ? "active" : "idle"}`}
               className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
-                isActive ? "opacity-100 z-0 pointer-events-none" : "opacity-0 -z-10 pointer-events-none"
+                isActive
+                  ? "opacity-100 z-0 pointer-events-none"
+                  : "opacity-0 -z-10 pointer-events-none"
               }`}
             >
-              <div className={`w-full h-full relative overflow-hidden ${isActive ? "hero-video-zoom-active" : "scale-100"}`}>
+              <div
+                className={`w-full h-full relative overflow-hidden ${
+                  isActive ? "hero-video-zoom-active" : "scale-100"
+                }`}
+              >
                 <Image
                   src={slide.image}
                   alt={slide.title}
                   fill
                   priority={i === 0}
                   sizes="100vw"
-                  className="object-cover brightness-[0.84] saturate-[1.12]"
+                  className={`object-cover transition-all duration-700 ${
+                    atmosphere === "daylight"
+                      ? "brightness-[0.92] saturate-[1.15]"
+                      : atmosphere === "golden"
+                      ? "brightness-[0.85] saturate-[1.2] sepia-[0.1]"
+                      : "brightness-[0.72] contrast-[1.1] saturate-[0.95]"
+                  }`}
                 />
               </div>
             </div>
           );
         })}
 
+        {/* Atmosphere Selector Floating Pill */}
+        <div className="absolute top-28 sm:top-24 right-6 sm:right-10 md:right-16 z-30 flex items-center gap-1.5 p-1 rounded-full luxury-glass-panel border border-[#dca82b]/30 shadow-2xl">
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              setAtmosphere("daylight");
+            }}
+            title="Daylight Luminance"
+            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[10px] uppercase tracking-wider transition-all duration-300 ${
+              atmosphere === "daylight"
+                ? "bg-[#edd277] text-[#140404] font-semibold shadow-md"
+                : "text-white/60 hover:text-white"
+            }`}
+          >
+            <Sun size={12} />
+            <span className="hidden sm:inline">Daylight</span>
+          </button>
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              setAtmosphere("golden");
+            }}
+            title="Golden Hour Radiance"
+            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[10px] uppercase tracking-wider transition-all duration-300 ${
+              atmosphere === "golden"
+                ? "bg-[#dca82b] text-[#140404] font-semibold shadow-md"
+                : "text-white/60 hover:text-white"
+            }`}
+          >
+            <Sunset size={12} />
+            <span className="hidden sm:inline">Golden</span>
+          </button>
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              setAtmosphere("twilight");
+            }}
+            title="Twilight Noir Ambiance"
+            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[10px] uppercase tracking-wider transition-all duration-300 ${
+              atmosphere === "twilight"
+                ? "bg-white/20 text-[#edd277] font-semibold shadow-md border border-[#edd277]/40"
+                : "text-white/60 hover:text-white"
+            }`}
+          >
+            <Moon size={12} />
+            <span className="hidden sm:inline">Twilight</span>
+          </button>
+        </div>
+
         {/* Hero Content Area */}
-        <div className="relative z-20 max-w-[1440px] mx-auto w-full space-y-8">
+        <div className="relative z-20 max-w-[1440px] mx-auto w-full space-y-7">
           <div className="max-w-3xl space-y-4">
             {/* Studio Badge */}
             <div className="inline-flex items-center gap-3">
               <span className="w-10 h-[1px] bg-gradient-to-r from-[#dca82b] to-transparent" />
-              <span className="text-[10px] uppercase tracking-[0.3em] text-[#edd277] font-sans font-medium">
+              <span className="text-[10px] uppercase tracking-[0.28em] text-[#edd277] font-sans font-medium">
                 Antaara Design Studio · Indore · Est. 2016
               </span>
             </div>
 
-            {/* Main Headline */}
-            <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-[#f7f6ef] leading-[1.04] tracking-tight">
+            {/* Main Monumental Headline in Cinzel & Cormorant */}
+            <h1 className="font-cinzel text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-[#f7f6ef] leading-[1.05] tracking-tight">
               Designing spaces <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#edd277] via-[#dca82b] to-[#c28c1d]">
+              <span className="font-editorial italic font-normal text-transparent bg-clip-text bg-gradient-to-r from-[#edd277] via-[#dca82b] to-[#c28c1d]">
                 you feel.
               </span>
             </h1>
 
-            {/* Subtitle */}
-            <p className="text-xs sm:text-sm md:text-base text-[#d3c8bd] max-w-xl font-sans font-light leading-relaxed">
-              Bespoke luxury residences, landmark hospitality destinations, and executive commercial environments shaped with architectural rigor, sensory materiality, and flawless turnkey execution.
-            </p>
+            {/* Subtitle with Active Slide Detail */}
+            <div className="space-y-2">
+              <p className="text-xs sm:text-sm md:text-base text-[#d3c8bd] max-w-xl font-sans font-light leading-relaxed">
+                Bespoke luxury residences, landmark hospitality destinations, and executive commercial environments shaped with architectural rigor, sensory materiality, and flawless turnkey execution.
+              </p>
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-[#140404]/60 border border-[#dca82b]/30 text-[11px] text-[#edd277]">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#dca82b] animate-ping" />
+                <span className="font-sans tracking-wide">
+                  Featuring: <strong className="font-cinzel text-[#f7f6ef] font-semibold">{currentSlide.title}</strong> · {currentSlide.location}
+                </span>
+              </div>
+            </div>
 
             {/* CTAs */}
             <div className="pt-2 flex flex-wrap items-center gap-4">
               <a
                 href="#projects"
-                className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-[#dca82b] text-[#180606] font-semibold text-xs uppercase tracking-[0.18em] hover:bg-[#edd277] hover:shadow-[0_0_30px_rgba(220,168,43,0.4)] transition-all duration-300 shadow-xl"
+                className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-[#dca82b] text-[#140404] font-semibold text-xs uppercase tracking-[0.18em] hover:bg-[#edd277] hover:shadow-[0_0_35px_rgba(220,168,43,0.5)] transition-all duration-300 shadow-xl"
               >
                 Explore Works <ArrowDownRight size={15} />
               </a>
               <Link
                 href="/studio"
-                className="inline-flex items-center gap-2.5 px-7 py-4 rounded-full border border-white/25 text-[#f7f6ef] text-xs uppercase tracking-[0.16em] hover:border-[#dca82b] hover:text-[#dca82b] backdrop-blur-md bg-black/20 transition-all duration-300"
+                className="inline-flex items-center gap-2.5 px-7 py-4 rounded-full border border-white/25 text-[#f7f6ef] text-xs uppercase tracking-[0.16em] hover:border-[#dca82b] hover:text-[#dca82b] backdrop-blur-md bg-black/25 transition-all duration-300"
               >
                 The Studio Dossier <ArrowUpRight size={14} />
               </Link>
             </div>
           </div>
 
-          {/* Cinematic Slide Controller Bar */}
-          <div className="pt-6 border-t border-[#dca82b]/20 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5 bg-[#180606]/50 backdrop-blur-sm p-4 rounded-xl">
+          {/* Cinematic 21st-Grade Interactive Slide Controller Bar */}
+          <div className="pt-6 border-t border-[#dca82b]/25 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-5 luxury-glass-panel p-4 rounded-2xl">
             {/* Slide Navigation & Dots */}
             <div className="flex items-center gap-5">
               <div className="flex items-center gap-2">
                 <button
-                  onClick={() => setFrame((f) => (f - 1 + heroSlides.length) % heroSlides.length)}
-                  className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center text-white/70 hover:text-[#dca82b] hover:border-[#dca82b] transition-colors"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setFrame((f) => (f - 1 + activeHeroSlides.length) % activeHeroSlides.length);
+                  }}
+                  className="w-9 h-9 rounded-full border border-white/25 flex items-center justify-center text-white/80 hover:text-[#140404] hover:bg-[#dca82b] hover:border-[#dca82b] transition-all"
                   aria-label="Previous slide"
                 >
                   <ChevronLeft size={16} />
                 </button>
                 <button
-                  onClick={() => setFrame((f) => (f + 1) % heroSlides.length)}
-                  className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center text-white/70 hover:text-[#dca82b] hover:border-[#dca82b] transition-colors"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setFrame((f) => (f + 1) % activeHeroSlides.length);
+                  }}
+                  className="w-9 h-9 rounded-full border border-white/25 flex items-center justify-center text-white/80 hover:text-[#140404] hover:bg-[#dca82b] hover:border-[#dca82b] transition-all"
                   aria-label="Next slide"
                 >
                   <ChevronRight size={16} />
                 </button>
               </div>
 
-              <span className="text-xs font-serif tracking-widest text-[#dca82b]">
-                0{frame + 1} <span className="text-white/30">/</span> 0{heroSlides.length}
+              <span className="text-xs font-cinzel tracking-widest text-[#dca82b]">
+                0{frame + 1} <span className="text-white/30">/</span> 0{activeHeroSlides.length}
               </span>
 
               {/* Progress Bars with Cinematic Animated Fill */}
-              <div className="hidden sm:flex items-center gap-1.5">
-                {heroSlides.map((_, idx) => (
+              <div className="hidden sm:flex items-center gap-2">
+                {activeHeroSlides.map((_, idx) => (
                   <button
                     key={idx}
-                    onClick={() => setFrame(idx)}
-                    className={`h-1.5 rounded-full overflow-hidden transition-all duration-300 ${
-                      frame === idx ? "w-12 bg-white/20" : "w-2.5 bg-white/20 hover:bg-white/40"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setFrame(idx);
+                    }}
+                    className={`h-2 rounded-full overflow-hidden transition-all duration-300 ${
+                      frame === idx ? "w-14 bg-white/20" : "w-3 bg-white/20 hover:bg-white/40"
                     }`}
                     aria-label={`Jump to slide ${idx + 1}`}
                   >
@@ -397,27 +674,47 @@ export default function CinematicHome() {
               </div>
             </div>
 
-            {/* Current Active Slide Label */}
+            {/* Interactive Thumbnail Scrubber Ribbon */}
+            <div className="flex items-center gap-2.5 overflow-x-auto no-scrollbar max-w-full py-1">
+              {activeHeroSlides.map((slide, idx) => (
+                <button
+                  key={slide.slug}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setFrame(idx);
+                  }}
+                  className={`group flex items-center gap-2 px-2.5 py-1.5 rounded-xl border text-left transition-all shrink-0 ${
+                    frame === idx
+                      ? "border-[#dca82b] bg-[#dca82b]/15 shadow-lg shadow-[#dca82b]/20"
+                      : "border-white/10 hover:border-white/30 bg-black/20"
+                  }`}
+                >
+                  <div className="w-8 h-8 relative rounded-lg overflow-hidden shrink-0 border border-white/15">
+                    <Image
+                      src={slide.image}
+                      alt={slide.title}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                  <div className="max-w-[130px] hidden md:block">
+                    <p className="text-[8px] uppercase tracking-wider text-[#dca82b] truncate">
+                      {slide.category}
+                    </p>
+                    <p className="font-cinzel text-[11px] text-[#f7f6ef] truncate group-hover:text-[#edd277]">
+                      {slide.title}
+                    </p>
+                  </div>
+                </button>
+              ))}
+            </div>
+
+            {/* Direct Project Link */}
             <Link
               href={`/work/${currentSlide.slug}`}
-              className="group flex items-center gap-3 text-left hover:text-[#edd277] transition-colors"
+              className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.16em] font-medium text-[#dca82b] hover:text-[#edd277] transition-colors shrink-0"
             >
-              <div className="w-10 h-10 relative rounded-lg overflow-hidden border border-[#dca82b]/30 shrink-0 hidden md:block">
-                <Image
-                  src={currentSlide.image}
-                  alt={currentSlide.title}
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <div>
-                <p className="text-[10px] uppercase tracking-[0.2em] text-[#dca82b] font-sans">
-                  {currentSlide.category} · {currentSlide.location}
-                </p>
-                <p className="font-serif text-sm text-[#f7f6ef] font-medium group-hover:text-[#edd277] transition-colors">
-                  {currentSlide.title} <ArrowUpRight size={13} className="inline ml-1 text-[#dca82b]" />
-                </p>
-              </div>
+              Case Study <ArrowUpRight size={14} />
             </Link>
           </div>
         </div>
@@ -542,30 +839,30 @@ export default function CinematicHome() {
         {/* Header and Filter */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-[#dca82b]/20 pb-8">
           <div className="space-y-3">
-            <span className="text-[10px] uppercase tracking-[0.3em] text-[#dca82b] font-sans font-medium block">
-              Architectural Ledger
-            </span>
-            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-light text-[#f7f6ef]">
-              Selected <span className="font-serif italic text-[#dca82b]">Commissions.</span>
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#dca82b]/10 border border-[#dca82b]/25 text-[10px] uppercase tracking-[0.24em] text-[#dca82b] font-medium">
+              <Sparkles size={12} /> Architectural Ledger · Live Supabase Archive
+            </div>
+            <h2 className="font-cinzel text-3xl sm:text-4xl md:text-5xl font-bold text-[#f7f6ef]">
+              Selected <span className="font-editorial italic font-normal text-[#dca82b]">Commissions.</span>
             </h2>
             <p className="text-xs sm:text-sm text-[#d3c8bd] max-w-lg font-sans font-light leading-relaxed">
               Every commission represents a tailored response to site context, natural light vectors, and the ritual of living.
             </p>
           </div>
 
-          {/* Filter Tabs */}
+          {/* Filter Tabs with Dynamic Counts */}
           <div className="flex items-center gap-2 overflow-x-auto no-scrollbar py-1">
             {["All", "Residential", "Hospitality", "Commercial"].map((cat) => (
               <button
                 key={cat}
                 onClick={() => setSelectedCategory(cat)}
-                className={`text-[10px] uppercase tracking-[0.2em] font-sans px-5 py-2.5 rounded-full border transition-all duration-300 whitespace-nowrap ${
+                className={`text-[10px] uppercase tracking-[0.18em] font-sans px-4 sm:px-5 py-2.5 rounded-full border transition-all duration-300 whitespace-nowrap cursor-pointer ${
                   selectedCategory === cat
-                    ? "bg-[#dca82b] text-[#180606] font-semibold border-[#dca82b] shadow-md shadow-[#dca82b]/20"
-                    : "border-white/15 text-[#d3c8bd] hover:border-[#dca82b] hover:text-[#f7f6ef]"
+                    ? "bg-[#dca82b] text-[#140404] font-semibold border-[#dca82b] shadow-md shadow-[#dca82b]/30"
+                    : "border-white/15 text-[#d3c8bd] hover:border-[#dca82b] hover:text-[#f7f6ef] bg-black/20"
                 }`}
               >
-                {cat}
+                {cat} <span className="opacity-70 text-[9px]">({categoryCounts[cat] || 0})</span>
               </button>
             ))}
           </div>
@@ -1060,35 +1357,201 @@ export default function CinematicHome() {
       </section>
 
       {/* ═══════════════════════════════════════════════════════════
-          DIRECT INQUIRY CONCIERGE BANNER
+          DIRECT INQUIRY CONCIERGE BANNER (LIVE SUPABASE LEAD CAPTURE)
           ═══════════════════════════════════════════════════════════ */}
-      <section className="py-20 px-6 sm:px-10 md:px-16 max-w-[1440px] mx-auto">
-        <div className="rounded-3xl border border-[#dca82b]/40 bg-gradient-to-r from-[#280909] via-[#210707] to-[#180505] p-10 sm:p-16 lg:p-20 text-center space-y-6 shadow-[0_20px_60px_rgba(0,0,0,0.8)] relative overflow-hidden">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#dca82b]/15 border border-[#dca82b]/30 text-[10px] uppercase tracking-[0.24em] text-[#dca82b] font-medium">
-            Architectural Concierge
-          </div>
+      <section id="inquiry" className="py-20 px-6 sm:px-10 md:px-16 max-w-[1440px] mx-auto">
+        <div className="rounded-3xl border border-[#dca82b]/40 bg-gradient-to-br from-[#250909] via-[#1c0606] to-[#120303] p-8 sm:p-12 lg:p-16 shadow-[0_25px_70px_rgba(0,0,0,0.85)] relative overflow-hidden">
+          {/* Subtle Ambient Radial Glow */}
+          <div className="absolute -top-32 -right-32 w-96 h-96 bg-[#dca82b]/15 rounded-full blur-3xl pointer-events-none" />
 
-          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-[#f7f6ef] max-w-3xl mx-auto leading-tight">
-            Ready to shape your space into an enduring <span className="italic font-serif text-[#dca82b]">masterpiece?</span>
-          </h2>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
+            {/* Left Narrative Column */}
+            <div className="lg:col-span-5 space-y-6">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#dca82b]/15 border border-[#dca82b]/35 text-[10px] uppercase tracking-[0.24em] text-[#dca82b] font-medium">
+                <Sparkles size={12} /> Architectural Concierge
+              </div>
 
-          <p className="text-xs sm:text-sm text-[#d3c8bd] max-w-xl mx-auto font-sans font-light leading-relaxed">
-            Whether envisioning a signature private residence, luxury boutique resort, or corporate headquarters, Antaara Design Studio provides bespoke architectural curation and complete turnkey execution.
-          </p>
+              <h2 className="font-cinzel text-3xl sm:text-4xl md:text-5xl font-bold text-[#f7f6ef] leading-tight">
+                Ready to shape your space into an enduring <span className="font-editorial italic font-normal text-[#dca82b]">masterpiece?</span>
+              </h2>
 
-          <div className="pt-4 flex flex-wrap justify-center gap-5">
-            <Link
-              href="/contact"
-              className="inline-flex items-center gap-2.5 px-9 py-4 rounded-full bg-[#dca82b] text-[#180606] font-semibold text-xs uppercase tracking-[0.2em] shadow-xl shadow-[#dca82b]/25 hover:bg-[#edd277] transition-all duration-300"
-            >
-              Start an Architectural Commission <ArrowUpRight size={15} />
-            </Link>
-            <a
-              href="tel:+919243051598"
-              className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full border border-white/20 text-[#f7f6ef] text-xs uppercase tracking-[0.18em] hover:border-[#dca82b] hover:text-[#dca82b] backdrop-blur-md transition-all duration-300"
-            >
-              Direct Line: +91 92430 51598
-            </a>
+              <p className="text-xs sm:text-sm text-[#d3c8bd] font-sans font-light leading-relaxed">
+                Whether envisioning a signature private residence, luxury boutique resort, or corporate headquarters, Antaara Design Studio provides bespoke architectural curation and complete turnkey execution.
+              </p>
+
+              <div className="pt-2 space-y-3 text-xs font-sans text-[#c7bcb1]">
+                <div className="flex items-center gap-3">
+                  <span className="w-2 h-2 rounded-full bg-[#dca82b]" />
+                  <span>Direct Principal Consultation with Kirti Jaiswal Rajpal</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <span className="w-2 h-2 rounded-full bg-[#dca82b]" />
+                  <span>Turnkey Architectural Delivery & Material Sourcing</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <span className="w-2 h-2 rounded-full bg-[#dca82b]" />
+                  <span>Live Database Record synced to Supabase</span>
+                </div>
+              </div>
+
+              <div className="pt-2 flex items-center gap-4">
+                <a
+                  href="tel:+919243051598"
+                  className="inline-flex items-center gap-2 text-xs font-sans uppercase tracking-[0.16em] text-[#dca82b] hover:text-[#edd277] transition-colors"
+                >
+                  <Phone size={13} /> +91 92430 51598
+                </a>
+                <span className="text-white/20">·</span>
+                <span className="text-[11px] text-[#c7bcb1] font-sans">Indore Atelier</span>
+              </div>
+            </div>
+
+            {/* Right Live Lead Form Column */}
+            <div className="lg:col-span-7">
+              <div className="bg-[#180505]/90 border border-[#dca82b]/30 rounded-2xl p-6 sm:p-8 backdrop-blur-xl shadow-2xl">
+                {leadSuccess ? (
+                  <div className="text-center py-10 space-y-5 animate-fade-in">
+                    <div className="w-16 h-16 rounded-full bg-[#dca82b]/20 border border-[#dca82b] text-[#dca82b] flex items-center justify-center mx-auto shadow-lg shadow-[#dca82b]/30">
+                      <CheckCircle2 size={32} />
+                    </div>
+                    <div className="space-y-2">
+                      <h3 className="font-cinzel text-2xl text-[#f7f6ef] font-semibold">
+                        Commission Inquiry Received
+                      </h3>
+                      <p className="text-xs text-[#d3c8bd] max-w-md mx-auto font-sans leading-relaxed">
+                        Thank you. Your dossier has been logged into our studio system. Kirti Jaiswal Rajpal and our senior design team will connect with you within 24 business hours.
+                      </p>
+                    </div>
+                    <div className="pt-3 flex flex-wrap justify-center gap-4">
+                      <a
+                        href={`https://wa.me/919243051598?text=Hello%20Antaara%20Design%20Studio,%20I%20just%20submitted%20an%20inquiry%20for%20my%20project.`}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#25D366] text-black font-semibold text-xs uppercase tracking-wider hover:brightness-110 transition-all shadow-lg"
+                      >
+                        Message on WhatsApp <ArrowUpRight size={14} />
+                      </a>
+                      <button
+                        onClick={() => setLeadSuccess(false)}
+                        className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-white/20 text-xs uppercase tracking-wider text-white/80 hover:text-white hover:border-[#dca82b] transition-all"
+                      >
+                        Submit Another Inquiry
+                      </button>
+                    </div>
+                  </div>
+                ) : (
+                  <form onSubmit={handleLeadSubmit} className="space-y-4">
+                    <div className="flex items-center justify-between border-b border-white/10 pb-3">
+                      <h3 className="font-cinzel text-lg text-[#f7f6ef] font-medium">
+                        Request Atelier Consultation
+                      </h3>
+                      <span className="text-[10px] uppercase tracking-widest text-[#dca82b] font-sans">
+                        Fast Response
+                      </span>
+                    </div>
+
+                    {leadError && (
+                      <div className="p-3 rounded-lg bg-red-950/60 border border-red-500/40 text-red-200 text-xs">
+                        {leadError}
+                      </div>
+                    )}
+
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      <div className="space-y-1.5">
+                        <label className="text-[10px] uppercase tracking-wider text-[#c7bcb1] font-sans block">
+                          Your Full Name *
+                        </label>
+                        <input
+                          type="text"
+                          required
+                          value={leadName}
+                          onChange={(e) => setLeadName(e.target.value)}
+                          placeholder="e.g. Ananya Sharma"
+                          className="w-full px-4 py-3 rounded-xl bg-[#220707] border border-white/15 text-sm text-[#f7f6ef] placeholder:text-white/30 focus:outline-none focus:border-[#dca82b] transition-colors"
+                        />
+                      </div>
+
+                      <div className="space-y-1.5">
+                        <label className="text-[10px] uppercase tracking-wider text-[#c7bcb1] font-sans block">
+                          Phone / WhatsApp Number *
+                        </label>
+                        <input
+                          type="tel"
+                          required
+                          value={leadPhone}
+                          onChange={(e) => setLeadPhone(e.target.value)}
+                          placeholder="+91 98260 00000"
+                          className="w-full px-4 py-3 rounded-xl bg-[#220707] border border-white/15 text-sm text-[#f7f6ef] placeholder:text-white/30 focus:outline-none focus:border-[#dca82b] transition-colors"
+                        />
+                      </div>
+                    </div>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      <div className="space-y-1.5">
+                        <label className="text-[10px] uppercase tracking-wider text-[#c7bcb1] font-sans block">
+                          Typology
+                        </label>
+                        <select
+                          value={leadType}
+                          onChange={(e) => setLeadType(e.target.value)}
+                          className="w-full px-4 py-3 rounded-xl bg-[#220707] border border-white/15 text-sm text-[#f7f6ef] focus:outline-none focus:border-[#dca82b] transition-colors"
+                        >
+                          <option value="Residential">Luxury Private Residence</option>
+                          <option value="Hospitality">Boutique Hospitality & Dining</option>
+                          <option value="Commercial">Corporate Headquarters / Office</option>
+                          <option value="Retail">Retail Flagship / Salon Atelier</option>
+                          <option value="Celebrity">Celebrity / Monograph Commission</option>
+                        </select>
+                      </div>
+
+                      <div className="space-y-1.5">
+                        <label className="text-[10px] uppercase tracking-wider text-[#c7bcb1] font-sans block">
+                          Project Location / City
+                        </label>
+                        <input
+                          type="text"
+                          value={leadCity}
+                          onChange={(e) => setLeadCity(e.target.value)}
+                          placeholder="e.g. Indore, Mumbai, Delhi"
+                          className="w-full px-4 py-3 rounded-xl bg-[#220707] border border-white/15 text-sm text-[#f7f6ef] placeholder:text-white/30 focus:outline-none focus:border-[#dca82b] transition-colors"
+                        />
+                      </div>
+                    </div>
+
+                    <div className="space-y-1.5">
+                      <label className="text-[10px] uppercase tracking-wider text-[#c7bcb1] font-sans block">
+                        Project Scope or Vision (Optional)
+                      </label>
+                      <textarea
+                        rows={3}
+                        value={leadNote}
+                        onChange={(e) => setLeadNote(e.target.value)}
+                        placeholder="Tell us about the area, timeline, or aesthetic aspirations..."
+                        className="w-full px-4 py-3 rounded-xl bg-[#220707] border border-white/15 text-sm text-[#f7f6ef] placeholder:text-white/30 focus:outline-none focus:border-[#dca82b] transition-colors resize-none"
+                      />
+                    </div>
+
+                    <div className="pt-2">
+                      <button
+                        type="submit"
+                        disabled={leadLoading}
+                        className="w-full py-4 rounded-xl bg-gradient-to-r from-[#edd277] via-[#dca82b] to-[#c28c1d] text-[#140404] font-semibold text-xs uppercase tracking-[0.2em] hover:brightness-110 transition-all duration-300 shadow-xl shadow-[#dca82b]/25 flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
+                      >
+                        {leadLoading ? (
+                          <>
+                            <Loader2 size={16} className="animate-spin" /> Transmitting to Studio...
+                          </>
+                        ) : (
+                          <>
+                            Submit Commission Request <Send size={14} />
+                          </>
+                        )}
+                      </button>
+                    </div>
+                  </form>
+                )}
+              </div>
+            </div>
           </div>
         </div>
       </section>
