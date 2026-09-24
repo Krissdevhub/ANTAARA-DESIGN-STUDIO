@@ -67,22 +67,22 @@ export default function WorkClient({ initialProjects }: WorkClientProps) {
               />
               <span className="w-8 h-[1px] bg-[#dca82b]" />
               <span className="text-[10px] uppercase tracking-[0.28em] text-[#dca82b] font-sans font-medium">
-                The Architectural Archive
+                The Interior Design Archive
               </span>
             </div>
             <span className="text-[10px] uppercase tracking-[0.2em] text-[#d3c8bd] font-sans">
-              {filteredProjects.length} Catalogued Commissions
+              19 selected commissions featured in this archive
             </span>
           </div>
 
           <div className="max-w-4xl space-y-4">
             <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light text-[#f7f6ef] tracking-tight leading-[1.04]">
-              Selected Architectural <br />
+              Selected Interior Design <br />
               <span className="italic text-[#dca82b]">Works & Commissions.</span>
             </h1>
 
             <p className="text-xs sm:text-sm md:text-base font-sans text-[#d3c8bd] max-w-2xl font-light leading-relaxed">
-              An exhaustive archive of luxury private residences, landmark hospitality venues, executive corporate headquarters, and institutional campuses shaped across India.
+              19 selected commissions featured in this archive—spanning luxury private residences, landmark hospitality venues, healthcare suites, and corporate headquarters. Over 50+ completed interior projects across India.
             </p>
           </div>
 
@@ -145,7 +145,7 @@ export default function WorkClient({ initialProjects }: WorkClientProps) {
                       ? "bg-[#dca82b] text-[#180606] font-semibold"
                       : "text-[#d3c8bd] hover:text-[#f7f6ef]"
                   }`}
-                  title="Architectural Ledger Index"
+                  title="Project Archive Ledger View"
                 >
                   <ListFilter size={12} />
                   <span>Ledger</span>
@@ -312,13 +312,13 @@ export default function WorkClient({ initialProjects }: WorkClientProps) {
                 &ldquo;At Antaara Design Studio every project is a story, every space is an emotion, and every detail reflects timeless craftsmanship.&rdquo;
               </p>
               <p className="text-xs text-[#d3c8bd] font-sans uppercase tracking-widest">
-                Kirti Jaiswal Rajpal · Principal Architect
+                Kirti Jaiswal Rajpal · Founder & Principal Interior Designer
               </p>
             </div>
           </div>
         ) : (
           /* ═══════════════════════════════════════════════════════════
-              04. ARCHITECTURAL INDEX LEDGER VIEW (PROFESSIONAL TABLE)
+              04. PROJECT ARCHIVE LEDGER VIEW (PROFESSIONAL TABLE)
               ═══════════════════════════════════════════════════════════ */
           <div className="rounded-2xl border border-white/10 bg-[#200808] overflow-hidden shadow-2xl">
             <div className="overflow-x-auto">
@@ -348,7 +348,7 @@ export default function WorkClient({ initialProjects }: WorkClientProps) {
                       </td>
                       <td className="py-4 px-6 text-[#d3c8bd] whitespace-nowrap">{p.location}</td>
                       <td className="py-4 px-6 text-[#f7f6ef] font-medium">{p.client || "Private Client"}</td>
-                      <td className="py-4 px-6 text-[#c7bcb1] max-w-xs truncate">{p.scope || "Full Turnkey Interior Architecture"}</td>
+                      <td className="py-4 px-6 text-[#c7bcb1] max-w-xs truncate">{p.scope || "Complete Interior Design & Execution"}</td>
                       <td className="py-4 px-6 text-right whitespace-nowrap">
                         <Link
                           href={`/work/${p.slug}`}
@@ -366,7 +366,7 @@ export default function WorkClient({ initialProjects }: WorkClientProps) {
         )}
 
         {/* ═══════════════════════════════════════════════════════════
-            05. BOTTOM ARCHITECTURAL COMMISSION INQUIRY
+            05. BOTTOM INTERIOR COMMISSION INQUIRY
             ═══════════════════════════════════════════════════════════ */}
         <section className="p-10 sm:p-16 rounded-2xl bg-gradient-to-r from-[#2a0909] via-[#210707] to-[#180606] border border-[#dca82b]/30 text-center space-y-6 shadow-2xl">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#dca82b]/15 border border-[#dca82b]/30 text-[10px] uppercase tracking-[0.24em] text-[#dca82b] font-medium">
@@ -374,11 +374,11 @@ export default function WorkClient({ initialProjects }: WorkClientProps) {
           </div>
 
           <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-light text-[#f7f6ef] max-w-2xl mx-auto leading-tight">
-            Commission Antaara for your <span className="italic text-[#dca82b]">architectural space.</span>
+            Commission Antaara for your <span className="italic text-[#dca82b]">interior space.</span>
           </h2>
 
           <p className="text-xs sm:text-sm text-[#d3c8bd] font-sans max-w-lg mx-auto font-light leading-relaxed">
-            We accept a curated selection of residential, hospitality, and commercial commissions each year to ensure uncompromising artisanal supervision and timely execution.
+            We accept a curated selection of residential, hospitality, healthcare, and commercial commissions each year to ensure uncompromising artisanal supervision and timely execution.
           </p>
 
           <div className="pt-2 flex flex-wrap justify-center gap-4">
@@ -386,7 +386,7 @@ export default function WorkClient({ initialProjects }: WorkClientProps) {
               href="/contact"
               className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-[#dca82b] text-[#180606] font-semibold text-xs uppercase tracking-[0.18em] hover:bg-[#edd277] transition-all shadow-xl shadow-[#dca82b]/20"
             >
-              Start an Architectural Consultation <ArrowUpRight size={14} />
+              Start an Interior Design Consultation <ArrowUpRight size={14} />
             </Link>
             <a
               href="tel:+919243051598"

@@ -7,6 +7,7 @@ const projectTypes = [
   "Private Residence",
   "Hospitality & F&B",
   "Commercial Office",
+  "Healthcare & Wellness",
   "Institutional / Retail",
 ];
 
@@ -69,7 +70,7 @@ export default function ContactExperience() {
           </h1>
 
           <p className="text-xs sm:text-sm font-sans text-[#d3c8bd] max-w-xl leading-relaxed font-light">
-            Bring us the site, the architectural brief, or simply the feeling you wish to evoke. Our principal design team will take it forward.
+            Bring us the site, the interior design brief, or simply the feeling you wish to evoke. Our principal design team will take it forward.
           </p>
         </div>
 

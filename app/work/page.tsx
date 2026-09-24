@@ -2,9 +2,9 @@ import { getProjects } from "@/lib/db";
 import WorkClient from "./WorkClient";
 
 export const metadata = {
-  title: "Selected Works | Antaara Design Studio",
+  title: "Interior Design Archive | Selected Works | Antaara Design Studio",
   description:
-    "Explore the architectural and interior design portfolio of Antaara Design Studio. Residential, hospitality, commercial, and retail projects across India.",
+    "Explore the interior design and turnkey execution portfolio of Antaara Design Studio. Over 50+ completed interior projects across India, with 19 selected commissions featured in this archive.",
 };
 
 export const dynamic = "force-dynamic";

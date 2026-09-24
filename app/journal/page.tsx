@@ -4,9 +4,9 @@ import { ArrowUpRight } from "lucide-react";
 import { JOURNAL_ARTICLES } from "@/data/journal-articles";
 
 export const metadata = {
-  title: "Journal & Perspectives | Antaara Design Studio",
+  title: "Journal & Perspectives | Antaara Design Studio · Interior Design",
   description:
-    "Editorial reflections on architectural lighting, enduring materials, spatial planning, and residential luxury from Antaara Design Studio.",
+    "Editorial reflections on interior lighting, enduring materials, spatial planning, and residential luxury from Antaara Design Studio.",
 };
 
 export default function JournalPage() {
@@ -23,7 +23,7 @@ export default function JournalPage() {
           </h1>
           <p className="max-w-2xl text-base text-[#5E5148] font-light leading-relaxed">
             Essays on spatial harmony, material longevity, lighting psychology, and
-            architectural storytelling by Kirti Jaiswal Rajpal and the Antaara studio.
+            interior design storytelling by founder and celebrity interior designer Kirti Jaiswal Rajpal and the Antaara studio.
           </p>
         </div>
 

@@ -27,13 +27,13 @@ export default function NewFooter() {
                 ANTAARA
               </span>
               <span className="block text-[9px] font-mono tracking-[0.35em] text-[#E6CA85] mt-1">
-                DESIGN STUDIO • ARCHITECTURE & INTERIORS
+                DESIGN STUDIO • INTERIOR DESIGN & TURNKEY EXECUTION
               </span>
             </Link>
 
             <p className="max-w-sm text-xs text-[#9C9890] font-sans leading-relaxed">
-              Founded by Kirti Jaiswal Rajpal. An architectural interior atelier shaping residential sanctuaries, 
-              curated hospitality, and enduring commercial environments across India.
+              Founded by celebrity interior designer Kirti Jaiswal Rajpal. A bespoke interior design firm shaping residential sanctuaries, 
+              curated hospitality, healthcare and enduring commercial environments across India.
             </p>
 
             <div className="flex items-center space-x-2 text-[10px] font-mono text-[#E6CA85]">
@@ -85,8 +85,9 @@ export default function NewFooter() {
               <li>Haute Residential Estates</li>
               <li>Signature Dining & Hospitality</li>
               <li>Executive Headquarters</li>
+              <li>Healthcare & Wellness Sanctuaries</li>
               <li>Boutique Retail & Couture</li>
-              <li>Turnkey Interior Architecture</li>
+              <li>Turnkey Interior Design & Execution</li>
             </ul>
           </div>
 

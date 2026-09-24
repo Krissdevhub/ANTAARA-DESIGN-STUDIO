@@ -207,7 +207,7 @@ export default function SelectedWorkSequence() {
                 <div className="relative aspect-[4/5] w-[85%] mx-auto overflow-hidden border border-[#22201E]/12 shadow-md bg-[#EDEAE3]">
                   <Image
                     src="/images/projects/hotel-pride-cottages/p7_2_750x1000.jpeg"
-                    alt="Hotel Pride Cottage Architecture Detail"
+                    alt="Hotel Pride Cottage Interior Detail"
                     fill
                     sizes="(max-width: 1024px) 80vw, 35vw"
                     className="object-cover object-center transition-transform duration-[1800ms] group-hover:scale-103"

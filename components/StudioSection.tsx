@@ -26,7 +26,7 @@ export default function StudioSection() {
           </h2>
 
           <p className="max-w-2xl text-sm sm:text-base text-[#6E6862] font-sans font-light leading-relaxed">
-            Antaara Design Studio is an interior architecture practice based in Indore, dedicated to transforming residential, hospitality, commercial, and retail environments with functional planning, honest materiality, and timeless aesthetics.
+            Antaara Design Studio is a premium interior design firm based in Indore, led by founder and celebrity interior designer Kirti Jaiswal Rajpal. With 15 years of experience and more than 50 completed projects across India, the studio creates bespoke residential, commercial, hospitality, healthcare and retail interiors through thoughtful space planning, refined material selection and seamless turnkey execution.
           </p>
         </div>
 

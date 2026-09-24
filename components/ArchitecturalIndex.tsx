@@ -312,7 +312,7 @@ export default function ArchitecturalIndex({ projects }: { projects: Project[] }
             href="/work"
             className="inline-flex items-center space-x-3 text-xs uppercase tracking-[0.25em] px-8 py-4 rounded-full bg-[#181614] border border-[#B69A6A]/50 text-[#FAF7F2] hover:bg-[#B69A6A] hover:text-[#0E0D0C] transition-all duration-300 font-display font-medium hover:scale-105 shadow-xl"
           >
-            <span>Explore All 19 Architectural Commissions</span>
+            <span>Explore 19 Selected Commissions in this Archive</span>
             <ArrowUpRight className="w-4 h-4" />
           </Link>
         </div>

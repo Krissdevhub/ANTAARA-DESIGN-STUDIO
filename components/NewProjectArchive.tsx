@@ -200,10 +200,10 @@ export default function NewProjectArchive({ projects }: Props) {
                   </div>
                   <div>
                     <span className="block text-[9px] font-mono uppercase text-[#9C9890] tracking-widest">
-                      SCOPE OF ARCHITECTURE
+                      SCOPE OF INTERIOR DESIGN
                     </span>
                     <span className="text-xs font-sans text-[#FBFBFD]">
-                      {selectedProject.scope || "Full Interior Architecture"}
+                      {selectedProject.scope || "Full Turnkey Interior Design"}
                     </span>
                   </div>
                 </div>

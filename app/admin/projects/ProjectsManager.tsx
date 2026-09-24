@@ -37,7 +37,7 @@ export default function ProjectsManager({
     subtitle: "",
     location: "Indore, Madhya Pradesh",
     client: "",
-    scope: "Interior Architecture & Detailing",
+    scope: "Interior Design & Detailing",
     year: new Date().getFullYear().toString(),
     featured: false,
     order: projects.length + 1,
@@ -162,7 +162,7 @@ export default function ProjectsManager({
             Project Commissions
           </h1>
           <p className="text-xs uppercase tracking-widest text-[#8A7D73] mt-1">
-            MANAGE ALL {projects.length} ARCHITECTURAL COMMISSIONS
+            MANAGE ALL {projects.length} INTERIOR DESIGN COMMISSIONS
           </p>
         </div>
 

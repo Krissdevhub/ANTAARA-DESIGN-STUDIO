@@ -89,7 +89,7 @@ const heroSlides = [
     client: "Coffee by Di Bella",
     image: "/images/projects/coffee-by-di-bella/p3_2_627x627.png",
     slug: "coffee-by-di-bella",
-    specs: "Architectural Identity · Warm Oak & Brass · Turnkey Execution",
+    specs: "Interior Design Identity · Warm Oak & Brass · Turnkey Execution",
   },
 ];
 
@@ -340,13 +340,13 @@ export default function CinematicHome({ initialProjects }: CinematicHomeProps) {
       return initialProjects.map((p) => ({
         title: p.title,
         category: p.category,
-        tagline: p.subtitle || p.summary || "Bespoke Architectural Commission",
+        tagline: p.subtitle || p.summary || "Bespoke Interior Design Commission",
         location: p.location,
         image: p.coverImage,
         slug: p.slug,
         client: p.client || "Private Commission",
         featured: p.featured,
-        area: p.scope || "Architectural Project",
+        area: p.scope || "Interior Design Project",
         year: p.year || "2024",
       }));
     }
@@ -366,7 +366,7 @@ export default function CinematicHome({ initialProjects }: CinematicHomeProps) {
         client: p.client || "Private Commission",
         image: p.coverImage,
         slug: p.slug,
-        specs: `${p.year || "2024"} · ${p.scope || "Turnkey Architectural Execution"}`,
+        specs: `${p.year || "2024"} · ${p.scope || "Turnkey Interior Design & Execution"}`,
       }));
     }
     return heroSlides;
@@ -594,7 +594,7 @@ export default function CinematicHome({ initialProjects }: CinematicHomeProps) {
             {/* Subtitle with Active Slide Detail */}
             <div className="space-y-2">
               <p className="text-xs sm:text-sm md:text-base text-[#d3c8bd] max-w-xl font-sans font-light leading-relaxed">
-                Bespoke luxury residences, landmark hospitality destinations, and executive commercial environments shaped with architectural rigor, sensory materiality, and flawless turnkey execution.
+                Bespoke luxury residences, landmark hospitality destinations, healthcare sanctuaries, and executive commercial environments shaped with thoughtful interior planning, sensory materiality, and seamless turnkey execution.
               </p>
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-[#140404]/60 border border-[#dca82b]/30 text-[11px] text-[#edd277]">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#dca82b] animate-ping" />
@@ -728,13 +728,13 @@ export default function CinematicHome({ initialProjects }: CinematicHomeProps) {
         <div className="max-w-[1440px] mx-auto grid grid-cols-2 lg:grid-cols-4 gap-8">
           <div className="border-r border-white/10 pr-6 last:border-0 space-y-1">
             <span className="text-[9px] uppercase tracking-[0.28em] text-[#dca82b] font-sans block">Commissions</span>
-            <p className="font-serif text-3xl sm:text-4xl lg:text-5xl text-[#f7f6ef] font-light">30+</p>
-            <p className="text-xs text-[#c7bcb1] font-sans">Curated Architectural Projects</p>
+            <p className="font-serif text-3xl sm:text-4xl lg:text-5xl text-[#f7f6ef] font-light">50+</p>
+            <p className="text-xs text-[#c7bcb1] font-sans">Completed Interior Projects Across India</p>
           </div>
           <div className="border-r border-white/10 pr-6 last:border-0 space-y-1">
-            <span className="text-[9px] uppercase tracking-[0.28em] text-[#dca82b] font-sans block">Atelier Experience</span>
-            <p className="font-serif text-3xl sm:text-4xl lg:text-5xl text-[#f7f6ef] font-light">8+ Years</p>
-            <p className="text-xs text-[#c7bcb1] font-sans">Design & Spatial Craftsmanship</p>
+            <span className="text-[9px] uppercase tracking-[0.28em] text-[#dca82b] font-sans block">Design Leadership</span>
+            <p className="font-serif text-3xl sm:text-4xl lg:text-5xl text-[#f7f6ef] font-light">15+ Years</p>
+            <p className="text-xs text-[#c7bcb1] font-sans">Founder Design Leadership</p>
           </div>
           <div className="border-r border-white/10 pr-6 last:border-0 space-y-1">
             <span className="text-[9px] uppercase tracking-[0.28em] text-[#dca82b] font-sans block">Delivery Model</span>
@@ -788,7 +788,7 @@ export default function CinematicHome({ initialProjects }: CinematicHomeProps) {
                   View Case Study <ArrowUpRight size={14} />
                 </Link>
                 <span className="text-[11px] text-[#c7bcb1] font-sans">
-                  Turnkey Architectural Interior
+                  Turnkey Interior Design & Execution
                 </span>
               </div>
             </div>
@@ -840,7 +840,7 @@ export default function CinematicHome({ initialProjects }: CinematicHomeProps) {
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-[#dca82b]/20 pb-8">
           <div className="space-y-3">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#dca82b]/10 border border-[#dca82b]/25 text-[10px] uppercase tracking-[0.24em] text-[#dca82b] font-medium">
-              <Sparkles size={12} /> Architectural Ledger · Live Supabase Archive
+              <Sparkles size={12} /> Project Archive · Selected Interior Design Works
             </div>
             <h2 className="font-cinzel text-3xl sm:text-4xl md:text-5xl font-bold text-[#f7f6ef]">
               Selected <span className="font-editorial italic font-normal text-[#dca82b]">Commissions.</span>
@@ -1177,7 +1177,7 @@ export default function CinematicHome({ initialProjects }: CinematicHomeProps) {
             Sensory Philosophy
           </span>
           <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-light text-[#f7f6ef]">
-            The Architecture of <span className="italic font-serif text-[#dca82b]">Materiality.</span>
+            The Art of <span className="italic font-serif text-[#dca82b]">Materiality.</span>
           </h2>
           <p className="text-xs sm:text-sm text-[#d3c8bd] font-sans font-light leading-relaxed">
             Spaces become unforgettable when texture, grain, and reflection dialogue with light. Our studio curates an authentic material palette sourced from world-class stone quarries and artisanal workshops.
@@ -1216,7 +1216,7 @@ export default function CinematicHome({ initialProjects }: CinematicHomeProps) {
             <div className="relative aspect-[3/4] rounded-3xl overflow-hidden border border-[#dca82b]/40 shadow-2xl">
               <Image
                 src="/images/founder/kirti-portrait-editorial-final.jpg"
-                alt="Kirti Jaiswal Rajpal — Founder & Principal Designer"
+                alt="Kirti Jaiswal Rajpal — Founder & Principal Interior Designer"
                 fill
                 sizes="(max-width: 1024px) 100vw, 42vw"
                 className="object-cover"
@@ -1225,7 +1225,7 @@ export default function CinematicHome({ initialProjects }: CinematicHomeProps) {
             <div className="absolute -bottom-6 -right-4 sm:right-6 bg-[#210707] border border-[#dca82b]/50 rounded-2xl p-5 shadow-2xl backdrop-blur-md">
               <p className="font-serif text-lg text-[#f7f6ef] tracking-wide">KIRTI JAISWAL RAJPAL</p>
               <p className="text-[9px] uppercase tracking-[0.24em] text-[#dca82b] font-sans font-medium mt-0.5">
-                Founder & Principal Designer
+                Founder & Principal Interior Designer
               </p>
             </div>
           </div>
@@ -1245,13 +1245,13 @@ export default function CinematicHome({ initialProjects }: CinematicHomeProps) {
 
             <div className="space-y-4 text-xs sm:text-sm text-[#d3c8bd] font-sans font-light leading-relaxed">
               <p>
-                Antaara Design Studio is a creative interior architecture firm based in Indore, dedicated to transforming spaces with innovative ideas, functional planning, and timeless aesthetics. We specialize in designing residential, commercial, hospitality, and retail interiors that perfectly balance style, comfort, and practicality.
+                Antaara Design Studio is a premium interior design firm based in Indore, led by founder and celebrity interior designer Kirti Jaiswal Rajpal. With 15 years of experience and more than 50 completed projects across India, the studio creates bespoke residential, commercial, hospitality, healthcare and retail interiors through thoughtful space planning, refined material selection and seamless turnkey execution.
               </p>
               <p>
-                Driven by a passion for excellence and attention to detail, our team works closely with every client to understand their vision and turn it into reality. From concept development to project execution, we ensure a seamless design journey with a strong focus on quality, creativity, and timely delivery.
+                Our work brings together thoughtful space planning, refined material selection, bespoke furniture and millwork, lighting design, art curation, site coordination and complete turnkey execution. Every project is designed around the client’s lifestyle, identity and everyday rituals—creating spaces that are beautiful, functional and emotionally lasting.
               </p>
               <p>
-                Our commitment to customer satisfaction, personalized solutions, and modern design principles has earned us the trust of clients across India. Whether it is creating elegant homes, sophisticated commercial spaces, or luxurious hospitality interiors, we strive to deliver designs that inspire and leave a lasting impression.
+                Our commitment to customer satisfaction, personalized solutions, and modern design principles has earned us the trust of clients across India. Whether it is creating elegant homes, sophisticated commercial spaces, healthcare sanctuaries, or luxurious hospitality interiors, we strive to deliver designs that inspire and leave a lasting impression.
               </p>
             </div>
 
@@ -1309,7 +1309,7 @@ export default function CinematicHome({ initialProjects }: CinematicHomeProps) {
       </section>
 
       {/* ═══════════════════════════════════════════════════════════
-          THE 4-STAGE TURNKEY ARCHITECTURAL METHODOLOGY
+          THE 4-STAGE TURNKEY INTERIOR DESIGN METHODOLOGY
           ═══════════════════════════════════════════════════════════ */}
       <section className="py-24 md:py-32 px-6 sm:px-10 md:px-16 max-w-[1440px] mx-auto space-y-14">
         <div className="space-y-3">
@@ -1336,7 +1336,7 @@ export default function CinematicHome({ initialProjects }: CinematicHomeProps) {
             {
               num: "03",
               title: "3D Walkthroughs & Blueprints",
-              desc: "Photorealistic 3D interior renders paired with millimeter-accurate architectural millwork, MEP, and lighting layouts.",
+              desc: "Photorealistic 3D interior renders paired with millimeter-accurate interior millwork, MEP coordination and lighting layouts.",
             },
             {
               num: "04",
@@ -1368,7 +1368,7 @@ export default function CinematicHome({ initialProjects }: CinematicHomeProps) {
             {/* Left Narrative Column */}
             <div className="lg:col-span-5 space-y-6">
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#dca82b]/15 border border-[#dca82b]/35 text-[10px] uppercase tracking-[0.24em] text-[#dca82b] font-medium">
-                <Sparkles size={12} /> Architectural Concierge
+                <Sparkles size={12} /> Interior Design Concierge
               </div>
 
               <h2 className="font-cinzel text-3xl sm:text-4xl md:text-5xl font-bold text-[#f7f6ef] leading-tight">
@@ -1376,17 +1376,17 @@ export default function CinematicHome({ initialProjects }: CinematicHomeProps) {
               </h2>
 
               <p className="text-xs sm:text-sm text-[#d3c8bd] font-sans font-light leading-relaxed">
-                Whether envisioning a signature private residence, luxury boutique resort, or corporate headquarters, Antaara Design Studio provides bespoke architectural curation and complete turnkey execution.
+                Whether envisioning a signature private residence, luxury boutique resort, healthcare sanctuary, or corporate headquarters, Antaara Design Studio provides bespoke interior design curation and complete turnkey execution.
               </p>
 
               <div className="pt-2 space-y-3 text-xs font-sans text-[#c7bcb1]">
                 <div className="flex items-center gap-3">
                   <span className="w-2 h-2 rounded-full bg-[#dca82b]" />
-                  <span>Direct Principal Consultation with Kirti Jaiswal Rajpal</span>
+                  <span>Direct Consultation with Founder & Principal Interior Designer Kirti Jaiswal Rajpal</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <span className="w-2 h-2 rounded-full bg-[#dca82b]" />
-                  <span>Turnkey Architectural Delivery & Material Sourcing</span>
+                  <span>Turnkey Interior Execution & Material Sourcing</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <span className="w-2 h-2 rounded-full bg-[#dca82b]" />
@@ -1499,6 +1499,7 @@ export default function CinematicHome({ initialProjects }: CinematicHomeProps) {
                           <option value="Residential">Luxury Private Residence</option>
                           <option value="Hospitality">Boutique Hospitality & Dining</option>
                           <option value="Commercial">Corporate Headquarters / Office</option>
+                          <option value="Healthcare">Healthcare & Wellness Interiors</option>
                           <option value="Retail">Retail Flagship / Salon Atelier</option>
                           <option value="Celebrity">Celebrity / Monograph Commission</option>
                         </select>

@@ -15,7 +15,7 @@ export default function StudioIntro() {
             01 — THE STUDIO
           </span>
           <span className="text-[11px] uppercase tracking-[0.3em] text-[#8A7D73] font-sans">
-            INDORE • ARCHITECTURE & INTERIORS
+            INDORE • INTERIOR DESIGN & TURNKEY EXECUTION
           </span>
         </div>
 
@@ -41,14 +41,10 @@ export default function StudioIntro() {
           <div className="lg:col-span-5 space-y-8">
             <div className="space-y-5 text-[#22201E] text-base leading-relaxed font-light">
               <p>
-                Antaara Design Studio is a creative interior design firm based in
-                Indore, dedicated to transforming spaces through innovative ideas,
-                functional planning, and timeless aesthetics.
+                Our work brings together thoughtful space planning, refined material selection, bespoke furniture and millwork, lighting design, art curation, site coordination and complete turnkey execution.
               </p>
               <p className="text-sm text-[#5E5148]">
-                We specialize in designing residential, commercial, hospitality, and
-                retail interiors that achieve a harmonious balance between spatial
-                clarity, tactile warmth, and functional everyday living.
+                Every project is designed around the client’s lifestyle, identity and everyday rituals—creating spaces that are beautiful, functional and emotionally lasting.
               </p>
             </div>
 
@@ -72,7 +68,7 @@ export default function StudioIntro() {
                 </div>
                 <div className="flex items-center space-x-2 text-[#11110F]">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#B69A6A]" />
-                  <span>Boutique Ateliers</span>
+                  <span>Healthcare & Spas</span>
                 </div>
               </div>
             </div>
@@ -81,7 +77,7 @@ export default function StudioIntro() {
             <div className="relative w-full aspect-[16/10] overflow-hidden shadow-2xl rounded-sm mt-8 group border border-[#DCD0C5]">
               <Image
                 src="/images/projects/hotel-pride-cottages/p7_1_1536x1024.jpeg"
-                alt="Hotel Pride Cottages Luxury Interior Architecture"
+                alt="Hotel Pride Cottages Luxury Interior Design"
                 fill
                 className="object-cover transition-transform duration-1000 group-hover:scale-105"
               />

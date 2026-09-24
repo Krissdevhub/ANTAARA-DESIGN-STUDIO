@@ -20,13 +20,13 @@ export default function Footer() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 pb-16 border-b border-white/10 items-end">
           <div className="lg:col-span-7 space-y-4">
             <span className="text-[10px] uppercase tracking-[0.28em] text-[#dca82b] font-sans font-medium block">
-              Architectural Practice · Indore, India
+              Interior Design Practice · Indore, India
             </span>
             <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-light text-[#f7f6ef] leading-tight tracking-tight">
               Shaping spaces with <span className="italic text-[#dca82b]">purpose,</span> warmth, and timeless craft.
             </h2>
             <p className="text-sm font-sans text-[#d3c8bd] max-w-xl leading-relaxed">
-              At Antaara Design Studio, we believe every space tells a story. We specialize in bespoke residential, commercial, hospitality, and institutional interiors across India.
+              Antaara Design Studio is a premium interior design firm based in Indore, specializing in bespoke residential, commercial, hospitality, healthcare, and retail interiors across India.
             </p>
           </div>
 
@@ -69,7 +69,7 @@ export default function Footer() {
               </div>
             </div>
             <p className="text-[#c7bcb1] leading-relaxed text-[12px]">
-              Founded by <strong className="text-[#f7f6ef] font-medium">Kirti Jaiswal Rajpal</strong>. An Indore-based practice bringing together spatial planning, materiality, and turnkey craftsmanship.
+              Led by founder and celebrity interior designer <strong className="text-[#f7f6ef] font-medium">Kirti Jaiswal Rajpal</strong> (Founder & Principal Interior Designer). 15 years of experience and 50+ completed projects across India.
             </p>
             <p className="text-[11px] text-[#dca82b] tracking-wider uppercase">
               Indore · Kolkata · Mathura · Satna
@@ -98,13 +98,13 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/work?category=Institutional" className="hover:text-[#f7f6ef] transition-colors">
-                  Educational & Institutional Design
+                <Link href="/services" className="hover:text-[#f7f6ef] transition-colors">
+                  Healthcare & Wellness Interiors
                 </Link>
               </li>
               <li>
                 <Link href="/services" className="hover:text-[#f7f6ef] transition-colors">
-                  Full Turnkey Architecture & Execution
+                  Full Turnkey Interior Design & Execution
                 </Link>
               </li>
             </ul>

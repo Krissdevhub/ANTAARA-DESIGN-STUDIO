@@ -26,7 +26,7 @@ export default function SelectedWorkSection({ projects }: SelectedWorkProps) {
         <div className="flex flex-col md:flex-row md:items-end justify-between pb-12 border-b border-[#DCD0C5]">
           <div className="space-y-4">
             <span className="text-[11px] uppercase tracking-[0.35em] text-[#8A7D73] font-sans">
-              03 — ARCHITECTURAL ARCHIVE
+              03 — INTERIOR DESIGN ARCHIVE
             </span>
             <h2 className="font-display text-3xl sm:text-5xl lg:text-6xl font-light tracking-tight text-[#161412]">
               SELECTED <br />

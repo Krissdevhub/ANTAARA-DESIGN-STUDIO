@@ -41,14 +41,14 @@ export const metadata: Metadata = {
       ? `https://${process.env.VERCEL_URL}`
       : "https://antaara-design-studio.vercel.app"
   ),
-  title: "Antaara Design Studio | Interior Architecture & Design",
+  title: "Antaara Design Studio | Interior Design & Turnkey Execution",
   description:
-    "Antaara Design Studio is an interior architecture practice based in Indore, India. Founded by Kirti Jaiswal Rajpal. Shaping residential, hospitality, and commercial spaces with architectural intention and timeless materiality.",
-  authors: [{ name: "Kirti Jaiswal Rajpal" }],
+    "Antaara Design Studio is a premium interior design firm based in Indore, led by founder and celebrity interior designer Kirti Jaiswal Rajpal. With 15 years of experience and more than 50 completed projects across India, the studio creates bespoke residential, commercial, hospitality, healthcare and retail interiors through thoughtful space planning, refined material selection and seamless turnkey execution.",
+  authors: [{ name: "Kirti Jaiswal Rajpal", url: "https://antaaradesignstudio.com" }],
   openGraph: {
-    title: "Antaara Design Studio | Interior Architecture",
+    title: "Antaara Design Studio | Interior Design & Turnkey Execution",
     description:
-      "Interiors with intention. Founded by Kirti Jaiswal Rajpal in Indore, India.",
+      "Premium interior design firm led by celebrity interior designer Kirti Jaiswal Rajpal. 15 years of experience and 50+ completed projects across India.",
     url: "https://antaaradesignstudio.com",
     siteName: "Antaara Design Studio",
     locale: "en_US",

@@ -18,6 +18,7 @@ export default function NewCommissionConcierge() {
     "Private Luxury Residence",
     "Hospitality / Dining / Café",
     "Executive Corporate Office",
+    "Healthcare & Wellness Sanctuary",
     "Boutique Retail / Couture Atelier",
   ];
 
@@ -67,7 +68,7 @@ export default function NewCommissionConcierge() {
   };
 
   const whatsappMessage = encodeURIComponent(
-    `Hello Antaara Design Studio,\n\nI would like to commission an architectural consultation with Kirti Jaiswal Rajpal.\n\n• Typology: ${typology}\n• Scale: ${scale}\n• Atmosphere: ${atmosphere}\n• Name: ${name || "Client"}\n• Location: ${location || "India"}`
+    `Hello Antaara Design Studio,\n\nI would like to commission an interior design consultation with Kirti Jaiswal Rajpal.\n\n• Typology: ${typology}\n• Scale: ${scale}\n• Atmosphere: ${atmosphere}\n• Name: ${name || "Client"}\n• Location: ${location || "India"}`
   );
 
   return (
@@ -77,13 +78,13 @@ export default function NewCommissionConcierge() {
         <div className="text-center space-y-4 mb-16">
           <div className="inline-flex items-center space-x-2 text-[10px] uppercase font-mono tracking-[0.35em] text-[#E6CA85]">
             <Sparkles className="w-3.5 h-3.5" />
-            <span>CAP. VI — THE ARCHITECTURAL COMMISSION CONCIERGE</span>
+            <span>CAP. VI — THE INTERIOR DESIGN CONCIERGE</span>
           </div>
           <h2 className="font-cinzel text-3xl sm:text-5xl md:text-6xl text-[#FBFBFD] tracking-tight">
             INITIATE A <span className="font-serif italic text-gold-shimmer">COMMISSION</span>
           </h2>
           <p className="max-w-2xl mx-auto text-xs sm:text-sm text-[#9C9890] font-sans leading-relaxed">
-            Antaara accepts a curated number of residential, commercial, and hospitality commissions annually to preserve exacting craftsmanship and spatial intimacy.
+            Antaara accepts a curated number of residential, commercial, healthcare, and hospitality commissions annually to preserve exacting craftsmanship and spatial intimacy.
           </p>
         </div>
 

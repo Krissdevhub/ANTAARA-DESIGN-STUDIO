@@ -13,17 +13,17 @@ export default function NewFounderMonograph() {
     {
       title: "Coffee by Di Bella",
       location: "Indore, MP",
-      scope: "Exterior Architecture & Double-Height Dining Experience",
+      scope: "Exterior Facade Design & Interior Dining Experience",
     },
     {
       title: "BCM Planet 3 BHK Luxury Residence",
       location: "Vijay Nagar, Indore",
-      scope: "Full Interior Architecture & Bespoke Italian Marble Millwork",
+      scope: "Complete Interior Design, Bespoke Millwork & Lighting",
     },
     {
       title: "Hotel Pride Luxury Cottages",
       location: "Bypass Road, Indore",
-      scope: "Private Resort Sanctuaries, Vaulted Wood Ceilings & Ensuites",
+      scope: "Cottage Interior Design, Private Verandahs & Luxury Ensuites",
     },
   ];
 
@@ -42,7 +42,7 @@ export default function NewFounderMonograph() {
             </h2>
           </div>
           <span className="mt-4 md:mt-0 text-xs font-mono text-[#E6CA85] tracking-widest uppercase">
-            FOUNDER & PRINCIPAL ARCHITECTURAL DESIGNER
+            FOUNDER & PRINCIPAL INTERIOR DESIGNER
           </span>
         </div>
 
@@ -89,8 +89,8 @@ export default function NewFounderMonograph() {
 
               <p className="text-sm text-[#9C9890] font-sans leading-relaxed">
                 Based out of Indore with commissions spanning Madhya Pradesh, Uttar Pradesh, and West Bengal, 
-                Kirti Jaiswal Rajpal approaches architecture not as an assembly of trends, but as a deeply human, 
-                bespoke relationship between physical materiality and interior quietude.
+                Kirti Jaiswal Rajpal approaches interior design not as an assembly of trends, but as a deeply human, 
+                bespoke relationship between physical materiality and everyday comfort.
               </p>
 
               <p className="text-sm text-[#9C9890] font-sans leading-relaxed">
@@ -138,7 +138,7 @@ export default function NewFounderMonograph() {
                   Kirti Jaiswal Rajpal
                 </span>
                 <span className="text-[10px] font-mono tracking-widest text-[#9C9890]">
-                  FOUNDER • ANTAARA DESIGN STUDIO
+                  FOUNDER & PRINCIPAL INTERIOR DESIGNER • ANTAARA DESIGN STUDIO
                 </span>
               </div>
 

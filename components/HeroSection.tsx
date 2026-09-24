@@ -101,7 +101,7 @@ export default function HeroSection() {
             {/* Bottom Location Tag */}
             <div className="pt-6 border-t border-[#27343A]/10 flex items-center justify-between text-[10px] uppercase tracking-[0.28em] font-sans text-[#66757A]">
               <span>INDORE, INDIA</span>
-              <span>EST. 2017</span>
+              <span>EST. 2016</span>
             </div>
           </div>
 

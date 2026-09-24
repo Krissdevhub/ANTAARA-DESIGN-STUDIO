@@ -3,17 +3,17 @@ import Link from "next/link";
 import { ArrowUpRight, Quote, MapPin } from "lucide-react";
 
 export const metadata = {
-  title: "The Studio & Founder Monograph | Antaara Design Studio",
+  title: "Studio Monograph & Founder | Antaara Design Studio",
   description:
-    "An architectural monograph on Antaara Design Studio and founder Kirti Jaiswal Rajpal. Interior architecture practice based in Indore, shaping residential, hospitality, and commercial commissions across India.",
+    "A studio monograph on Antaara Design Studio and founder & celebrity interior designer Kirti Jaiswal Rajpal. Premium interior design firm based in Indore, shaping residential, hospitality, commercial, and healthcare commissions across India.",
 };
 
 export default function StudioPage() {
   const milestones = [
-    { number: "30+", label: "Architectural Commissions", detail: "Residential, hospitality, commercial & institutional projects" },
+    { number: "50+", label: "Completed Interior Projects", detail: "Residential, commercial, hospitality, healthcare & institutional projects across India" },
     { number: "04", label: "States & Regions", detail: "Commissions completed in Indore, Kolkata, Mathura & Satna" },
-    { number: "08+", label: "Years of Practice", detail: "Dedicated to spatial clarity, materiality & turnkey craftsmanship" },
-    { number: "100%", label: "Turnkey Accountability", detail: "From preliminary spatial concept through to white-glove keys handover" },
+    { number: "15+", label: "Years of Design Leadership", detail: "Led by founder & celebrity interior designer Kirti Jaiswal Rajpal" },
+    { number: "100%", label: "Turnkey Accountability", detail: "From preliminary space planning through to white-glove keys handover" },
   ];
 
   const geographicalCommissions = [
@@ -45,7 +45,7 @@ export default function StudioPage() {
       projects: [
         "Residence at Omaxe (With Hema Malini Ji)",
         "Bespoke Artistic Commission & Tribute to Dharmendra Ji",
-        "Full Turnkey Villa Architecture & Custom Millwork",
+        "Full Turnkey Villa Interior Design & Custom Millwork",
       ],
     },
     {
@@ -96,18 +96,18 @@ export default function StudioPage() {
 
           <div className="max-w-4xl space-y-6">
             <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light text-[#f7f6ef] leading-[1.04] tracking-tight">
-              Architecture is not merely enclosing space; it is the curation of <span className="italic text-[#dca82b]">emotional atmosphere.</span>
+              Interior design is not merely decorating a space; it is the curation of <span className="italic text-[#dca82b]">comfort, function, emotion and identity.</span>
             </h1>
 
             <p className="text-xs sm:text-sm md:text-base font-sans text-[#d3c8bd] max-w-2xl font-light leading-relaxed">
-              Founded in Indore by interior architect Kirti Jaiswal Rajpal, Antaara Design Studio operates as a multidisciplinary practice balancing classical proportion with contemporary tactile materiality.
+              Founded in Indore by celebrity interior designer Kirti Jaiswal Rajpal, Antaara Design Studio operates as a multidisciplinary practice balancing classical proportion with contemporary tactile materiality.
             </p>
           </div>
 
           {/* Practice Parameters Bar */}
           <div className="pt-6 grid grid-cols-2 md:grid-cols-4 gap-6 border-t border-white/10 text-xs font-sans">
             <div>
-              <p className="text-[10px] uppercase tracking-widest text-[#dca82b]">Principal</p>
+              <p className="text-[10px] uppercase tracking-widest text-[#dca82b]">Founder & Principal</p>
               <p className="text-[#f7f6ef] font-medium mt-0.5">Kirti Jaiswal Rajpal</p>
             </div>
             <div>
@@ -116,7 +116,7 @@ export default function StudioPage() {
             </div>
             <div>
               <p className="text-[10px] uppercase tracking-widest text-[#dca82b]">Scope of Practice</p>
-              <p className="text-[#f7f6ef] font-medium mt-0.5">Turnkey Interior Architecture</p>
+              <p className="text-[#f7f6ef] font-medium mt-0.5">Turnkey Interior Design & Execution</p>
             </div>
             <div>
               <p className="text-[10px] uppercase tracking-widest text-[#dca82b]">Commission Reach</p>
@@ -143,7 +143,7 @@ export default function StudioPage() {
                 />
                 <div className="absolute bottom-4 left-4 right-4 bg-[#180606]/85 backdrop-blur-md p-3 rounded-xl border border-white/10 flex items-center justify-between text-[9px] uppercase tracking-[0.2em] font-sans">
                   <span className="text-[#f7f6ef] font-medium">KIRTI JAISWAL RAJPAL</span>
-                  <span className="text-[#dca82b]">FOUNDER</span>
+                  <span className="text-[#dca82b]">FOUNDER & PRINCIPAL INTERIOR DESIGNER</span>
                 </div>
               </div>
               <p className="text-[11px] text-[#a89f91] font-sans italic text-center">
@@ -168,13 +168,13 @@ export default function StudioPage() {
 
               <div className="space-y-4 text-xs sm:text-sm text-[#d3c8bd] font-sans font-light leading-relaxed">
                 <p>
-                  Antaara Design Studio is a creative interior design firm based in Indore, dedicated to transforming spaces with innovative ideas, functional planning, and timeless aesthetics. We specialize in designing residential, commercial, hospitality, and retail interiors that perfectly balance style, comfort, and practicality.
+                  Antaara Design Studio is a premium interior design firm based in Indore, led by founder and celebrity interior designer Kirti Jaiswal Rajpal. With 15 years of experience and more than 50 completed projects across India, the studio creates bespoke residential, commercial, hospitality, healthcare and retail interiors through thoughtful space planning, refined material selection and seamless turnkey execution.
                 </p>
                 <p>
-                  Driven by a passion for excellence and attention to detail, our team works closely with every client to understand their vision and turn it into reality. From concept development to project execution, we ensure a seamless design journey with a strong focus on quality, creativity, and timely delivery.
+                  Our work brings together thoughtful space planning, refined material selection, bespoke furniture and millwork, lighting design, art curation, site coordination and complete turnkey execution. Every project is designed around the client’s lifestyle, identity and everyday rituals—creating spaces that are beautiful, functional and emotionally lasting.
                 </p>
                 <p>
-                  Our commitment to customer satisfaction, personalized solutions, and modern design principles has earned us the trust of clients across a wide range of projects. Whether it’s creating elegant homes, sophisticated commercial spaces, or luxurious hospitality interiors, we strive to deliver designs that inspire and leave a lasting impression.
+                  Our commitment to customer satisfaction, personalized solutions, and modern design principles has earned us the trust of clients across a wide range of projects. Whether it’s creating elegant homes, sophisticated commercial spaces, healthcare sanctuaries, or luxurious hospitality interiors, we strive to deliver designs that inspire and leave a lasting impression.
                 </p>
               </div>
 
@@ -182,7 +182,7 @@ export default function StudioPage() {
                 <div>
                   <p className="font-serif text-lg text-[#f7f6ef]">KIRTI JAISWAL RAJPAL</p>
                   <p className="text-[10px] uppercase tracking-wider text-[#dca82b] font-sans">
-                    Founder & Principal Designer
+                    Founder & Principal Interior Designer
                   </p>
                 </div>
                 <div className="text-right">
@@ -218,7 +218,7 @@ export default function StudioPage() {
               </blockquote>
 
               <p className="text-xs sm:text-sm text-[#d3c8bd] font-sans leading-relaxed font-light">
-                Commissioned for the landmark residence at Omaxe, Mathura, Antaara Design Studio orchestrated an architectural interior reflecting artistic majesty and serene intimacy. The commission included dedicated custom artwork tributes celebrating the legacy of Dharmendra Ji, crafted with hand-rubbed metals, custom joinery, and private sanctuary zoning.
+                Commissioned for the landmark residence at Omaxe, Mathura, Antaara Design Studio curated a bespoke interior design experience reflecting artistic majesty and serene intimacy. The commission included dedicated custom artwork tributes celebrating the legacy of Dharmendra Ji, crafted with hand-rubbed metals, custom joinery, and private sanctuary zoning.
               </p>
 
               <div className="pt-2">
@@ -255,18 +255,18 @@ export default function StudioPage() {
         </section>
 
         {/* ═══════════════════════════════════════════════════════════
-            04. THE FOUR ARCHITECTURAL TENETS (Treatise, not generic cards)
+            04. THE FOUR INTERIOR TENETS (Design Philosophy)
             ═══════════════════════════════════════════════════════════ */}
         <section className="space-y-12 border-t border-white/10 pt-16">
           <div className="max-w-2xl space-y-3">
             <span className="text-[10px] uppercase tracking-[0.28em] text-[#dca82b] font-sans font-medium block">
-              Architectural Treatise
+              Design Philosophy
             </span>
             <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-light text-[#f7f6ef]">
               Principles that govern our <span className="italic text-[#dca82b]">craft.</span>
             </h2>
             <p className="text-xs sm:text-sm text-[#d3c8bd] font-sans leading-relaxed font-light">
-              We do not impose superficial decoration. Every architectural decision is rooted in spatial logic, sensory materiality, and everyday function.
+              We do not impose superficial decoration. Every interior design decision is rooted in spatial logic, sensory materiality and everyday function.
             </p>
           </div>
 
@@ -289,7 +289,7 @@ export default function StudioPage() {
 
             <div className="p-8 rounded-2xl bg-[#200808] border border-white/10 space-y-4">
               <span className="font-serif text-3xl text-[#dca82b] block">III</span>
-              <h3 className="font-serif text-2xl text-[#f7f6ef] font-light">The Architecture of Living Rituals</h3>
+              <h3 className="font-serif text-2xl text-[#f7f6ef] font-light">Designing for Everyday Rituals</h3>
               <p className="text-xs sm:text-sm text-[#d3c8bd] font-sans leading-relaxed font-light">
                 A home must support how its patrons genuinely live, host, and gather. We configure bespoke dining volumes for celebration, contemplative reading corners for solitude, and private suites for deep restorative rest.
               </p>
@@ -299,7 +299,7 @@ export default function StudioPage() {
               <span className="font-serif text-3xl text-[#dca82b] block">IV</span>
               <h3 className="font-serif text-2xl text-[#f7f6ef] font-light">Single-Source Turnkey Stewardship</h3>
               <p className="text-xs sm:text-sm text-[#d3c8bd] font-sans leading-relaxed font-light">
-                We eliminate the traditional conflict between design concepts and site execution. By directing our own joinery workshops and stationing resident engineers on-site, we guarantee millimetric adherence to architectural drawings.
+                We eliminate the traditional conflict between design concepts and site execution. By directing our own joinery workshops and stationing resident engineers on-site, we guarantee millimetric adherence to approved interior working drawings.
               </p>
             </div>
           </div>

@@ -89,7 +89,7 @@ export default function Preloader() {
             <span className="w-2 h-2 rounded-full bg-[#dca82b] animate-ping inline-block" />
             ANTAARA · INDORE
           </span>
-          <span className="text-white/40">INTERIOR ARCHITECTURE</span>
+          <span className="text-white/40">INTERIOR DESIGN</span>
         </div>
 
         {/* Center Wordmark with Gold Seal */}

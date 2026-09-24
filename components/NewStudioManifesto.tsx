@@ -40,7 +40,7 @@ export default function NewStudioManifesto() {
           {[...Array(6)].map((_, i) => (
             <div key={i} className="flex items-center space-x-12">
               <span className="font-cinzel text-xs md:text-sm tracking-[0.35em] text-[#E6CA85] uppercase">
-                HAUTE RESIDENTIAL • HOSPITALITY SANCTUARIES • ARCHITECTURAL MONOGRAPHS
+                HAUTE RESIDENTIAL • HOSPITALITY SANCTUARIES • STUDIO MONOGRAPHS
               </span>
               <span className="w-2 h-2 rounded-full bg-[#E6CA85]/40" />
               <span className="font-serif italic text-sm md:text-base tracking-[0.2em] text-[#FBFBFD]/80">
@@ -65,24 +65,24 @@ export default function NewStudioManifesto() {
             </h2>
           </div>
           <p className="mt-4 md:mt-0 max-w-md text-xs sm:text-sm text-[#9C9890] font-sans leading-relaxed">
-            Antaara was founded on the conviction that interior architecture is not merely decorative styling—it is the deliberate sculpting of human emotion, spatial dignity, and daily ritual.
+            Antaara was founded on the conviction that interior design is not merely decorating a space—it is the deliberate curation of comfort, function, emotion and identity.
           </p>
         </div>
 
         {/* Asymmetric 2-Column Manifesto Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-24">
-          {/* Left Column: Architectural Photo with Editorial Cut */}
+          {/* Left Column: Interior Photo with Editorial Cut */}
           <div className="lg:col-span-5 relative group">
             <div className="relative aspect-[4/5] w-full rounded-2xl overflow-hidden border border-[#E6CA85]/20 shadow-[0_20px_50px_rgba(0,0,0,0.8)]">
               <Image
                 src="/images/projects/coffee-by-di-bella/p3_3_1310x1201.png"
-                alt="Antaara Signature Architectural Work"
+                alt="Antaara Signature Interior Design Work"
                 fill
                 className="object-cover transition-transform duration-1000 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#08080A] via-transparent to-transparent" />
               
-              {/* Floating Architectural Badge */}
+              {/* Floating Interior Badge */}
               <div className="absolute bottom-6 left-6 right-6 p-4 rounded-xl glass-onyx border border-[#E6CA85]/30">
                 <span className="text-[9px] uppercase font-mono tracking-[0.25em] text-[#E6CA85] block">
                   COMMISSION NOTE // DI BELLA INDORE
@@ -133,9 +133,9 @@ export default function NewStudioManifesto() {
         {/* Studio Achievement Metrics */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 border-y border-[#E6CA85]/20 py-10">
           <div className="space-y-1">
-            <span className="font-cinzel text-3xl sm:text-4xl text-[#E6CA85] block">25+</span>
+            <span className="font-cinzel text-3xl sm:text-4xl text-[#E6CA85] block">50+</span>
             <span className="text-[10px] uppercase font-mono tracking-widest text-[#9C9890]">
-              HAUTE COMMISSIONS DELIVERED
+              COMPLETED INTERIOR PROJECTS ACROSS INDIA
             </span>
           </div>
           <div className="space-y-1">

@@ -51,7 +51,7 @@ export default async function AdminDashboardPage() {
             <FolderKanban className="w-4 h-4 text-[#B69A6A]" />
           </div>
           <p className="font-serif text-4xl text-[#F5F1EB]">{projects.length}</p>
-          <p className="text-xs text-[#8A7D73]">Published architectural projects</p>
+          <p className="text-xs text-[#8A7D73]">Published interior design projects</p>
         </div>
 
         {/* Featured Projects */}
@@ -163,7 +163,7 @@ export default async function AdminDashboardPage() {
       <div className="p-8 bg-gradient-to-r from-[#22201E]/60 via-[#22201E]/30 to-transparent border border-[#22201E] rounded-sm flex flex-col sm:flex-row sm:items-center justify-between gap-6">
         <div className="space-y-1">
           <h3 className="font-serif text-2xl text-[#EDE7DF]">
-            Architectural Project Catalog
+            Interior Design Project Archive
           </h3>
           <p className="text-xs text-[#8A7D73]">
             Edit descriptions, update hero photography, change ordering or add new projects.

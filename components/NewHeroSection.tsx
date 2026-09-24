@@ -93,7 +93,7 @@ export default function NewHeroSection() {
         >
           <Image
             src="/images/projects/bcm-planet-luxury-residence/bcm_living_room.jpg"
-            alt="Antaara Haute Architecture & Interior Design"
+            alt="Antaara Haute Interior Design & Turnkey Execution"
             fill
             priority
             className={`object-cover object-center transition-all duration-[2000ms] ease-out ${
@@ -122,7 +122,7 @@ export default function NewHeroSection() {
             <Compass className="w-3.5 h-3.5 animate-spin-slow text-[#E6CA85]" />
             <span>KIRTI JAISWAL RAJPAL</span>
             <span className="text-[#9C9890]">•</span>
-            <span className="text-[#FBFBFD]/80">HAUTE INTERIORS & ARCHITECTURE</span>
+            <span className="text-[#FBFBFD]/80">HAUTE INTERIOR DESIGN & TURNKEY EXECUTION</span>
           </div>
 
           <div className="flex items-center space-x-4">

@@ -125,7 +125,7 @@ export default async function ProjectDetailPage({ params }: ProjectDetailPagePro
           </div>
           <div className="space-y-1">
             <p className="text-[10px] uppercase tracking-[0.24em] text-[#dca82b]">Execution Scope</p>
-            <p className="font-medium text-[#f7f6ef]">{project.scope || "Full Turnkey Interior Architecture"}</p>
+            <p className="font-medium text-[#f7f6ef]">{project.scope || "Full Turnkey Interior Design & Execution"}</p>
           </div>
         </div>
       </section>

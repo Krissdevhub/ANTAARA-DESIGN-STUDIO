@@ -12,7 +12,7 @@ import { ArrowUpRight, Compass, Layers, Sliders, ShieldCheck, CheckCircle2 } fro
 const disciplines = [
   {
     id: "residential",
-    code: "ARC-RES",
+    code: "INT-RES",
     title: "Private Residences & Luxury Estates",
     tagline: "Sanctuaries tailored to individual rituals and multi-generational living.",
     overview:
@@ -45,7 +45,7 @@ const disciplines = [
       "Custom bookmatched Italian marble masonry & floor inlay",
       "Full-height concealed pivot doors & flush wall reveals",
       "Bespoke millwork: walk-in wardrobes, vanity suites & master headboards",
-      "Concealed architectural lighting: 2700K warm cove optics",
+      "Concealed architectural-grade interior lighting: 2700K warm cove optics",
       "Acoustic isolation for private bedroom wings & home theaters",
     ],
     specifications: {
@@ -56,7 +56,7 @@ const disciplines = [
   },
   {
     id: "hospitality",
-    code: "ARC-HOS",
+    code: "INT-HOS",
     title: "Hospitality, Dining & Nightlife",
     tagline: "Experiential destinations engineered for atmosphere and patron wonder.",
     overview:
@@ -65,7 +65,7 @@ const disciplines = [
       {
         name: "Coffee by Di Bella",
         location: "Indore, MP",
-        client: "Exterior & Double-Height Volume",
+        client: "Exterior Facade & Double-Height Volume",
         slug: "coffee-by-di-bella",
         image: "/images/projects/coffee-by-di-bella/p3_3_1310x1201.png",
       },
@@ -88,7 +88,7 @@ const disciplines = [
       "Customer journey mapping & high-turnover circulation ergonomics",
       "Acoustic modeling & sound decay engineering for nightlife volume",
       "Bespoke cocktail bar engineering with concealed speed rails & ice wells",
-      "DMX-controlled architectural mood lighting programmed for diurnal shifts",
+      "DMX-controlled interior mood lighting programmed for diurnal shifts",
       "Commercial-grade tactile upholstery: fire-rated velvet & treated leather",
       "FOH & BOH operational coordination (kitchen, bar pass & service flow)",
     ],
@@ -100,7 +100,7 @@ const disciplines = [
   },
   {
     id: "commercial",
-    code: "ARC-COM",
+    code: "INT-COM",
     title: "Corporate Headquarters & Experience Ateliers",
     tagline: "Commanding corporate environments and customer experience touchpoints.",
     overview:
@@ -143,12 +143,56 @@ const disciplines = [
     },
   },
   {
+    id: "healthcare",
+    code: "INT-HLT",
+    title: "Healthcare, Wellness & Medical Sanctuaries",
+    tagline: "Therapeutic spatial planning, clinical ergonomics and calming sensory environments.",
+    overview:
+      "Designing patient-centric medical clinics, diagnostic centres, wellness spas, and healthcare suites where clinical precision meets soothing aesthetics, optimal patient flow, and stringent hygiene standards.",
+    featuredProjects: [
+      {
+        name: "Interiors Selfie Commercial Salon & Wellness",
+        location: "C21 Mall, Indore",
+        client: "Interiors Selfie",
+        slug: "interiors-selfie-salon",
+        image: "/images/projects/interiors-selfie-salon/salon_clean.jpg",
+      },
+      {
+        name: "Commercial Beauty Academy",
+        location: "Indore, MP",
+        client: "Ms. Kamna Joshi",
+        slug: "kamna-joshi-beauty-academy",
+        image: "/images/projects/kamna-joshi-beauty-academy/p11_0_1536x1024.jpeg",
+      },
+      {
+        name: "Luxury Bridal Studio",
+        location: "New Palasia, Indore",
+        client: "Private Suite & Atelier",
+        slug: "luxury-bridal-experience-studio",
+        image: "/images/projects/luxury-bridal-experience-studio/p16_0_1536x1024.jpeg",
+      },
+    ],
+    technicalScopes: [
+      "Medical-grade antimicrobial surfaces & seamless jointing",
+      "Acoustic privacy engineering for consulting suites & therapy rooms",
+      "Intuitive patient journey mapping & stress-reducing spatial flow",
+      "High-CRI daylight balanced lighting for diagnostic & aesthetic precision",
+      "Specialized MEP coordination, ventilation & sanitary planning",
+      "Calming biophilic materials, soft neutrals & sensory decompression zones",
+    ],
+    specifications: {
+      scale: "1,500 to 15,000+ sq.ft.",
+      leadTime: "3 to 8 Months",
+      handover: "Turnkey Regulatory-Compliant Handover",
+    },
+  },
+  {
     id: "turnkey",
-    code: "ARC-EXE",
-    title: "Full Turnkey General Contracting & Execution",
+    code: "INT-EXE",
+    title: "Full Turnkey Interior Execution & Contracting",
     tagline: "Uncompromising on-site craftsmanship from raw shell to white-glove handover.",
     overview:
-      "We eliminate the disconnect between architectural vision and on-site reality. Antaara Design Studio acts as a single-source general contractor, directing quarry stone selection, in-house joinery fabrication, MEP engineering, and daily on-site supervision.",
+      "We eliminate the disconnect between interior design vision and on-site reality. Antaara Design Studio acts as a single-source interior contractor, directing quarry stone selection, in-house joinery fabrication, MEP coordination, and daily on-site supervision.",
     featuredProjects: [
       {
         name: "Residence at Omaxe",
@@ -173,9 +217,9 @@ const disciplines = [
       },
     ],
     technicalScopes: [
-      "Single-point financial, legal, and operational accountability",
+      "Single-point financial, operational, and scheduling accountability",
       "Exhaustive Bill of Quantities (BOQ) with fixed material specification locks",
-      "Dedicated resident civil engineers and quality assurance officers on site",
+      "Dedicated resident interior engineers and quality assurance officers on site",
       "Direct factory fabrication for all custom fluted panels, metals & joinery",
       "Multi-stage milestone sign-offs with client inspections prior to closing",
       "12-Month post-handover craftsmanship warranty and structural assurance",
@@ -201,7 +245,7 @@ const materials = [
   },
   {
     name: "Fumed White Oak & Smoked Walnut",
-    category: "Architectural Veneer",
+    category: "Natural Hardwood Veneer",
     notes: "Deep thermal-treated natural hardwoods featuring tactile linear fluting, integrated shadow reveals, and concealed acoustic damping backing.",
     origin: "Sustainable Hardwood Forests",
   },
@@ -218,7 +262,7 @@ const materials = [
     origin: "European Textile Mills",
   },
   {
-    name: "2700K Circadian Architectural Lighting",
+    name: "2700K Circadian Interior Lighting",
     category: "Atmospheric Illumination",
     notes: "Museum-grade 97+ CRI luminaires with 10-degree beam precision, anti-glare baffles, and continuous warm dimming drivers.",
     origin: "Architectural Optics",
@@ -259,7 +303,7 @@ export default function ServicesPage() {
             </h1>
 
             <p className="text-xs sm:text-sm md:text-base font-sans text-[#d3c8bd] max-w-2xl leading-relaxed font-light">
-              Antaara Design Studio provides a unified design and construction continuum. We eliminate the division between architectural concept, custom joinery, and on-site turnkey contracting.
+              Antaara Design Studio provides a unified interior design and turnkey execution continuum. We eliminate the division between interior concept, custom millwork, and on-site turnkey contracting.
             </p>
           </div>
 
@@ -334,10 +378,10 @@ export default function ServicesPage() {
             </div>
           </div>
 
-          {/* Technical Scope Breakdown (Architectural Tags, not generic checkmarks) */}
+          {/* Technical Scope Breakdown */}
           <div className="space-y-4">
             <h3 className="text-[10px] uppercase tracking-[0.26em] text-[#dca82b] font-sans font-medium">
-              Technical Scope & Architectural Deliverables
+              Technical Scope & Interior Deliverables
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
               {current.technicalScopes.map((scope, idx) => (
@@ -448,18 +492,18 @@ export default function ServicesPage() {
         </section>
 
         {/* ═══════════════════════════════════════════════════════════
-            THE 5-PHASE TURNKEY CONTINUUM (Pipeline, not boring checks)
+            THE 5-PHASE TURNKEY CONTINUUM
             ═══════════════════════════════════════════════════════════ */}
         <section className="space-y-12 border-t border-white/10 pt-16">
           <div className="max-w-2xl space-y-3">
             <span className="text-[10px] uppercase tracking-[0.28em] text-[#dca82b] font-sans font-medium block">
-              Architectural Pipeline
+              Interior Design Pipeline
             </span>
             <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-light text-[#f7f6ef]">
               The Execution <span className="italic text-[#dca82b]">Continuum.</span>
             </h2>
             <p className="text-xs sm:text-sm text-[#d3c8bd] font-sans leading-relaxed font-light">
-              How an Antaara commission evolves from lifestyle mapping to white-glove handover.
+              How an Antaara commission evolves from lifestyle mapping to white-glove turnkey handover.
             </p>
           </div>
 
@@ -468,7 +512,7 @@ export default function ServicesPage() {
               {
                 step: "01",
                 name: "Discovery & Spatial Mapping",
-                desc: "Lifestyle ritual analysis, daylight mapping, and structural perimeter survey.",
+                desc: "Lifestyle ritual analysis, daylight mapping, and interior perimeter survey.",
               },
               {
                 step: "02",
@@ -477,13 +521,13 @@ export default function ServicesPage() {
               },
               {
                 step: "03",
-                name: "Construction Blueprints & MEP",
+                name: "Interior Working Drawings & MEP",
                 desc: "Exhaustive millimeter-precision millwork, plumbing, electrical & HVAC drafting.",
               },
               {
                 step: "04",
-                name: "Factory Joinery & Civil Execution",
-                desc: "Direct artisan workshop fabrication and daily on-site architectural supervision.",
+                name: "Factory Joinery & Site Execution",
+                desc: "Direct artisan workshop fabrication and daily on-site interior supervision.",
               },
               {
                 step: "05",
@@ -512,11 +556,11 @@ export default function ServicesPage() {
           </div>
 
           <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-light text-[#f7f6ef] max-w-2xl mx-auto leading-tight">
-            Commission Antaara for your <span className="italic text-[#dca82b]">space.</span>
+            Commission Antaara for your <span className="italic text-[#dca82b]">interior space.</span>
           </h2>
 
           <p className="text-xs sm:text-sm text-[#d3c8bd] font-sans max-w-lg mx-auto font-light leading-relaxed">
-            We accept a limited number of residential, hospitality, and commercial commissions each year to ensure uncompromising artisanal supervision.
+            We accept a limited number of residential, hospitality, commercial and healthcare commissions each year to ensure uncompromising artisanal supervision.
           </p>
 
           <div className="pt-2 flex flex-wrap justify-center gap-4">
@@ -524,7 +568,7 @@ export default function ServicesPage() {
               href="/contact"
               className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-[#dca82b] text-[#180606] font-semibold text-xs uppercase tracking-[0.18em] hover:bg-[#edd277] transition-all shadow-xl shadow-[#dca82b]/20"
             >
-              Start an Architectural Consultation <ArrowUpRight size={14} />
+              Start an Interior Design Consultation <ArrowUpRight size={14} />
             </Link>
             <a
               href="tel:+919243051598"

@@ -153,7 +153,7 @@ export default function Header() {
         <div className="pt-8 border-t border-[#dca82b]/20 space-y-4">
           <div className="flex justify-between text-[10px] uppercase tracking-[0.16em] text-[#d3c8bd] font-sans">
             <span>Indore, MP, India</span>
-            <span>Est. 2017</span>
+            <span>Est. 2016</span>
           </div>
           <Link
             href="/contact"
